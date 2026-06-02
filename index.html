@@ -4,46 +4,246 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aureon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="scene">
-        <div class="hero-card">
-            <div class="cube">
-                <div class="face front">A</div>
-                <div class="face back">U</div>
-                <div class="face right">R</div>
-                <div class="face left">E</div>
-                <div class="face top">O</div>
-                <div class="face bottom">N</div>
-            </div>
-        </div>
-        <div class="hero-copy">
-            <p class="eyebrow">Aureon</p>
-            <h1>Next-gen digital experiences</h1>
-            <p class="hero-text">Innovative design, immersive 3D animation, and intelligent web solutions for your brand.</p>
-            <div class="hero-actions">
-                <button id="ctaButton">Discover Aureon</button>
-                <button id="demoButton">Live Demo</button>
-            </div>
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-brand">
+            <span>AUREON</span>
+            <div class="loader-line"></div>
+            <p>Inspired by Vision</p>
         </div>
     </div>
 
-    <section class="features">
-        <article class="feature-card">
-            <h2>3D Motion</h2>
-            <p>Engage visitors with subtle, modern 3D animations powered by CSS and JavaScript.</p>
-        </article>
-        <article class="feature-card">
-            <h2>Creative Strategy</h2>
-            <p>Turn your ideas into an experience that looks polished, feels futuristic, and converts.</p>
-        </article>
-        <article class="feature-card">
-            <h2>Web Performance</h2>
-            <p>Fast-loading visuals, responsive layouts, and accessibility-first design.</p>
-        </article>
-    </section>
+    <header class="site-header">
+        <div class="brand-group">
+            <span class="brand-mark">A</span>
+            <div>
+                <p class="brand-name">Aureon</p>
+                <p class="brand-tag">India's strategic conglomerate</p>
+            </div>
+        </div>
+        <nav class="nav-links">
+            <a href="#vision">Vision</a>
+            <a href="#sectors">Sectors</a>
+            <a href="#ecosystem">Ecosystem</a>
+            <a href="#leadership">Leadership</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
+    <main>
+        <section class="hero-section" id="home">
+            <div class="hero-bg">
+                <div class="space-grid"></div>
+                <div class="earth-glow"></div>
+                <div class="india-highlight"></div>
+                <div class="floating-particles">
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span>
+                </div>
+            </div>
+            <div class="hero-content">
+                <p class="eyebrow">Premium Corporate Intelligence</p>
+                <h1>Building India’s Future Through Technology, Energy & Innovation</h1>
+                <p class="hero-copy">Aureon is a next-generation Indian conglomerate advancing technological sovereignty, sustainable energy and digital ecosystems.</p>
+                <div class="hero-actions">
+                    <a class="button primary" href="#ecosystem">Explore Aureon</a>
+                    <a class="button secondary" href="#ventures">Our Ventures</a>
+                </div>
+            </div>
+            <div class="hero-scroll">
+                <span>Scroll</span>
+                <div></div>
+            </div>
+        </section>
+
+        <section class="section-split" id="vision">
+            <div class="split-image">
+                <div class="globe-illustration">
+                    <div class="globe-ring"></div>
+                    <div class="globe-core"></div>
+                    <div class="globe-line"></div>
+                </div>
+            </div>
+            <div class="split-copy">
+                <p class="eyebrow">Vision</p>
+                <h2>Powering self-reliant growth with deep tech and sustainable infrastructure</h2>
+                <p>Aureon combines sovereign digital ecosystems, renewable energy, and future-ready research to create responsible, long-term value for India and the world.</p>
+            </div>
+        </section>
+
+        <section class="cards-section" id="sectors">
+            <p class="eyebrow">Sectors of Focus</p>
+            <h2>Strategic sectors shaping our portfolio</h2>
+            <div class="sector-cards">
+                <article class="sector-card" data-detail="IT & Digital Media">
+                    <span>IT</span>
+                    <h3>Digital Media</h3>
+                    <p>Next-gen platforms, AI-driven experiences and enterprise solutions.</p>
+                </article>
+                <article class="sector-card" data-detail="Oil & Gas">
+                    <span>OG</span>
+                    <h3>Oil & Gas</h3>
+                    <p>Resilient energy supply, upstream infrastructure and strategic energy assets.</p>
+                </article>
+                <article class="sector-card" data-detail="Renewable Energy">
+                    <span>RE</span>
+                    <h3>Renewables</h3>
+                    <p>Solar, wind and clean power deployments designed for large-scale impact.</p>
+                </article>
+                <article class="sector-card" data-detail="Research & Innovation">
+                    <span>R&D</span>
+                    <h3>Innovation</h3>
+                    <p>Deep research, lab-to-market capabilities and sovereign technology development.</p>
+                </article>
+            </div>
+            <div class="sector-detail" id="sectorDetail">
+                <p class="detail-title">Select a sector to explore its strategic value.</p>
+                <p class="detail-copy">Aureon builds sectoral excellence through integrated value chains, premium execution and thoughtful stewardship.</p>
+            </div>
+        </section>
+
+        <section class="ecosystem-section" id="ecosystem">
+            <div class="ecosystem-header">
+                <p class="eyebrow">Aureon Ecosystem</p>
+                <h2>Institutional intelligence at the center of every business line</h2>
+            </div>
+            <div class="ecosystem-graphic">
+                <div class="node core">Aureon</div>
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+                <div class="node sub">IT</div>
+                <div class="node sub">Energy</div>
+                <div class="node sub">R&D</div>
+                <div class="sub-node">Vubo</div>
+            </div>
+            <p class="ecosystem-copy">Animated lines connect the corporate hub to long-term divisions, reflecting Aureon’s integrated model of growth, value and resilience.</p>
+        </section>
+
+        <section class="showcase-section" id="ventures">
+            <div class="showcase-card">
+                <div class="showcase-visual">
+                    <div class="device-shell">
+                        <div class="screen-feed"></div>
+                    </div>
+                </div>
+                <div class="showcase-copy">
+                    <p class="eyebrow">Vubo Showcase</p>
+                    <h2>A premium digital platform for creators and opportunities</h2>
+                    <p>Vubo exemplifies Aureon’s digital ecosystem strategy with a mobile-first marketplace, immersive reels and creator economy metrics.</p>
+                    <div class="metrics-grid">
+                        <div>
+                            <span class="metric-number" data-target="1280">0</span>
+                            <p>Creators</p>
+                        </div>
+                        <div>
+                            <span class="metric-number" data-target="42000">0</span>
+                            <p>Users</p>
+                        </div>
+                        <div>
+                            <span class="metric-number" data-target="85">0</span>
+                            <p>Opportunities</p>
+                        </div>
+                        <div>
+                            <span class="metric-number" data-target="96">0</span>
+                            <p>Innovation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="leadership-section" id="leadership">
+            <p class="eyebrow">Leadership</p>
+            <h2>Steering Aureon with experience and ambition</h2>
+            <div class="leadership-grid">
+                <article class="leader-card">
+                    <div class="leader-photo"></div>
+                    <div class="leader-copy">
+                        <h3>CEO</h3>
+                        <p>Sachin R.
+                        <span>Leading strategy, partnerships and global expansion.</span></p>
+                    </div>
+                </article>
+                <article class="leader-card">
+                    <div class="leader-photo"></div>
+                    <div class="leader-copy">
+                        <h3>COO</h3>
+                        <p>Priya N.
+                        <span>Operational excellence across technology, energy and services.</span></p>
+                    </div>
+                </article>
+                <article class="leader-card">
+                    <div class="leader-photo"></div>
+                    <div class="leader-copy">
+                        <h3>CTO</h3>
+                        <p>Arjun M.
+                        <span>Driving sovereign digital products and intelligent ecosystems.</span></p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="timeline-section">
+            <div class="timeline-header">
+                <p class="eyebrow">Growth Strategy</p>
+                <h2>From foundation to global expansion</h2>
+            </div>
+            <div class="timeline-track">
+                <div class="timeline-item">Foundation</div>
+                <div class="timeline-item">Digital Ecosystems</div>
+                <div class="timeline-item">Power & Energy</div>
+                <div class="timeline-item">Oil & Gas</div>
+                <div class="timeline-item">Global Expansion</div>
+            </div>
+        </section>
+
+        <section class="values-section">
+            <p class="eyebrow">Core Values</p>
+            <h2>Principles that guide every decision</h2>
+            <div class="values-grid">
+                <button class="value-pill" data-value="Innovation Leadership">Innovation Leadership</button>
+                <button class="value-pill" data-value="Strategic Self-Reliance">Strategic Self-Reliance</button>
+                <button class="value-pill" data-value="Sustainable Stewardship">Sustainable Stewardship</button>
+                <button class="value-pill" data-value="Governance with Integrity">Governance with Integrity</button>
+                <button class="value-pill" data-value="National Alignment">National Alignment</button>
+            </div>
+            <div class="value-detail" id="valueDetail">Select a pillar to see the core value.</div>
+        </section>
+
+        <section class="roadmap-section">
+            <p class="eyebrow">Future Roadmap</p>
+            <h2>Milestones shaping the next decade</h2>
+            <div class="roadmap-grid">
+                <article><strong>2026</strong><p>Vubo Launch</p></article>
+                <article><strong>2027</strong><p>Aureon IT Expansion</p></article>
+                <article><strong>2028</strong><p>Renewable Projects</p></article>
+                <article><strong>2030</strong><p>Energy Infrastructure</p></article>
+                <article><strong>2035</strong><p>Global Presence</p></article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="page-footer" id="contact">
+        <div>
+            <p class="eyebrow">Aureon</p>
+            <p>India’s next-generation strategic conglomerate building long-term infrastructure, technology and energy ecosystems.</p>
+        </div>
+        <div class="footer-links">
+            <a href="#">Corporate Profile</a>
+            <a href="#">Investor Relations</a>
+            <a href="#">Careers</a>
+            <a href="#">ESG</a>
+            <a href="#">LinkedIn</a>
+        </div>
+    </footer>
+
+    <div class="scroll-progress" id="scrollProgress"></div>
     <script src="script.js"></script>
 </body>
 </html>
