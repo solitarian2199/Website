@@ -1,4 +1,4 @@
-:root {
+﻿:root {
     --midnight: #081221;
     --deep-blue: #0f2d52;
     --gold: #c8a86b;
@@ -89,7 +89,7 @@ button, a {
     padding: 24px 40px;
     background: rgba(8, 18, 33, 0.76);
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .brand-group {
@@ -156,25 +156,25 @@ main {
 .hero-bg {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 50% 40%, rgba(255,255,255,0.04), transparent 32%),
-                linear-gradient(180deg, rgba(8,18,33,0.95), rgba(8,18,33,0.9));
+    background: radial-gradient(circle at 55% 45%, rgba(255,255,255,0.06), transparent 20%),
+                linear-gradient(180deg, rgba(8,18,33,0.95), rgba(7,12,33,0.92));
 }
 
 .space-grid {
     position: absolute;
     inset: 0;
     background-image: radial-gradient(circle, rgba(255,255,255,0.12) 1px, transparent 1px);
-    background-size: 80px 80px;
+    background-size: 90px 90px;
     opacity: 0.22;
     pointer-events: none;
 }
 
 .earth-glow {
     position: absolute;
-    inset: 20% 25% 40% 35%;
+    inset: 18% 20% 35% 30%;
     border-radius: 50%;
-    background: radial-gradient(circle at 52% 48%, rgba(200,168,107,0.35), rgba(12,46,82,0.28) 42%, transparent 80%);
-    filter: blur(12px);
+    background: radial-gradient(circle at 50% 50%, rgba(200,168,107,0.35), rgba(12,46,82,0.25) 45%, transparent 80%);
+    filter: blur(16px);
     animation: pulse 6s ease-in-out infinite;
 }
 
@@ -182,10 +182,10 @@ main {
     position: absolute;
     width: 170px;
     height: 170px;
-    top: 33%;
-    left: 39%;
+    top: 36%;
+    left: 42%;
     border-radius: 50%;
-    box-shadow: 0 0 0 1px rgba(200,168,107,0.2), 0 0 30px rgba(200,168,107,0.45);
+    box-shadow: 0 0 0 1px rgba(200,168,107,0.2), 0 0 28px rgba(200,168,107,0.35);
     animation: glowPulse 4s ease-in-out infinite;
 }
 
@@ -227,7 +227,7 @@ main {
 .hero-section h1 {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-    font-size: clamp(3.2rem, 5vw, 5rem);
+    font-size: clamp(3rem, 5vw, 5rem);
     line-height: 1.02;
     max-width: 780px;
 }
@@ -293,7 +293,7 @@ main {
     animation: scrollPulse 1.8s infinite;
 }
 
-.section-split, .cards-section, .ecosystem-section, .showcase-section, .leadership-section, .timeline-section, .values-section, .roadmap-section {
+.section-split, .cards-section, .ecosystem-section, .showcase-section, .news-section, .join-section {
     padding: 96px 40px;
     position: relative;
 }
@@ -360,10 +360,8 @@ main {
 .cards-section h2,
 .ecosystem-section h2,
 .showcase-section h2,
-.leadership-section h2,
-.timeline-section h2,
-.values-section h2,
-.roadmap-section h2 {
+.news-section h2,
+.join-section h2 {
     margin: 14px 0 18px;
     font-family: 'Montserrat', sans-serif;
     font-size: clamp(2.2rem, 3vw, 3.2rem);
@@ -374,10 +372,8 @@ main {
 .cards-section p,
 .ecosystem-section p,
 .showcase-section p,
-.leadership-section p,
-.timeline-section p,
-.values-section p,
-.roadmap-section p,
+.news-section p,
+.join-section p,
 .footer-links a {
     color: var(--muted);
 }
@@ -429,14 +425,6 @@ main {
     margin: 0 0 16px;
 }
 
-.sector-detail {
-    margin-top: 32px;
-    padding: 32px;
-    border-radius: 24px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-}
-
 .ecosystem-section {
     text-align: center;
 }
@@ -472,37 +460,29 @@ main {
     color: var(--white);
 }
 
-.ecosystem-graphic .sub {
-    width: 130px;
+.ecosystem-graphic .link {
+    width: 140px;
     text-align: center;
 }
 
-.ecosystem-graphic .sub:nth-of-type(1) { top: 12%; left: 22%; }
-.ecosystem-graphic .sub:nth-of-type(2) { top: 14%; right: 22%; }
-.ecosystem-graphic .sub:nth-of-type(3) { bottom: 20%; left: 22%; }
+.ecosystem-graphic .tech { top: 10%; left: 18%; }
+.ecosystem-graphic .energy { top: 10%; right: 18%; }
+.ecosystem-graphic .rnd { bottom: 18%; left: 18%; }
 
 .ecosystem-graphic .sub-node {
-    bottom: 12%; right: 18%;
-    width: 120px;
+    bottom: 16%; right: 18%;
+    width: 130px;
 }
 
 .line {
     position: absolute;
-    background: linear-gradient(90deg, rgba(200,168,107,0), rgba(200,168,107,0.45), rgba(200,168,107,0));
-    opacity: 0.8;
+    background: linear-gradient(180deg, transparent, rgba(200,168,107,0.6), transparent);
+    opacity: 0.85;
 }
 
-.line-1 { top: 20%; left: 39%; width: 2px; height: 25%; animation: lineGrow 1.6s ease forwards; }
-.line-2 { top: 20%; right: 38%; width: 2px; height: 24%; animation: lineGrow 1.8s ease 0.1s forwards; }
-.line-3 { bottom: 22%; left: 34%; width: 2px; height: 18%; animation: lineGrow 2s ease 0.2s forwards; }
-
-.ecosystem-copy {
-    margin-top: 30px;
-    max-width: 720px;
-    margin-left: auto;
-    margin-right: auto;
-    color: var(--muted);
-}
+.tech-line { top: 18%; left: 28%; width: 2px; height: 24%; }
+.energy-line { top: 18%; right: 28%; width: 2px; height: 24%; }
+.rnd-line { bottom: 24%; left: 28%; width: 2px; height: 22%; }
 
 .showcase-section {
     background: rgba(255,255,255,0.03);
@@ -578,127 +558,58 @@ main {
     color: var(--white);
 }
 
-.leadership-section {
-    background: linear-gradient(180deg, rgba(8,18,33,0.96), rgba(8,18,33,0.98));
+.news-section {
+    background: rgba(255,255,255,0.03);
 }
 
-.leadership-grid {
+.news-cards {
     display: grid;
-    grid-template-columns: repeat(3, minmax(220px, 1fr));
+    grid-template-columns: repeat(3, minmax(240px, 1fr));
     gap: 24px;
-    margin-top: 40px;
+    margin-top: 36px;
 }
 
-.leader-card {
-    display: grid;
-    gap: 20px;
+.news-cards article {
     padding: 28px;
-    border-radius: 28px;
+    border-radius: 24px;
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 18px 50px rgba(0,0,0,0.15);
 }
 
-.leader-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 28px 80px rgba(0,0,0,0.22);
-}
-
-.leader-photo {
-    width: 100%;
-    height: 260px;
-    border-radius: 24px;
-    background: linear-gradient(135deg, rgba(200,168,107,0.22), rgba(15,45,82,0.95));
-}
-
-.leader-copy h3 {
-    margin: 0 0 10px;
-    font-family: 'Poppins', sans-serif;
-}
-
-.leader-copy p {
-    margin: 0;
-    line-height: 1.85;
-    color: var(--muted);
-}
-
-.timeline-section {
-    padding-top: 40px;
-}
-
-.timeline-track {
-    display: flex;
-    gap: 18px;
-    overflow-x: auto;
-    padding: 28px 0 0;
-}
-
-.timeline-item {
-    min-width: 200px;
-    padding: 24px;
-    border-radius: 26px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    text-align: center;
-}
-
-.values-grid {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 16px;
-    margin-top: 36px;
-}
-
-.value-pill {
-    padding: 20px 22px;
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 18px;
-    background: rgba(255,255,255,0.04);
-    color: var(--white);
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
-}
-
-.value-pill:hover,
-.value-pill.active {
-    transform: translateY(-4px);
-    background: rgba(200,168,107,0.12);
-    border-color: rgba(200,168,107,0.35);
-}
-
-.value-detail {
-    margin-top: 28px;
-    padding: 28px;
-    border-radius: 24px;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.08);
-    min-height: 100px;
-    color: var(--muted);
-    font-size: 1rem;
-    line-height: 1.9;
-}
-
-.roadmap-grid {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 18px;
-    margin-top: 36px;
-}
-
-.roadmap-grid article {
-    padding: 24px;
-    border-radius: 26px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    text-align: center;
-}
-
-.roadmap-grid strong {
-    display: block;
-    font-size: 1.75rem;
+.news-tag {
     color: var(--gold);
-    margin-bottom: 12px;
+    margin: 0 0 12px;
+    display: inline-block;
+}
+
+.news-cards h3 {
+    margin: 0 0 20px;
+    font-size: 1.2rem;
+}
+
+.news-cards a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.join-section {
+    text-align: center;
+    background: rgba(255,255,255,0.05);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.join-section h2 {
+    max-width: 640px;
+    margin: 16px auto 18px;
+}
+
+.join-section p {
+    max-width: 620px;
+    margin: 0 auto 30px;
+    color: var(--muted);
 }
 
 .page-footer {
@@ -709,6 +620,16 @@ main {
     padding: 48px 40px 60px;
     border-top: 1px solid rgba(255,255,255,0.08);
     background: rgba(8,18,33,0.95);
+}
+
+.footer-brand {
+    max-width: 360px;
+}
+
+.footer-copy {
+    margin: 14px 0 0;
+    color: var(--muted);
+    line-height: 1.8;
 }
 
 .footer-links {
@@ -770,10 +691,8 @@ main {
     .cards-section,
     .ecosystem-section,
     .showcase-section,
-    .leadership-section,
-    .timeline-section,
-    .values-section,
-    .roadmap-section {
+    .news-section,
+    .join-section {
         padding: 72px 32px;
     }
 }
@@ -789,8 +708,7 @@ main {
         grid-template-columns: 1fr;
     }
     .cards-section .sector-cards,
-    .leadership-grid,
-    .roadmap-grid,
+    .news-cards,
     .metrics-grid {
         grid-template-columns: 1fr;
     }
@@ -804,14 +722,12 @@ main {
         flex-direction: column;
         align-items: flex-start;
         gap: 18px;
-    }
-    .site-header {
         padding: 20px 20px;
     }
     .hero-section {
         padding: 80px 20px 50px;
     }
-    .hero-content h1 {
+    .hero-section h1 {
         font-size: 2.8rem;
     }
     .hero-actions {
@@ -821,8 +737,4 @@ main {
     .hero-scroll {
         right: 20px;
     }
-    .sequence-grid {
-        grid-template-columns: 1fr;
-    }
 }
-
