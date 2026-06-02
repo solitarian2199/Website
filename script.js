@@ -7,17 +7,32 @@ function hideLoader() {
     pageLoader.classList.add('loaded');
 }
 
+function getScrollTop() {
+    return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+}
+
+function getScrollHeight() {
+    const docEl = document.documentElement;
+    const body = document.body;
+    return Math.max(docEl.scrollHeight, body.scrollHeight) - window.innerHeight;
+}
+
+function updateScrollProgress() {
+    if (!scrollProgress) return;
+    const scrollTop = getScrollTop();
+    const scrollHeight = getScrollHeight();
+    const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+    scrollProgress.style.width = `${progress}%`;
+}
+
 window.addEventListener('load', () => {
     setTimeout(hideLoader, 800);
     animateCounters();
+    updateScrollProgress();
 });
 
-window.addEventListener('scroll', () => {
-    const scrollTop = document.documentElement.scrollTop;
-    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
-    scrollProgress.style.width = `${progress}%`;
-});
+window.addEventListener('scroll', updateScrollProgress);
+window.addEventListener('resize', updateScrollProgress);
 
 function animateCounters() {
     counters.forEach(counter => {
