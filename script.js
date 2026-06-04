@@ -1,6 +1,19 @@
 ﻿const pageLoader = document.getElementById('pageLoader');
 const scrollProgress = document.getElementById('scrollProgress');
 const counters = document.querySelectorAll('.metric-number');
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+
+if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        navToggle.classList.toggle('active');
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+}
 
 function hideLoader() {
     if (!pageLoader) return;
@@ -32,7 +45,13 @@ window.addEventListener('load', () => {
 });
 
 window.addEventListener('scroll', updateScrollProgress);
-window.addEventListener('resize', updateScrollProgress);
+window.addEventListener('resize', () => {
+    updateScrollProgress();
+    if (window.innerWidth > 680 && navLinks) {
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('active');
+    }
+});
 
 function animateCounters() {
     counters.forEach(counter => {
