@@ -200,8 +200,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const activeCard = cards[index];
             activeCard.classList.add('active');
-            
-            activeCard.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
 
             const sectorKey = activeCard.dataset.sector;
             const targetBg = document.getElementById(`bg-${sectorKey}`);
