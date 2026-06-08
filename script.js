@@ -141,42 +141,136 @@ document.addEventListener('DOMContentLoaded', () => {
     triggerCounterEngine();
 
     // ==========================================================================
-    // 3. SECURE PREFERENCE SWITCH COMPONENT (Dark Mode Layout Switch)
+    // 3. ACCESSIBILITY & SEARCH INTEGRATION
     // ==========================================================================
-    const appendThemeEngineControls = () => {
-        if (!navLinks) return;
+    const setupHeaderUtilities = () => {
+        const accBtn = document.getElementById('accessibilityBtn');
+        const accMenu = document.getElementById('accessibilityMenu');
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const dyslexiaToggle = document.getElementById('dyslexiaToggle');
 
-        const themeButton = document.createElement('button');
-        themeButton.className = 'theme-toggle-btn';
-        themeButton.setAttribute('aria-label', 'Toggle UI background theme colors palette');
-        themeButton.style.cssText = `
-            background: transparent; border: none; color: inherit;
-            cursor: pointer; padding: 6px 12px; font-size: 1.1rem; display: inline-flex;
-            align-items: center; transition: transform 0.2s ease; z-index: 55;
-        `;
-        themeButton.innerHTML = localStorage.getItem('theme-mode') === 'dark' ? '☀️' : '🌙';
-        navLinks.appendChild(themeButton);
+        // Accessibility Menu Toggle works via hover and click for broader device support
+        if (accBtn && accMenu) {
+            accBtn.addEventListener('click', (event) => {
+                event.stopPropagation();
+                const isOpen = accMenu.classList.toggle('open');
+                accBtn.setAttribute('aria-expanded', String(isOpen));
+            });
+            document.addEventListener('click', () => {
+                accMenu.classList.remove('open');
+                accBtn.setAttribute('aria-expanded', 'false');
+            });
+            accMenu.addEventListener('click', (event) => event.stopPropagation());
+        }
 
-        const toggleThemeTokenProperties = (enableDarkMode) => {
-            if (enableDarkMode) {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                themeButton.innerHTML = '☀️';
-                localStorage.setItem('theme-mode', 'dark');
-            } else {
-                document.documentElement.removeAttribute('data-theme');
-                themeButton.innerHTML = '🌙';
-                localStorage.setItem('theme-mode', 'light');
+        // Dark Mode Logic
+        if (darkModeToggle) {
+            const toggleTheme = (isDark) => {
+                if (isDark) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme-mode', 'dark');
+                    darkModeToggle.checked = true;
+                } else {
+                    document.documentElement.removeAttribute('data-theme');
+                    localStorage.setItem('theme-mode', 'light');
+                    darkModeToggle.checked = false;
+                }
+            };
+            toggleTheme(localStorage.getItem('theme-mode') === 'dark');
+            darkModeToggle.addEventListener('change', (e) => {
+                toggleTheme(e.target.checked);
+            });
+        }
+
+        // Dyslexia Font Logic
+        if (dyslexiaToggle) {
+            const toggleDyslexia = (isEnabled) => {
+                if (isEnabled) {
+                    document.body.classList.add('dyslexia-font-enabled');
+                    localStorage.setItem('dyslexia-font', 'true');
+                    dyslexiaToggle.checked = true;
+                } else {
+                    document.body.classList.remove('dyslexia-font-enabled');
+                    localStorage.setItem('dyslexia-font', 'false');
+                    dyslexiaToggle.checked = false;
+                }
+            };
+            toggleDyslexia(localStorage.getItem('dyslexia-font') === 'true');
+            dyslexiaToggle.addEventListener('change', (e) => {
+                toggleDyslexia(e.target.checked);
+            });
+        }
+
+        // Search Logic
+        const searchBtn = document.getElementById('searchBtn');
+        const searchBarContainer = document.getElementById('searchBarContainer');
+        const searchInput = document.getElementById('searchInput');
+        const searchClose = document.getElementById('searchClose');
+        const searchResults = document.getElementById('searchResults');
+        
+        if (searchBtn && searchBarContainer) {
+            searchBtn.addEventListener('click', () => {
+                searchBarContainer.classList.add('open');
+                searchBarContainer.setAttribute('aria-hidden', 'false');
+                searchBtn.setAttribute('aria-expanded', 'true');
+                searchInput?.focus();
+            });
+            
+            searchClose?.addEventListener('click', () => {
+                searchBarContainer.classList.remove('open');
+                searchBarContainer.setAttribute('aria-hidden', 'true');
+                searchBtn.setAttribute('aria-expanded', 'false');
+                if (searchResults) searchResults.innerHTML = '';
+                if (searchInput) searchInput.value = '';
+            });
+
+            if (searchInput && searchResults) {
+                searchInput.addEventListener('input', (e) => {
+                    const query = e.target.value.toLowerCase().trim();
+                    if (!query) {
+                        searchResults.innerHTML = '';
+                        searchResults.classList.remove('active');
+                        return;
+                    }
+                    
+                    // Simple search implementation over h2, h3, p
+                    const searchableElements = document.querySelectorAll('main h2, main h3, main p');
+                    const results = [];
+                    const addedTexts = new Set();
+                    
+                    searchableElements.forEach(el => {
+                        const text = el.textContent || '';
+                        if (text.toLowerCase().includes(query)) {
+                            // Find parent section to get context and id
+                            let parent = el.closest('section');
+                            if (parent && parent.id && !addedTexts.has(text.substring(0, 50))) {
+                                results.push({
+                                    id: parent.id,
+                                    text: text.substring(0, 100) + (text.length > 100 ? '...' : ''),
+                                    element: el.tagName
+                                });
+                                addedTexts.add(text.substring(0, 50));
+                            }
+                        }
+                    });
+
+                    if (results.length > 0) {
+                        searchResults.innerHTML = results.map(r => 
+                            `<a href="#${r.id}" class="search-result-item" onclick="document.getElementById('searchBarContainer').classList.remove('open')">
+                                <span class="search-result-type">${r.element.toLowerCase()}</span>
+                                <span class="search-result-text">${r.text}</span>
+                            </a>`
+                        ).join('');
+                        searchResults.classList.add('active');
+                    } else {
+                        searchResults.innerHTML = '<div class="search-result-none">No results found</div>';
+                        searchResults.classList.add('active');
+                    }
+                });
             }
-        };
-
-        toggleThemeTokenProperties(localStorage.getItem('theme-mode') === 'dark');
-
-        themeButton.addEventListener('click', () => {
-            const activeDarkState = localStorage.getItem('theme-mode') !== 'dark';
-            toggleThemeTokenProperties(activeDarkState);
-        });
+        }
     };
-    appendThemeEngineControls();
+    setupHeaderUtilities();
 
     // ==========================================================================
     // 4. DYNAMIC BUSINESS CAROUSEL & MODAL ENGINE
@@ -189,18 +283,48 @@ document.addEventListener('DOMContentLoaded', () => {
         const dynDesc = document.getElementById('dynDesc');
         const dynBtn = document.getElementById('dynBtn');
         
+        const prevBtn = document.getElementById('prevBizBtn');
+        const nextBtn = document.getElementById('nextBizBtn');
+        
         if (!carousel || cards.length === 0) return;
 
         let currentIndex = 0;
         let autoPlayInterval;
 
         const updateActiveState = (index) => {
-            cards.forEach(c => c.classList.remove('active'));
             document.querySelectorAll('.sector-bg').forEach(bg => bg.classList.remove('active'));
 
-            const activeCard = cards[index];
-            activeCard.classList.add('active');
+            cards.forEach((card, idx) => {
+                card.classList.remove('active');
+                
+                // Calculate position relative to currentIndex
+                let diff = (idx - index + cards.length) % cards.length;
+                
+                if (diff === 0) {
+                    card.style.transform = `translateX(0) scale(1)`;
+                    card.style.zIndex = 10;
+                    card.style.opacity = 1;
+                    card.classList.add('active');
+                } else if (diff === 1) {
+                    card.style.transform = `translateX(60px) scale(0.9)`;
+                    card.style.zIndex = 9;
+                    card.style.opacity = 0.8;
+                } else if (diff === 2) {
+                    card.style.transform = `translateX(120px) scale(0.8)`;
+                    card.style.zIndex = 8;
+                    card.style.opacity = 0.6;
+                } else if (diff === cards.length - 1) {
+                    card.style.transform = `translateX(-60px) scale(0.9)`;
+                    card.style.zIndex = 9;
+                    card.style.opacity = 0;
+                } else {
+                    card.style.transform = `translateX(140px) scale(0.7)`;
+                    card.style.zIndex = 7;
+                    card.style.opacity = 0;
+                }
+            });
 
+            const activeCard = cards[index];
             const sectorKey = activeCard.dataset.sector;
             const targetBg = document.getElementById(`bg-${sectorKey}`);
             if (targetBg) targetBg.classList.add('active');
@@ -229,18 +353,36 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+                updateActiveState(currentIndex);
+                resetAutoPlay();
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % cards.length;
+                updateActiveState(currentIndex);
+                resetAutoPlay();
+            });
+        }
+
         const startAutoPlay = () => {
             autoPlayInterval = setInterval(() => {
                 currentIndex = (currentIndex + 1) % cards.length;
                 updateActiveState(currentIndex);
-            }, 6000);
+            }, 5000);
         };
 
         const resetAutoPlay = () => {
             clearInterval(autoPlayInterval);
             startAutoPlay();
         };
-
+        
+        // Initialize carousel
+        updateActiveState(currentIndex);
         startAutoPlay();
 
         // ----------------------------------------------------------------------
@@ -413,10 +555,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (chatToggle) {
         chatToggle.addEventListener('click', () => {
-            chatWidget?.classList.toggle('open');
-            if (chatWidget?.classList.contains('open')) { initializeChatbot(); chatInput?.focus(); }
+            const isOpen = chatWidget?.classList.toggle('open');
+            if (chatToggle) {
+                chatToggle.setAttribute('aria-expanded', chatWidget?.classList.contains('open') ? 'true' : 'false');
+            }
+            if (chatWidget?.classList.contains('open')) {
+                chatWidget.setAttribute('aria-hidden', 'false');
+                initializeChatbot();
+                chatInput?.focus();
+            } else {
+                chatWidget?.setAttribute('aria-hidden', 'true');
+            }
         });
-        document.getElementById('chatClose')?.addEventListener('click', () => chatWidget?.classList.remove('open'));
+        document.getElementById('chatClose')?.addEventListener('click', () => {
+            chatWidget?.classList.remove('open');
+            chatWidget?.setAttribute('aria-hidden', 'true');
+            chatToggle.setAttribute('aria-expanded', 'false');
+        });
         document.getElementById('chatSend')?.addEventListener('click', executeInputQueryMessage);
         chatInput?.addEventListener('keydown', (e) => { if (e.key === 'Enter') executeInputQueryMessage(); });
     }
@@ -425,12 +580,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (navToggle) {
         navToggle.addEventListener('click', (e) => {
             e.stopPropagation();
-            navLinks?.classList.toggle('open');
+            const isOpen = navLinks?.classList.toggle('open');
             navToggle.classList.toggle('active');
+            navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         });
         document.addEventListener('click', () => {
             navLinks?.classList.remove('open');
             navToggle.classList.remove('active');
+            navToggle.setAttribute('aria-expanded', 'false');
         });
     }
 

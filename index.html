@@ -15,7 +15,7 @@
 
     <div class="page-loader" id="pageLoader" role="status" aria-live="polite">
         <div class="loader-brand">
-            <span class="brand-gradient-text">AUREON</span>
+            <img src="assets/Aureon%20logo-01.png" alt="Aureon Logo" style="height: 200px; width: auto; display: block; margin: 0 auto;">
             <div class="loader-line"></div>
             <p>Inspired by Vision</p>
         </div>
@@ -25,37 +25,60 @@
         <div class="header-inner">
             <div class="brand-group">
                 <a href="#home" class="logo-text-link" aria-label="Aureon Corporate Homepage">
-                    <span class="brand-logo-text">aureon</span>
+                    <img src="assets/Aureon%20logo-01.png" alt="Aureon Logo" style="height: 48px; width: auto; display: block;">
                 </a>
             </div>
             
             <nav class="nav-links" id="navLinks" aria-label="Main Corporate Navigation">
-                <a href="#vision" class="has-dropdown">ABOUT US</a>
-                <a href="#sectors" class="has-dropdown">BUSINESSES</a>
+                <a href="#vision" >ABOUT US</a>
+                <a href="#sectors" >BUSINESSES</a>
                 <a href="#values">CORE VALUES</a>
-                <a href="#ventures">VUBO</a>
-                <a href="#strategy" class="has-dropdown">GROWTH</a>
-                <a href="#ecosystem" class="has-dropdown">SUSTAINABILITY</a>
                 <a href="#responsibility">CSR</a>
-                <a href="#leadership">LEADERSHIP</a>
-                <a href="#newsroom" class="has-dropdown">NEWSROOM</a>
+                <a href="#newsroom" >NEWSROOM</a>
                 <a href="#contact">CONTACT</a>
             </nav>
 
             <div class="header-utilities">
-                <button class="utility-icon-btn" aria-label="Accessibility Settings">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z"/></svg>
-                </button>
+                <div class="accessibility-dropdown-wrapper">
+                    <button class="utility-icon-btn" id="accessibilityBtn" aria-label="Accessibility Settings" aria-haspopup="true" aria-expanded="false">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z"/></svg>
+                    </button>
+                    <div class="accessibility-menu" id="accessibilityMenu" role="menu" aria-label="Accessibility Options">
+                        <div class="acc-menu-item">
+                            <span>Dark Mode</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="darkModeToggle" aria-label="Enable dark mode">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="acc-menu-item">
+                            <span>Dyslexia Font</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="dyslexiaToggle" aria-label="Enable dyslexia-friendly font">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
                 <span class="lang-selector">ENG</span>
-                <button class="utility-icon-btn" aria-label="Search">
+                <button class="utility-icon-btn" id="searchBtn" aria-label="Search" aria-controls="searchBarContainer" aria-expanded="false">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                 </button>
-                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
                     <span></span><span></span><span></span>
                 </button>
             </div>
         </div>
     </header>
+
+    <div class="search-bar-container" id="searchBarContainer" aria-hidden="true">
+        <div class="search-bar-inner">
+            <label class="sr-only" for="searchInput">Search site content</label>
+            <input id="searchInput" type="search" placeholder="Search Aureon content..." autocomplete="off" />
+            <button id="searchClose" aria-label="Close search">×</button>
+        </div>
+        <div class="search-results-container" id="searchResults" aria-live="polite"></div>
+    </div>
 
     <main>
         
@@ -134,25 +157,33 @@
                 </div>
 
                 <div class="business-carousel-wrapper">
+                    <div class="carousel-controls" style="display: flex; gap: 12px; margin-bottom: 20px; justify-content: flex-end;">
+                        <button class="glass-arrow-btn" id="prevBizBtn" aria-label="Previous Sector">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        </button>
+                        <button class="glass-arrow-btn" id="nextBizBtn" aria-label="Next Sector">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </div>
                     <div class="business-carousel" id="bizCarousel">
                         <div class="biz-card active" data-sector="it">
-                            <img src="assets/Aureon logo-01.png" alt="IT & Digital Media" onerror="this.src='https://via.placeholder.com/280x420/1a0b18/c8a86b?text=IT+Media'">
+                            <img src="assets/oil%20and%20gas.png" alt="IT & Digital Media" onerror="this.src='https://via.placeholder.com/280x420/1a0b18/c8a86b?text=IT+Media'">
                             <div class="biz-card-overlay"><h4>IT & Digital Media</h4></div>
                         </div>
                         <div class="biz-card" data-sector="oil">
-                            <img src="assets/Aureon logo-02.png" alt="Oil & Gas" onerror="this.src='https://via.placeholder.com/280x420/1a0b18/c8a86b?text=Oil+%26+Gas'">
+                            <img src="assets/oil%20and%20gas.png" alt="Oil & Gas" onerror="this.src='https://via.placeholder.com/280x420/1a0b18/c8a86b?text=Oil+%26+Gas'">
                             <div class="biz-card-overlay"><h4>Oil & Gas</h4></div>
                         </div>
                         <div class="biz-card" data-sector="power">
-                            <img src="assets/Aureon logo-01.png" alt="Power & Renewable Energy" onerror="this.src='https://via.placeholder.com/280x420/1a0b18/c8a86b?text=Renewables'">
+                            <img src="assets/Renewable.png" alt="Power & Renewable Energy" onerror="this.src='https://via.placeholder.com/280x420/1a0b18/c8a86b?text=Renewables'">
                             <div class="biz-card-overlay"><h4>Power & Renewables</h4></div>
                         </div>
                         <div class="biz-card" data-sector="research">
-                            <img src="assets/Aureon logo-01.png" alt="Innovation & Research" onerror="this.src='https://via.placeholder.com/280x420/1a0b18/c8a86b?text=Innovation'">
-                            <div class="biz-card-overlay"><h4>Innovation (R&D)</h4></div>
+                            <img src="assets/Logistics.png" alt="Innovation & Research" onerror="this.src='https://via.placeholder.com/280x420/1a0b18/c8a86b?text=Innovation'">
+                            <div class="biz-card-overlay"><h4>Logistics</h4></div>
                         </div>
                         <div class="biz-card" data-sector="future">
-                            <img src="assets/wave.png.png" alt="Future Endeavors" onerror="this.src='https://via.placeholder.com/280x420/1a0b18/c8a86b?text=Future'">
+                            <img src="assets/wave.png" alt="Future Endeavors" onerror="this.src='https://via.placeholder.com/280x420/1a0b18/c8a86b?text=Future'">
                             <div class="biz-card-overlay"><h4 style="color: var(--gold-accent);">More to come...</h4></div>
                         </div>
                     </div>
@@ -291,50 +322,7 @@
             </div>
         </section>
 
-        <section class="showcase-section" id="ventures">
-            <div class="showcase-card">
-                <div class="showcase-visual">
-                    <div class="device-shell" aria-hidden="true">
-                        <div class="screen-feed"></div>
-                    </div>
-                </div>
-                <div class="showcase-copy">
-                    <p class="eyebrow">Flagship Product</p>
-                    <h2>Vubo: Sovereign Digital Ecosystem</h2>
-                    <p>Vubo is Aureon’s next-generation digital platform designed to empower creators, businesses, and communities. Built as a modern alternative to conventional digital infrastructures, Vubo prioritizes user control, data protection, transparency, and fair creator monetization.</p>
-                    <div class="vubo-features">
-                        <div class="feature-item">
-                            <span class="feature-icon">🔒</span>
-                            <div>
-                                <h4>Data Sovereignty</h4>
-                                <p>100% user control over content and digital presence</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-icon">💰</span>
-                            <div>
-                                <h4>Fair Monetization</h4>
-                                <p>Creator-focused earning models that scale</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-icon">🌍</span>
-                            <div>
-                                <h4>Global Compliance</h4>
-                                <p>Trusted security & international standards</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-icon">⚡</span>
-                            <div>
-                                <h4>Scalable Infrastructure</h4>
-                                <p>Cloud-based, engineered for growth</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+
 
         <section class="growth-strategy-section" id="strategy">
             <p class="eyebrow">How We Scale</p>
@@ -449,7 +437,7 @@
         <div class="footer-top">
             <div class="footer-column branding-column">
                 <div class="footer-brand-wrap">
-                    <span class="footer-brand-logo-text">aureon</span>
+                    <img src="assets/Aureon%20logo-01.png" alt="Aureon Logo" style="height: 48px; width: auto; display: block; margin-bottom: 16px;">
                 </div>
                 <p class="footer-copy">An independent Indian parent conglomerate developing alternative technologies and asset-backed systems to secure long-term value architectures and national structural resilience.</p>
                 <div class="footer-social-row" aria-label="Aureon Social Networks">
@@ -466,7 +454,6 @@
                 <div class="footer-links-group">
                     <a href="#vision">About Us</a>
                     <a href="#sectors">Businesses</a>
-                    <a href="#leadership">Leadership</a>
                     <a href="#newsroom">Newsroom</a>
                     <a href="mailto:contact@aureoninda.com">Careers</a>
                 </div>
@@ -517,11 +504,6 @@
                 </button>
             </div>
         </div>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>    </div>
     </div>
 
     <script src="script.js"></script>
