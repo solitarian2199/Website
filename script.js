@@ -26,34 +26,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const sectorData = {
         it: {
-            title: 'Information Technology & Digital Media',
-            description: "Aureon’s Information Technology division is focused on building scalable digital ecosystems that support modern economic participation. We aim to create globally competitive Indian alternatives to major international digital platforms by investing in digital content platforms, robust cloud infrastructure, and artificial intelligence solutions.",
-            focusAreas: ['Cloud Infrastructure & Data Centers', 'Cybersecurity & Data Protection', 'AI & Machine Learning Platforms', 'Digital Media & Sovereign SaaS Content Networks'],
-            impact: "Creates a sovereign digital infrastructure that empowers users, businesses, and creators within a secure and scalable ecosystem, advancing national independence."
+            title: 'Information Technology & Digital Solutions',
+            description: 'Developing cutting-edge software, AI, cloud infrastructure, and digital platforms to drive innovation and empower the digital economy.',
+            focusAreas: ['Sovereign Cloud Infrastructure', 'AI & Machine Learning', 'Enterprise SaaS Platforms', 'Cybersecurity & Data Sovereignty'],
+            impact: "Empowering India's digital future with secure, scalable, and intelligent technology ecosystems that foster sovereign capability."
         },
-        oil: {
-            title: 'Oil & Gas Integration',
-            description: "Aureon’s Oil & Gas vertical is designed to strengthen India’s domestic energy capabilities through strategic participation across refining, distribution, and clean fuel innovation. The focus lies in advancing refining technologies and forming infrastructure partnerships.",
-            focusAreas: ['Advanced Refining Technology Strategy', 'Domestic Energy Distribution Systems', 'Clean Fuel Research', 'Strategic Infrastructure Partnerships'],
-            impact: "Improves energy resilience, reduces external dependency, and ensures India’s industrial growth is supported by stable and secure energy systems."
+        energy: {
+            title: 'Renewable Energy & Sustainable Development',
+            description: 'Investing in solar, wind, and green hydrogen technologies to foster a sustainable future and strengthen national energy independence.',
+            focusAreas: ['Utility-Scale Solar & Wind Farms', 'Green Hydrogen Production', 'Smart Grid & Energy Storage', 'Sustainable Development Policies'],
+            impact: "Accelerating India's transition to a clean energy economy while ensuring reliable and affordable power for industrial and public use."
         },
-        power: {
-            title: 'Power & Renewable Energy',
-            description: "Aureon Power is committed to building sustainable and future-ready energy infrastructure that aligns economic development with environmental responsibility. The division focuses on integrating renewable generation with intelligent grid management and scalable storage.",
-            focusAreas: ['Solar Power Plants & Installations', 'Wind Energy Development', 'Smart Grid Technologies', 'Advanced Battery Storage & Grid Integration'],
-            impact: "Delivers reliable, resilient, and environmentally responsible power systems while accelerating the transition toward cleaner, sustainable energy sources."
+        logistics: {
+            title: 'Logistics & Infrastructure Ecosystems',
+            description: 'Building robust supply chains, advanced multi-modal transportation networks, and smart city infrastructure to connect communities and facilitate economic growth.',
+            focusAreas: ['Smart Ports & Terminals', 'Integrated Supply Chain Solutions', 'High-Speed Rail & Transport Corridors', 'Urban Infrastructure Development'],
+            impact: "Creating a seamless, efficient, and resilient national infrastructure backbone that enhances trade and improves quality of life."
         },
-        research: {
-            title: 'Innovation & Research (R&D)',
-            description: "Aureon’s Research and Development division serves as the strategic backbone of its long-term growth. We invest in forward-looking research initiatives that strengthen national infrastructure, sustainability, and intelligent systems development.",
-            focusAreas: ['Efficient Storage Systems', 'Cleaner Energy Technologies', 'Sustainable Infrastructure Advisory', 'Advanced Artificial Intelligence Models'],
-            impact: "Enhances operational efficiency, improves energy sustainability, and positions Aureon as a forward-looking institution committed to technological leadership."
-        },
-        future: {
-            title: 'Future Endeavors',
-            description: "Aureon is continuously analyzing emerging global markets, deep-tech frontiers, and advanced material sciences to secure future sovereign capabilities. Our roadmap is constantly evolving.",
-            focusAreas: ['Advanced Materials Engineering', 'Next-Generation Semiconductors', 'Aerospace & Space Technology', 'Quantum Computing Infrastructure'],
-            impact: "Secures proactive leadership in future-defining technologies, ensuring long-term national competitiveness on the global stage."
+        healthcare: {
+            title: 'Healthcare & Human-Centered Innovation',
+            description: 'Pioneering advancements in medical technology, biotechnology, and patient-centric healthcare solutions to improve global health and well-being.',
+            focusAreas: ['Biotechnology & Pharmaceutical R&D', 'Advanced Medical Devices', 'Digital Health Platforms', 'Preventive Care Solutions'],
+            impact: "Building a future-ready healthcare ecosystem that delivers accessible, high-quality, and innovative solutions to address critical health challenges."
         }
     };
 
@@ -604,4 +598,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Auto-Hide Lifecycle Page Loader
     setTimeout(() => { if (pageLoader) pageLoader.classList.add('loaded'); }, 400);
+});
+// Premium Hero Background Interactivity
+document.addEventListener('DOMContentLoaded', () => {
+    const heroBg = document.getElementById('heroBg');
+    const orb1 = document.querySelector('.orb-1');
+    const orb2 = document.querySelector('.orb-2');
+    const orb3 = document.querySelector('.orb-3');
+
+    if (heroBg && orb1 && orb2 && orb3) {
+        document.addEventListener('mousemove', (e) => {
+            // Calculate mouse position relative to screen center (-1 to 1)
+            const x = (e.clientX / window.innerWidth) * 2 - 1;
+            const y = (e.clientY / window.innerHeight) * 2 - 1;
+
+            // Apply different movement strengths to each orb for depth
+            orb1.style.setProperty('--mouse-x', `${x * 40}px`);
+            orb1.style.setProperty('--mouse-y', `${y * 40}px`);
+
+            orb2.style.setProperty('--mouse-x', `${x * -50}px`);
+            orb2.style.setProperty('--mouse-y', `${y * -50}px`);
+
+            orb3.style.setProperty('--mouse-x', `${x * 20}px`);
+            orb3.style.setProperty('--mouse-y', `${y * 20}px`);
+        });
+    }
 });

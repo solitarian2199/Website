@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aureon — Inspired by Vision</title>
+    
+    <link rel="icon" type="image/png" href="assets/wave.png">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
@@ -25,12 +28,13 @@
         <div class="header-inner">
             <div class="brand-group">
                 <a href="#home" class="logo-text-link" aria-label="Aureon Corporate Homepage">
-                    <img src="assets/Aureon%20logo-01.png" alt="Aureon Logo" style="height: 48px; width: auto; display: block;">
-                </a>
+        <img src="assets/Aureon%20logo-01.png" alt="Aureon Logo" style="height: 50px; width: auto; display: block; transform: scale(2.9); transform-origin: left center;">
+    </a>
             </div>
             
             <nav class="nav-links" id="navLinks" aria-label="Main Corporate Navigation">
-                <a href="#vision" >ABOUT US</a>
+
+                <a href="#about-aureon" >ABOUT US</a>
                 <a href="#sectors" >BUSINESSES</a>
                 <a href="#values">CORE VALUES</a>
                 <a href="#responsibility">CSR</a>
@@ -60,7 +64,7 @@
                         </div>
                     </div>
                 </div>
-                <span class="lang-selector">ENG</span>
+                
                 <button class="utility-icon-btn" id="searchBtn" aria-label="Search" aria-controls="searchBarContainer" aria-expanded="false">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                 </button>
@@ -84,11 +88,11 @@
         
         <section class="hero-section" id="home">
             <div class="hero-bg" aria-hidden="true">
-                <div class="space-grid"></div>
-                <div class="earth-glow"></div>
-                <div class="india-highlight"></div>
-                <div class="floating-particles">
-                    <span></span><span></span><span></span><span></span><span></span>
+               <div class="ambient-orb orb-1"></div>
+                <div class="ambient-orb orb-2"></div>
+                <div class="ambient-orb orb-3"></div>
+                <div class="noise-overlay"></div>
+                    
                 </div>
             </div>
             <div class="hero-content">
@@ -97,46 +101,47 @@
                 <p class="hero-copy">Aureon is an Indian parent conglomerate founded with a bold vision: to build self-reliant, globally competitive enterprises across strategic and future-defining industries designed in India, for the global marketplace.</p>
                 <div class="hero-actions">
                     <a class="button primary" href="#sectors">Explore Businesses</a>
-                    <a class="button secondary" href="#vision">Corporate Profile</a>
+
                 </div>
             </div>
         </section>
 
-        <section class="section-split" id="vision">
-            <div class="split-image">
-                <div class="globe-illustration" aria-hidden="true">
-                    <div class="globe-ring"></div>
-                    <div class="globe-core"></div>
-                    <div class="globe-line"></div>
-                </div>
+        <section class="about-section" id="about-aureon">
+            <div class="about-left">
+                <h2>Corporate Vision & Mission</h2>
+                <p class="subheading">Building technology-driven ecosystems that shape the future of industry, infrastructure, and innovation.</p>
             </div>
-            <div class="split-copy">
-                <p class="eyebrow">Corporate Vision & Mission</p>
-                <h2>Shaping a stronger, independent, and globally respected India</h2>
-                <p>Aureon integrates technology, infrastructure, innovation, and strategic expansion to create long-term value for stakeholders, society, and the nation. Our mission is structured around four strategic pillars: Innovation & Technology Leadership, Strategic Sector Expansion, National Self-Reliance, and Talent Empowerment.</p>
+            <div class="about-right">
+                <div class="about-card vision-card">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>To architect the foundational ecosystems for the next generation of industry, driving progress through intelligent, self-reliant technological frameworks.</p>
+                </div>
+                <div class="about-card mission-card primary-card">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>We empower scalable industrial and digital transformation through strategic innovation, advanced technology, and a commitment to sustainable growth.</p>
+                </div>
+                <div class="about-card impact-card">
+                     <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 12c0-5.25-4.25-9.5-9.5-9.5S2.5 6.75 2.5 12s4.25 9.5 9.5 9.5s9.5-4.25 9.5-9.5z"></path><path d="M12 2.5v19"></path><path d="M2.5 12h19"></path></svg>
+                    </div>
+                    <h3>Our Impact</h3>
+                    <p>Creating resilient, globally competitive ecosystems that foster economic progress, cultivate talent, and deliver enduring societal value for generations.</p>
+                </div>
             </div>
         </section>
 
-        <section class="floating-media-section">
-            <div class="media-container">
-                <div class="floating-card card-1">
-                    <video src="20260301_115405.mp4" autoplay muted loop playsinline aria-label="Aureon professional walking sequence"></video>
-                </div>
-                <div class="floating-card card-2">
-                    <img src="assets/image_c531c1.png" alt="Corporate Vision & Mission UI Graphic" onerror="this.src='https://via.placeholder.com/450x320/2a0c26/c8a86b?text=Vision+Graphic'">
-                </div>
-                <div class="floating-card card-3">
-                    <img src="assets/image_4ec426.png" alt="Corporate Navigation Structure Graphic" onerror="this.src='https://via.placeholder.com/380x360/2a0c26/c8a86b?text=Structure+Graphic'">
-                </div>
-            </div>
-        </section>
 
         <section class="interactive-business-section" id="sectors">
-            <div class="sector-bg active" style="background-image: url('assets/image1.png');" id="bg-it"></div>
-            <div class="sector-bg" style="background-image: url('assets/image2.png');" id="bg-oil"></div>
-            <div class="sector-bg" style="background-image: url('assets/image3.png');" id="bg-power"></div>
-            <div class="sector-bg" style="background-image: url('assets/image4.png');" id="bg-research"></div>
-            <div class="sector-bg" style="background-image: url('assets/image5.png');" id="bg-future"></div>
+            <div class="sector-bg active" style="background-image: url('assets/ITsolutions_Sector.png');" id="bg-it"></div>
+            <div class="sector-bg" style="background-image: url('assets/RenewableEnergy_Sector.png');" id="bg-energy"></div>
+            <div class="sector-bg" style="background-image: url('assets/Logistics_Sector.png');" id="bg-logistics"></div>
+            <div class="sector-bg" style="background-image: url('assets/Healthcare_Sector.png');" id="bg-healthcare"></div> 
             
             <div class="bg-gradient-overlay"></div>
 
@@ -146,8 +151,8 @@
                     <h2>Strategic core divisions shaping our portfolio</h2>
                     
                     <div class="active-sector-details fade-in" id="activeSectorDetails">
-                        <h3 id="dynTitle">Information Technology & Digital Media</h3>
-                        <p id="dynDesc">Building scalable digital ecosystems, cloud services, and AI-driven platforms that support modern economic participation and sovereign growth.</p>
+                        <h3 id="dynTitle">Information Technology & Digital Solutions</h3>
+                        <p id="dynDesc">Developing cutting-edge software, AI, cloud infrastructure, and digital platforms to drive innovation and empower the digital economy.</p>
                         
                         <button class="glass-know-more" id="dynBtn" data-sector="it" aria-label="Know more about this sector">
                             <span>Know More</span>
@@ -157,37 +162,29 @@
                 </div>
 
                 <div class="business-carousel-wrapper">
-                    <div class="carousel-controls" style="display: flex; gap: 12px; margin-bottom: 20px; justify-content: flex-end;">
-                        <button class="glass-arrow-btn" id="prevBizBtn" aria-label="Previous Sector">
-                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                        </button>
-                        <button class="glass-arrow-btn" id="nextBizBtn" aria-label="Next Sector">
-                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                        </button>
-                    </div>
-                    <div class="business-carousel" id="bizCarousel">
-                        <div class="biz-card active" data-sector="it">
-                            <img src="assets/oil%20and%20gas.png" alt="IT & Digital Media" onerror="this.src='https://via.placeholder.com/280x420/1a0b18/c8a86b?text=IT+Media'">
-                            <div class="biz-card-overlay"><h4>IT & Digital Media</h4></div>
-                        </div>
-                        <div class="biz-card" data-sector="oil">
-                            <img src="assets/oil%20and%20gas.png" alt="Oil & Gas" onerror="this.src='https://via.placeholder.com/280x420/1a0b18/c8a86b?text=Oil+%26+Gas'">
-                            <div class="biz-card-overlay"><h4>Oil & Gas</h4></div>
-                        </div>
-                        <div class="biz-card" data-sector="power">
-                            <img src="assets/Renewable.png" alt="Power & Renewable Energy" onerror="this.src='https://via.placeholder.com/280x420/1a0b18/c8a86b?text=Renewables'">
-                            <div class="biz-card-overlay"><h4>Power & Renewables</h4></div>
-                        </div>
-                        <div class="biz-card" data-sector="research">
-                            <img src="assets/Logistics.png" alt="Innovation & Research" onerror="this.src='https://via.placeholder.com/280x420/1a0b18/c8a86b?text=Innovation'">
-                            <div class="biz-card-overlay"><h4>Logistics</h4></div>
-                        </div>
-                        <div class="biz-card" data-sector="future">
-                            <img src="assets/wave.png" alt="Future Endeavors" onerror="this.src='https://via.placeholder.com/280x420/1a0b18/c8a86b?text=Future'">
-                            <div class="biz-card-overlay"><h4 style="color: var(--gold-accent);">More to come...</h4></div>
-                        </div>
-                    </div>
-                </div>
+    <div class="business-carousel" id="bizCarousel">
+        <div class="biz-card active" data-sector="it">
+            <img src="assets/ITsolutions_Sector.png" alt="IT & Digital Solutions" onerror="this.src='https://via.placeholder.com/280x420/1a0b18/c8a86b?text=IT+Digital'">
+            <div class="biz-card-overlay"><h4>Information Technology & Digital Solutions</h4></div>
+        </div>
+        <div class="biz-card" data-sector="energy">
+            <img src="assets/RenewableEnergy_Sector.png" alt="Renewable Energy & Sustainable Development" onerror="this.src='https://via.placeholder.com/280x420/1a0b18/c8a86b?text=Renewable+Energy'">
+            <div class="biz-card-overlay"><h4>Renewable Energy & Sustainable Development</h4></div>
+        </div>
+        <div class="biz-card" data-sector="logistics">
+            <img src="assets/Logistics_Sector.png" alt="Logistics & Infrastructure Ecosystems" onerror="this.src='https://via.placeholder.com/280x420/1a0b18/c8a86b?text=Logistics+Infra'">
+            <div class="biz-card-overlay"><h4>Logistics & Infrastructure Ecosystems</h4></div>
+        </div>
+        <div class="biz-card" data-sector="healthcare">
+            <img src="assets/Healthcare_Sector.png" alt="Healthcare & Human-Centered Innovation" onerror="this.src='https://via.placeholder.com/280x420/1a0b18/c8a86b?text=Healthcare+Innov'">
+            <div class="biz-card-overlay"><h4>Healthcare & Human-Centered Innovation</h4></div>
+        </div>
+    </div>
+
+    <div class="carousel-controls" style="display: flex; gap: 16px; margin-top: 40px; justify-content: center; position: relative; z-index: 20;">
+       
+    </div>
+</div>
             </div>
         </section>
 
@@ -452,7 +449,7 @@
             <div class="footer-column">
                 <h3>Quick Links</h3>
                 <div class="footer-links-group">
-                    <a href="#vision">About Us</a>
+                    <a href="#about-aureon">About Us</a>
                     <a href="#sectors">Businesses</a>
                     <a href="#newsroom">Newsroom</a>
                     <a href="mailto:contact@aureoninda.com">Careers</a>
