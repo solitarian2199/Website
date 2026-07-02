@@ -57,36 +57,52 @@ document.addEventListener('DOMContentLoaded', () => {
     const applyScrollPhysics = () => {
         const targetDevice = document.querySelector('.device-shell');
         const heroBlock = document.querySelector('.hero-content');
-        
-        window.addEventListener('scroll', () => {
-            const currentTop = window.scrollY;
+        let lastKnownScrollPosition = 0;
+        let ticking = false;
+
+        function updateOnScroll(scrollPos) {
             const viewportHeight = window.innerHeight;
             const maxScrollableHeight = document.documentElement.scrollHeight - viewportHeight;
-            
+
+            // Update scroll progress bar
             if (scrollProgress && maxScrollableHeight > 0) {
-                scrollProgress.style.width = `${(currentTop / maxScrollableHeight) * 100}%`;
+                scrollProgress.style.width = `${(scrollPos / maxScrollableHeight) * 100}%`;
             }
             
+            // Toggle header class
             if (siteHeader) {
-                siteHeader.classList.toggle('scrolled', currentTop > 20);
+                siteHeader.classList.toggle('scrolled', scrollPos > 20);
             }
 
+            // Hero content parallax and fade
             if (heroBlock) {
-                const opacityFactor = Math.max(1 - (currentTop / (viewportHeight * 0.55)), 0);
+                const opacityFactor = Math.max(1 - (scrollPos / (viewportHeight * 0.55)), 0);
                 heroBlock.style.opacity = opacityFactor;
-                heroBlock.style.transform = `translateY(${currentTop * 0.12}px)`;
+                heroBlock.style.transform = `translateY(${scrollPos * 0.12}px)`;
             }
 
+            // Device shell 3D scaling effect
             if (targetDevice) {
                 const boundaryRect = targetDevice.getBoundingClientRect();
                 const centerOffset = boundaryRect.top + (boundaryRect.height / 2);
                 const screenCenter = viewportHeight / 2;
                 const standardDistance = Math.abs(screenCenter - centerOffset);
-                
+
                 if (boundaryRect.top < viewportHeight && boundaryRect.bottom > 0) {
                     const dynamicScale = Math.max(1.04 - (standardDistance / viewportHeight) * 0.12, 0.96);
                     targetDevice.style.transform = `rotateX(14deg) rotateY(-10deg) scale(${dynamicScale})`;
                 }
+            }
+        }
+
+        window.addEventListener('scroll', () => {
+            lastKnownScrollPosition = window.scrollY;
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    updateOnScroll(lastKnownScrollPosition);
+                    ticking = false;
+                });
+                ticking = true;
             }
         }, { passive: true });
     };
@@ -428,7 +444,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================================================
     const runLayoutSectionReveals = () => {
         const layoutContainers = document.querySelectorAll(
-            '.section-split, .floating-media-section, .cards-section, .values-section, .ecosystem-section, .showcase-section, .growth-strategy-section, .csr-section, .roadmap-section, .news-section, .join-section, #leadership, .interactive-business-section'
+            '.genesis-section, .section-split, .floating-media-section, .cards-section, .values-section, .ecosystem-section, .showcase-section, .growth-strategy-section, .csr-section, .roadmap-section, .news-section, .join-section, #leadership, .interactive-business-section, .vision-mission-content'
         );
 
         const targetObserver = new IntersectionObserver((entries) => {
@@ -444,6 +460,140 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     runLayoutSectionReveals();
 
+    // ==========================================================================
+    // 5b. CINEMATIC "GENESIS" SECTION SCROLL ANIMATION
+    // ==========================================================================
+    const initConstellation = () => {
+        const canvas = document.getElementById('constellationCanvas');
+        if (!canvas) return;
+
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        const particleCount = window.innerWidth < 768 ? 60 : 100;
+        const maxDistance = 120;
+        const mouse = { x: null, y: null, radius: 150 };
+
+        const resizeCanvas = () => {
+            const container = canvas.parentElement;
+            canvas.width = container.offsetWidth;
+            canvas.height = container.offsetHeight;
+            particles = []; // Reset particles on resize
+            createParticles();
+        };
+
+        const createParticles = () => {
+            const isDarkMode = document.documentElement.hasAttribute('data-theme');
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: (Math.random() - 0.5) * 0.5,
+                    vy: (Math.random() - 0.5) * 0.5,
+                    radius: Math.random() * 1.5 + 1,
+                    color: isDarkMode ? 'rgba(250, 247, 250, 0.8)' : 'rgba(80, 21, 73, 0.7)'
+                });
+            }
+        };
+
+        const draw = () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            const isDarkMode = document.documentElement.hasAttribute('data-theme');
+            const lineColor = isDarkMode ? 'rgba(200, 168, 107, 0.15)' : 'rgba(122, 46, 110, 0.15)';
+
+            particles.forEach(p => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = p.color;
+                ctx.fill();
+            });
+
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < maxDistance) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = lineColor;
+                        ctx.lineWidth = 1 - distance / maxDistance;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        };
+
+        const update = () => {
+            particles.forEach(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+                // Mouse interaction
+                if (mouse.x && mouse.y) {
+                    const dx = p.x - mouse.x;
+                    const dy = p.y - mouse.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < mouse.radius) {
+                        const forceDirectionX = dx / distance;
+                        const forceDirectionY = dy / distance;
+                        const force = (mouse.radius - distance) / mouse.radius;
+                        p.x += forceDirectionX * force * 2;
+                        p.y += forceDirectionY * force * 2;
+                    }
+                }
+            });
+        };
+
+        const animate = () => {
+            update();
+            draw();
+            requestAnimationFrame(animate);
+        };
+
+        const handleMouseMove = (e) => {
+            const rect = canvas.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
+        };
+
+        const handleMouseLeave = () => {
+            mouse.x = null;
+            mouse.y = null;
+        };
+
+        window.addEventListener('resize', resizeCanvas);
+        canvas.addEventListener('mousemove', handleMouseMove);
+        canvas.addEventListener('mouseleave', handleMouseLeave);
+
+        // Also listen for theme changes to update colors
+        new MutationObserver(resizeCanvas).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+        resizeCanvas();
+        animate();
+    };
+    initConstellation();
+
+    // ==========================================================================
+    // 5c. "GENESIS" VISION/MISSION TEXT SCROLL ANIMATION
+    // ==========================================================================
+    // The animateVisionMissionText function has been removed.
+    // The new layout uses the simpler IntersectionObserver-based reveal
+    // handled by the `runLayoutSectionReveals` function.
+    // I've added `.vision-mission-content` to the observer's target list.
+
+    // ==========================================================================
+    // 5c. "GENESIS" SECTION INTERACTIVE 3D ORBITAL GRAPHIC
+    // and Narrative Card Tilt
+    // ==========================================================================
+    const addGenesisInteractivity = () => {
+        // This function is now empty as the tilt effect was removed with the panel.
+    };
+    addGenesisInteractivity();
     // ==========================================================================
     // 6. IN-MEMORY TOKEN SEARCH LOCAL ENGINE (TF-IDF Chatbot)
     // ==========================================================================

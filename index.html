@@ -38,7 +38,6 @@
                 <a href="#sectors" >BUSINESSES</a>
                 <a href="#values">CORE VALUES</a>
                 <a href="#responsibility">CSR</a>
-                <a href="#newsroom" >NEWSROOM</a>
                 <a href="#contact">CONTACT</a>
             </nav>
 
@@ -106,34 +105,46 @@
             </div>
         </section>
 
-        <section class="about-section" id="about-aureon">
-            <div class="about-left">
-                <h2>Corporate Vision & Mission</h2>
-                <p class="subheading">Building technology-driven ecosystems that shape the future of industry, infrastructure, and innovation.</p>
-            </div>
-            <div class="about-right">
-                <div class="about-card vision-card">
-                    <div class="card-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                    </div>
-                    <h3>Our Vision</h3>
-                    <p>To architect the foundational ecosystems for the next generation of industry, driving progress through intelligent, self-reliant technological frameworks.</p>
-                </div>
-                <div class="about-card mission-card primary-card">
-                    <div class="card-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
-                    </div>
-                    <h3>Our Mission</h3>
-                    <p>We empower scalable industrial and digital transformation through strategic innovation, advanced technology, and a commitment to sustainable growth.</p>
-                </div>
-                <div class="about-card impact-card">
-                     <div class="card-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 12c0-5.25-4.25-9.5-9.5-9.5S2.5 6.75 2.5 12s4.25 9.5 9.5 9.5s9.5-4.25 9.5-9.5z"></path><path d="M12 2.5v19"></path><path d="M2.5 12h19"></path></svg>
-                    </div>
-                    <h3>Our Impact</h3>
-                    <p>Creating resilient, globally competitive ecosystems that foster economic progress, cultivate talent, and deliver enduring societal value for generations.</p>
+        <!-- ==========================================================================
+           THE AUREON GENESIS - A CINEMATIC "ABOUT US" EXPERIENCE
+           ========================================================================== -->
+        <section class="genesis-section" id="about-aureon">
+            <!-- Scene 1: The Overture -->
+            <div class="genesis-scene overture">
+                <div class="overture-content">
+                    <h2 class="genesis-heading">
+                        We don't predict the future.
+                        <span class="highlight-gradient">We are building it.</span>
+                    </h2>
                 </div>
             </div>
+
+            <!-- Scene 2: The Vision & Mission -->
+            <div class="genesis-scene vision-mission" id="about-aureon-core">
+                <div class="vision-mission-grid">
+                    <div class="vision-mission-content">                        
+                        <div class="mission-vision-cards">
+                            <div class="mission-card">
+                                <h4>Our Mission</h4>
+                                <p>To empower scalable industrial and digital transformation across India's core sectors. We achieve this through disciplined capital deployment, the strategic integration of proprietary technologies, and an unwavering commitment to long-horizon value creation that strengthens national resilience.</p>
+                            </div>
+                            <div class="vision-card">
+                                <h4>Our Vision</h4>
+                                <p>To architect the foundational ecosystems for the next generation of global industry from India. We aim to drive progress by building intelligent, self-reliant, and vertically integrated technological frameworks that ensure economic sovereignty and position India as a leader in future innovation.</p>
+                            </div>
+                        </div>
+
+                        <a href="#strategy" class="button-journey">
+                            <span>Explore Our Strategy</span>
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>                            
+                        </a>
+                    </div>
+                    <div class="vision-mission-visual">
+                        <canvas id="constellationCanvas"></canvas>
+                    </div>
+                </div>
+            </div>
+
         </section>
 
 
@@ -212,24 +223,6 @@
             </div>
         </div>
 
-        <section class="ecosystem-section" id="ecosystem">
-            <div class="ecosystem-header">
-                <p class="eyebrow">Cross-Sector Synergy</p>
-                <h2>Integrated intelligence across every business line</h2>
-                <p class="ecosystem-copy">Aureon’s multi-vertical structure is intentionally designed to generate internal synergies. Our information technology capabilities play a critical role in strengthening energy infrastructure through digital monitoring systems, automation frameworks, and intelligent data platforms.</p>
-            </div>
-            <div class="ecosystem-graphic" aria-hidden="true">
-                <div class="node core">Aureon</div>
-                <div class="node link tech">IT</div>
-                <div class="node link energy">Energy</div>
-                <div class="node link rnd">R&D</div>
-                <div class="sub-node">Vubo</div>
-                <span class="line tech-line"></span>
-                <span class="line energy-line"></span>
-                <span class="line rnd-line"></span>
-            </div>
-        </section>
-
         <section class="cards-section" id="leadership">
             <p class="eyebrow">Governance & Integrity</p>
             <h2>Executive Leadership Team</h2>
@@ -271,50 +264,69 @@
             </div>
             <div class="values-grid">
                 <div class="value-card">
-                    <div class="value-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                        </svg>
+                    <div class="value-card-inner">
+                        <div class="value-card-front">
+                            <div class="value-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                            </div>
+                            <h3>Innovation Leadership</h3>
+                        </div>
+                        <div class="value-card-back">
+                            <p>Deliberate, disciplined, and future-oriented innovation. We architect for tomorrow’s challenges, not merely adapt to today’s changes. Innovation is embedded in our decision-making frameworks.</p>
+                        </div>
                     </div>
-                    <h3>Innovation Leadership</h3>
-                    <p>Deliberate, disciplined, and future-oriented innovation. We architect for tomorrow’s challenges, not merely adapt to today’s changes. Innovation is embedded in our decision-making frameworks.</p>
                 </div>
                 <div class="value-card">
-                    <div class="value-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="9"></circle>
-                            <polyline points="12 7 12 12 16 14"></polyline>
-                        </svg>
+                    <div class="value-card-inner">
+                        <div class="value-card-front">
+                            <div class="value-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 16 14"></polyline></svg>
+                            </div>
+                            <h3>Strategic Self-Reliance</h3>
+                        </div>
+                        <div class="value-card-back">
+                            <p>Building indigenous capability and proprietary technologies. We cultivate sovereign technological capacity that reduces dependency and reinforces resilience at every level.</p>
+                        </div>
                     </div>
-                    <h3>Strategic Self-Reliance</h3>
-                    <p>Building indigenous capability and proprietary technologies. We cultivate sovereign technological capacity that reduces dependency and reinforces resilience at every level.</p>
                 </div>
                 <div class="value-card">
-                    <div class="value-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                        </svg>
+                    <div class="value-card-inner">
+                        <div class="value-card-front">
+                            <div class="value-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                            </div>
+                            <h3>Sustainable Stewardship</h3>
+                        </div>
+                        <div class="value-card-back">
+                            <p>Growth without responsibility is unsustainable. We integrate environmental discipline and long-term resource strategy into every vertical. Sustainability is embedded in our design.</p>
+                        </div>
                     </div>
-                    <h3>Sustainable Stewardship</h3>
-                    <p>Growth without responsibility is unsustainable. We integrate environmental discipline and long-term resource strategy into every vertical. Sustainability is embedded in our design.</p>
                 </div>
                 <div class="value-card">
-                    <div class="value-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm3-10a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
-                        </svg>
+                    <div class="value-card-inner">
+                        <div class="value-card-front">
+                            <div class="value-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm3-10a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path></svg>
+                            </div>
+                            <h3>Governance with Integrity</h3>
+                        </div>
+                        <div class="value-card-back">
+                            <p>Institutional trust earned through consistency and ethical rigor. We uphold stringent governance standards and disciplined compliance. Integrity is our cultural constant.</p>
+                        </div>
                     </div>
-                    <h3>Governance with Integrity</h3>
-                    <p>Institutional trust earned through consistency and ethical rigor. We uphold stringent governance standards and disciplined compliance. Integrity is our cultural constant.</p>
                 </div>
                 <div class="value-card">
-                    <div class="value-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M11 3a8 8 0 0 1 8 8v4a6 6 0 0 1-6 6H9a6 6 0 0 1-6-6v-4a8 8 0 0 1 4-6.93"></path>
-                        </svg>
+                    <div class="value-card-inner">
+                        <div class="value-card-front">
+                            <div class="value-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 3a8 8 0 0 1 8 8v4a6 6 0 0 1-6 6H9a6 6 0 0 1-6-6v-4a8 8 0 0 1 4-6.93"></path></svg>
+                            </div>
+                            <h3>National Alignment</h3>
+                        </div>
+                        <div class="value-card-back">
+                            <p>Our trajectory aligns with India’s long-term advancement. We view enterprise-building as nation-building, strengthening India’s global stature through innovation and capability.</p>
+                        </div>
                     </div>
-                    <h3>National Alignment</h3>
-                    <p>Our trajectory aligns with India’s long-term advancement. We view enterprise-building as nation-building, strengthening India’s global stature through innovation and capability.</p>
                 </div>
             </div>
         </section>
@@ -407,27 +419,6 @@
             </div>
         </section>
 
-        <section class="news-section" id="newsroom">
-            <p class="eyebrow">Insights & Announcements</p>
-            <h2>Tracking Aureon's industrial progress parameters</h2>
-            <div class="news-cards">
-                <article>
-                    <p class="news-tag">02 June 2026</p>
-                    <h3>Aureon Power announces scale implementation transitions</h3>
-                    <a href="#" aria-label="Read complete press release">Read More</a>
-                </article>
-                <article>
-                    <p class="news-tag">26 May 2026</p>
-                    <h3>Vubo registers rapid user volume optimization scale limits</h3>
-                    <a href="#" aria-label="Read complete press release">Read More</a>
-                </article>
-                <article>
-                    <p class="news-tag">18 May 2026</p>
-                    <h3>Calibrated expansions implemented inside Oil & Gas refining arrays</h3>
-                    <a href="#" aria-label="Read complete press release">Read More</a>
-                </article>
-            </div>
-        </section>
     </main>
 
     <footer class="page-footer glass-footer" id="contact">
@@ -451,7 +442,6 @@
                 <div class="footer-links-group">
                     <a href="#about-aureon">About Us</a>
                     <a href="#sectors">Businesses</a>
-                    <a href="#newsroom">Newsroom</a>
                     <a href="mailto:contact@aureoninda.com">Careers</a>
                 </div>
             </div>
