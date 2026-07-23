@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Aureon Brand Dynamic Portfolio Logic
  * Populated directly via Aureon Corporate Profile_V0.05
  */
@@ -11,41 +11,62 @@ document.addEventListener('DOMContentLoaded', () => {
     const navToggle = document.getElementById('navToggle');
     const navLinks = document.getElementById('navLinks');
     const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-    
-    const chatWidget = document.getElementById('aureonChatbot');
-    const chatToggle = document.getElementById('chatToggle');
-    const chatInput = document.getElementById('chatInput');
-    const chatBody = document.getElementById('chatBody');
-    
     const sectorModal = document.getElementById('sectorModal');
 
-    let chatInitialized = false;
-    let chatHistory = [];
-    const knowledgeEntries = [];
-    const idfMap = new Map();
 
     const sectorData = {
         it: {
             title: 'Information Technology & Digital Solutions',
             description: 'Developing cutting-edge software, AI, cloud infrastructure, and digital platforms to drive innovation and empower the digital economy.',
+            image: 'ITsolutions_Sector.png',
             focusAreas: ['Sovereign Cloud Infrastructure', 'AI & Machine Learning', 'Enterprise SaaS Platforms', 'Cybersecurity & Data Sovereignty'],
             impact: "Empowering India's digital future with secure, scalable, and intelligent technology ecosystems that foster sovereign capability."
         },
         energy: {
-            title: 'Renewable Energy & Sustainable Development',
-            description: 'Investing in solar, wind, and green hydrogen technologies to foster a sustainable future and strengthen national energy independence.',
-            focusAreas: ['Utility-Scale Solar & Wind Farms', 'Green Hydrogen Production', 'Smart Grid & Energy Storage', 'Sustainable Development Policies'],
-            impact: "Accelerating India's transition to a clean energy economy while ensuring reliable and affordable power for industrial and public use."
+            title: 'Powering Bharat’s Net Zero Future',
+            contentHtml: `
+                <p class="energy-intro">India’s transition toward renewable energy represents one of the most important economic and environmental transformations of this century.</p>
+                <p>With ambitious national goals including 500 GW of non-fossil fuel energy capacity by 2030 and Net Zero emissions by 2070, the country is accelerating investments in clean, scalable, and future-ready infrastructure.</p>
+                
+                <div class="investment-focus">
+                    <h4>Aureon supports this national vision through strategic investments in:</h4>
+                    <ul>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Utility-scale solar & wind energy</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Green hydrogen ecosystems</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Smart grid & energy storage systems</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Sustainable industrial infrastructure</li>
+                    </ul>
+                </div>
+
+                <div class="energy-stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" data-target="500">0</div>
+                        <div class="stat-label">Non-Fossil Energy Target by 2030</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">Net Zero</div>
+                        <div class="stat-label">India’s 2070 Commitment</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" data-target="50">0</div>
+                        <div class="stat-label">Installed Capacity Goal</div>
+                    </div>
+                </div>
+                
+                <p class="energy-outro">By aligning with Bharat’s renewable energy mission, Aureon aims to strengthen energy independence, reduce carbon emissions, and help build a resilient clean energy economy for future generations.</p>
+            `
         },
         logistics: {
             title: 'Logistics & Infrastructure Ecosystems',
             description: 'Building robust supply chains, advanced multi-modal transportation networks, and smart city infrastructure to connect communities and facilitate economic growth.',
+            image: 'Logistics_Sector.png',
             focusAreas: ['Smart Ports & Terminals', 'Integrated Supply Chain Solutions', 'High-Speed Rail & Transport Corridors', 'Urban Infrastructure Development'],
             impact: "Creating a seamless, efficient, and resilient national infrastructure backbone that enhances trade and improves quality of life."
         },
         healthcare: {
             title: 'Healthcare & Human-Centered Innovation',
             description: 'Pioneering advancements in medical technology, biotechnology, and patient-centric healthcare solutions to improve global health and well-being.',
+            image: 'HealthCare_Sector.png',
             focusAreas: ['Biotechnology & Pharmaceutical R&D', 'Advanced Medical Devices', 'Digital Health Platforms', 'Preventive Care Solutions'],
             impact: "Building a future-ready healthcare ecosystem that delivers accessible, high-quality, and innovative solutions to address critical health challenges."
         }
@@ -55,56 +76,93 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. SCROLL PHYSICS ENGINE & METRICS INTERPOLATION
     // ==========================================================================
     const applyScrollPhysics = () => {
+        // Select elements once to avoid repeated lookups in the animation loop
         const targetDevice = document.querySelector('.device-shell');
         const heroBlock = document.querySelector('.hero-content');
-        let lastKnownScrollPosition = 0;
-        let ticking = false;
+        const animatedSections = document.querySelectorAll('.scroll-animated-section');
+        
+        if (!scrollProgress || !siteHeader || !heroBlock) {
+            console.warn('Scroll physics engine could not find required elements.');
+            return;
+        }
 
-        function updateOnScroll(scrollPos) {
+        let currentScroll = 0;
+        let targetScroll = 0;
+        const ease = 0.065; // Lowered for a more fluid, less direct feel
+        let isTicking = false;
+
+        // Cache the initial top offset of each animated section for performance
+        const sectionOffsets = new Map();
+        animatedSections.forEach(section => {
+            // getBoundingClientRect().top + window.scrollY gives the absolute top from the document
+            sectionOffsets.set(section, section.getBoundingClientRect().top + window.scrollY);
+        });
+
+        function smoothScrollLoop() {
+            const delta = targetScroll - currentScroll;
+
+            // Stop the loop if the scroll position is close enough to the target
+            if (Math.abs(delta) < 0.1) {
+                currentScroll = targetScroll;
+                isTicking = false;
+                return;
+            }
+
+            // Linearly interpolate current scroll position towards the target
+            currentScroll += delta * ease;
+
             const viewportHeight = window.innerHeight;
             const maxScrollableHeight = document.documentElement.scrollHeight - viewportHeight;
 
             // Update scroll progress bar
-            if (scrollProgress && maxScrollableHeight > 0) {
-                scrollProgress.style.width = `${(scrollPos / maxScrollableHeight) * 100}%`;
+            if (maxScrollableHeight > 0) {
+                scrollProgress.style.width = `${(currentScroll / maxScrollableHeight) * 100}%`;
             }
             
             // Toggle header class
-            if (siteHeader) {
-                siteHeader.classList.toggle('scrolled', scrollPos > 20);
-            }
+            siteHeader.classList.toggle('scrolled', currentScroll > 20);
 
             // Hero content parallax and fade
-            if (heroBlock) {
-                const opacityFactor = Math.max(1 - (scrollPos / (viewportHeight * 0.55)), 0);
-                heroBlock.style.opacity = opacityFactor;
-                heroBlock.style.transform = `translateY(${scrollPos * 0.12}px)`;
-            }
+            const opacityFactor = Math.max(1 - (currentScroll / (viewportHeight * 0.55)), 0);
+            heroBlock.style.opacity = Math.pow(opacityFactor, 1.5).toFixed(3); // Faster fade, rounded for performance
+            heroBlock.style.transform = `translateY(${currentScroll * 0.25}px)`; // Increased parallax
 
             // Device shell 3D scaling effect
             if (targetDevice) {
-                const boundaryRect = targetDevice.getBoundingClientRect();
-                const centerOffset = boundaryRect.top + (boundaryRect.height / 2);
-                const screenCenter = viewportHeight / 2;
-                const standardDistance = Math.abs(screenCenter - centerOffset);
-
-                if (boundaryRect.top < viewportHeight && boundaryRect.bottom > 0) {
-                    const dynamicScale = Math.max(1.04 - (standardDistance / viewportHeight) * 0.12, 0.96);
-                    targetDevice.style.transform = `rotateX(14deg) rotateY(-10deg) scale(${dynamicScale})`;
-                }
+                // Now tied to the smooth scroll for a more fluid effect
+                const scaleFactor = Math.max(1 - (currentScroll / (viewportHeight * 2)), 0.85).toFixed(3);
+                targetDevice.style.transform = `rotateX(14deg) rotateY(-10deg) scale(${scaleFactor})`;
             }
+
+            // Apply parallax to all designated sections
+            animatedSections.forEach(section => {
+                // Calculate parallax based on the smooth scroll value for a unified feel
+                const sectionTop = sectionOffsets.get(section);
+                const sectionCenter = sectionTop + section.offsetHeight / 2;
+                const screenCenter = viewportHeight / 2;
+                // Calculate distance of the section's center from the viewport's center
+                const distance = (sectionCenter - currentScroll) - screenCenter;
+                const parallax = distance * -0.08; // Increased effect slightly for more flow
+                section.style.setProperty('--scroll-parallax', `${parallax.toFixed(2)}px`);
+            });
+
+            requestAnimationFrame(smoothScrollLoop);
         }
 
         window.addEventListener('scroll', () => {
-            lastKnownScrollPosition = window.scrollY;
-            if (!ticking) {
-                window.requestAnimationFrame(() => {
-                    updateOnScroll(lastKnownScrollPosition);
-                    ticking = false;
-                });
-                ticking = true;
+            targetScroll = window.scrollY;
+            // Start the animation loop only if it's not already running
+            if (!isTicking) {
+                isTicking = true;
+                requestAnimationFrame(smoothScrollLoop);
             }
         }, { passive: true });
+
+        // Initial call to set positions on page load
+        targetScroll = window.scrollY;
+        currentScroll = targetScroll;
+        isTicking = true;
+        requestAnimationFrame(smoothScrollLoop);
     };
     applyScrollPhysics();
 
@@ -126,10 +184,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const stepValue = targetVal / (runtimeSpan / tickRate);
 
             const progressiveLoop = () => {
-                baseVal += stepValue;
+                    baseVal += stepValue; // Increment the base value
                 if (baseVal >= targetVal) {
-                    node.textContent = targetVal.toLocaleString();
-                } else {
+                        node.textContent = targetVal.toLocaleString(); // Set final value
+                    } else { // Continue animation
                     node.textContent = Math.floor(baseVal).toLocaleString();
                     requestAnimationFrame(progressiveLoop);
                 }
@@ -287,7 +345,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================================================
     const initDynamicBusinessSection = () => {
         const carousel = document.getElementById('bizCarousel');
-        const cards = document.querySelectorAll('.biz-card');
         const textContainer = document.getElementById('activeSectorDetails');
         const dynTitle = document.getElementById('dynTitle');
         const dynDesc = document.getElementById('dynDesc');
@@ -296,45 +353,90 @@ document.addEventListener('DOMContentLoaded', () => {
         const prevBtn = document.getElementById('prevBizBtn');
         const nextBtn = document.getElementById('nextBizBtn');
         
-        if (!carousel || cards.length === 0) return;
+        if (!carousel) return;
+
+        // Dynamically create business cards from sectorData
+        Object.keys(sectorData).forEach((key, index) => {
+            const sector = sectorData[key];
+            const placeholderText = sector.title.split(' ').slice(0, 2).join('+');
+            const cardHTML = `
+                <div 
+                    class="biz-card" 
+                    data-sector="${key}"
+                    role="tab"
+                    id="biz-tab-${key}"
+                    aria-controls="activeSectorDetails"
+                    aria-labelledby="biz-tab-label-${key}"
+                >
+                    <img src="assets/${sector.image}" alt="" aria-hidden="true" onerror="this.src='https://via.placeholder.com/280x420/1a0b18/c8a86b?text=${placeholderText}'">
+                    <div class="biz-card-overlay"><h4 id="biz-tab-label-${key}">${sector.title}</h4></div>
+                </div>
+            `;
+            carousel.insertAdjacentHTML('beforeend', cardHTML);
+        });
+
+        const cards = document.querySelectorAll('.biz-card');
+        if (cards.length === 0) return;
 
         let currentIndex = 0;
         let autoPlayInterval;
+        const isMobile = window.matchMedia("(max-width: 992px)").matches;
+
+        // --- Modal Accessibility Enhancements ---
+        let lastFocusedElement;
 
         const updateActiveState = (index) => {
             document.querySelectorAll('.sector-bg').forEach(bg => bg.classList.remove('active'));
 
             cards.forEach((card, idx) => {
-                card.classList.remove('active');
+                const isActive = idx === index;
+                card.classList.toggle('active', isActive);
+                card.setAttribute('aria-selected', String(isActive));
+                card.setAttribute('tabindex', isActive ? '0' : '-1');
                 
-                // Calculate position relative to currentIndex
-                let diff = (idx - index + cards.length) % cards.length;
-                
-                if (diff === 0) {
-                    card.style.transform = `translateX(0) scale(1)`;
-                    card.style.zIndex = 10;
-                    card.style.opacity = 1;
-                    card.classList.add('active');
-                } else if (diff === 1) {
-                    card.style.transform = `translateX(60px) scale(0.9)`;
-                    card.style.zIndex = 9;
-                    card.style.opacity = 0.8;
-                } else if (diff === 2) {
-                    card.style.transform = `translateX(120px) scale(0.8)`;
-                    card.style.zIndex = 8;
-                    card.style.opacity = 0.6;
-                } else if (diff === cards.length - 1) {
-                    card.style.transform = `translateX(-60px) scale(0.9)`;
-                    card.style.zIndex = 9;
-                    card.style.opacity = 0;
+                if (isMobile) {
+                    // On mobile, just toggle the class. CSS handles the rest.
+                    // The class is toggled above.
                 } else {
-                    card.style.transform = `translateX(140px) scale(0.7)`;
-                    card.style.zIndex = 7;
-                    card.style.opacity = 0;
+                    // Desktop fan-out animation
+                    // Calculate position relative to currentIndex
+                    let diff = (idx - index + cards.length) % cards.length;
+                    
+                    if (diff === 0) {
+                        card.style.transform = `translateX(0) scale(1)`;
+                        card.style.zIndex = 10;
+                        card.style.opacity = 1;
+                    } else if (diff === 1) {
+                        card.style.transform = `translateX(60px) scale(0.9)`;
+                        card.style.zIndex = 9;
+                        card.style.opacity = 0.8;
+                    } else if (diff === 2) {
+                        card.style.transform = `translateX(120px) scale(0.8)`;
+                        card.style.zIndex = 8;
+                        card.style.opacity = 0.6;
+                    } else if (diff === cards.length - 1) {
+                        card.style.transform = `translateX(-60px) scale(0.9)`;
+                        card.style.zIndex = 9;
+                        card.style.opacity = 0;
+                    } else {
+                        card.style.transform = `translateX(140px) scale(0.7)`;
+                        card.style.zIndex = 7;
+                        card.style.opacity = 0;
+                    }
                 }
             });
 
             const activeCard = cards[index];
+
+            if (isMobile && activeCard) {
+                // Smoothly scroll the active card to the center on mobile
+                activeCard.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest',
+                    inline: 'center'
+                });
+            }
+
             const sectorKey = activeCard.dataset.sector;
             const targetBg = document.getElementById(`bg-${sectorKey}`);
             if (targetBg) targetBg.classList.add('active');
@@ -347,7 +449,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(() => {
                     dynTitle.textContent = data.title;
                     dynDesc.textContent = data.description;
-                    if(dynBtn) dynBtn.dataset.sector = sectorKey;
+                    if(dynBtn) {
+                        dynBtn.dataset.sector = sectorKey;
+                        dynBtn.setAttribute('aria-label', `Know more about ${data.title}`);
+                    }
                     
                     textContainer.classList.remove('fade-out');
                     textContainer.classList.add('fade-in');
@@ -395,47 +500,209 @@ document.addEventListener('DOMContentLoaded', () => {
         updateActiveState(currentIndex);
         startAutoPlay();
 
+        // Add keyboard navigation for accessibility
+        carousel.addEventListener('keydown', (e) => {
+            let newIndex = currentIndex;
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                newIndex = (currentIndex + 1) % cards.length;
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                newIndex = (currentIndex - 1 + cards.length) % cards.length;
+            } else {
+                return; // Not a relevant key
+            }
+
+            e.preventDefault(); // Prevent page scroll
+            currentIndex = newIndex;
+            updateActiveState(currentIndex);
+            cards[currentIndex].focus(); // Move focus to the new active tab
+            resetAutoPlay();
+        });
+
         // ----------------------------------------------------------------------
         // Glass "Know More" Button & Modal Logic Integration
         // ----------------------------------------------------------------------
+        const modalCloseBtn = document.getElementById('sectorModalClose');
+        const modalOverlay = document.getElementById('sectorModalOverlay');
+        const modalPanel = document.querySelector('.sector-modal-panel');
+        const imageContainer = document.getElementById('sectorModalImageContainer'); // Ensure this ID is on the HTML element
+        let energySlideshowInterval;
+        
         const openModal = (sectorKey) => {
             const sector = sectorData[sectorKey];
             if (!sector || !sectorModal) return;
             
+            // Add/remove theme class for special styling
+            sectorModal.classList.toggle('energy-theme', sectorKey === 'energy'); 
+
             const targetTitleNode = document.getElementById('sectorTitle');
-            const targetDescNode = document.getElementById('sectorDescription');
-            const focusAreasList = document.getElementById('sectorFocusAreas');
-            const targetImpactNode = document.getElementById('sectorImpact');
+            const modalBody = document.getElementById('sectorModalBody');
             
-            if(targetTitleNode) targetTitleNode.textContent = sector.title;
-            if(targetDescNode) targetDescNode.textContent = sector.description;
-            if(targetImpactNode) targetImpactNode.textContent = sector.impact;
-            
-            if (focusAreasList) {
-                focusAreasList.innerHTML = '';
-                sector.focusAreas.forEach(area => {
-                    const li = document.createElement('li');
-                    li.textContent = area;
-                    focusAreasList.appendChild(li);
-                });
+            if(targetTitleNode) targetTitleNode.textContent = sector.modalTitle || sector.title;
+
+            if (modalBody) {
+                if (sector.contentHtml) {
+                    modalBody.innerHTML = sector.contentHtml;
+                } else {
+                    // Rebuild the old structure for other sectors
+                    let content = `<p>${sector.description}</p>`;
+                    if (sector.focusAreas && sector.focusAreas.length > 0) {
+                        content += `
+                            <div class="sector-highlights">
+                                <h4>Key Strategic Focus</h4>
+                                <ul>
+                                    ${sector.focusAreas.map(area => `<li>${area}</li>`).join('')}
+                                </ul>
+                            </div>
+                        `;
+                    }
+                    if (sector.impact) {
+                        content += `
+                            <div class="sector-impact">
+                                <h4>National Impact</h4>
+                                <p>${sector.impact}</p>
+                            </div>
+                        `;
+                    }
+                    modalBody.innerHTML = content;
+                }
+            }
+
+            if (imageContainer) {
+                imageContainer.innerHTML = ''; // Clear previous content
+                imageContainer.style.backgroundImage = ''; // Clear previous background image style
+
+                if (sectorKey === 'energy') { 
+                    imageContainer.innerHTML = `
+                        <div class="energy-image-showcase">
+                            <div class="showcase-image-wrapper">
+                                <!-- IMPORTANT: Verify these image paths are correct relative to index.html -->
+                                <img src="assets/E_Sec/E_Sec_01.png" class="showcase-image" alt="Solar Panel Installation">
+                                <img src="assets/E_Sec/E_Sec_02.png" class="showcase-image" alt="Wind Turbines at Sunset">
+                                <img src="assets/E_Sec/E_Sec_03.png" class="showcase-image" alt="Green Hydrogen Facility">
+                                <img src="assets/E_Sec/E_Sec_04.png" class="showcase-image" alt="Modern Energy Substation">
+                                <img src="assets/E_Sec/E_Sec_05.png" class="showcase-image" alt="Offshore Wind Farm">
+                                <img src="assets/E_Sec/E_Sec_06.png" class="showcase-image" alt="Sustainable Infrastructure">
+                            </div>
+                            <div class="showcase-overlay"></div>
+                            <div class="showcase-grain"></div>
+                            <div class="showcase-stats-overlay">
+                                <div class="showcase-stat-card">
+                                    <h3>500 GW</h3>
+                                    <p>Renewable Target</p>
+                                </div>
+                                <div class="showcase-stat-card">
+                                    <h3>Net Zero</h3>
+                                    <p>by 2070</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    // Start the energy slideshow
+                    const startEnergySlideshow = () => {
+                        const images = document.querySelectorAll('.energy-image-showcase .showcase-image');
+                        if (images.length === 0) return;
+                        
+                        let currentIndex = 0;
+                        images[currentIndex].classList.add('active');
+
+                        clearInterval(energySlideshowInterval);
+                        energySlideshowInterval = setInterval(() => {
+                            images[currentIndex].classList.remove('active');
+                            currentIndex = (currentIndex + 1) % images.length; 
+                            images[currentIndex].classList.add('active');
+                        }, 7000); // Cinematic transition every 7 seconds
+                    };
+
+                    // Use requestAnimationFrame to ensure the DOM is ready before starting animations
+                    requestAnimationFrame(() => {
+                        startEnergySlideshow();
+                        animateModalCounters(); // Animate counters after modal content is rendered
+                    });
+                } else if (sector.image) {
+                    imageContainer.style.backgroundImage = `url('assets/${sector.image}')`;
+                }
             }
 
             sectorModal.classList.add('open');
+            sectorModal.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
             clearInterval(autoPlayInterval);
+
+            // Accessibility: Store last focused element and move focus into the modal
+            lastFocusedElement = document.activeElement;
+            modalCloseBtn?.focus();
         };
 
         const closeModal = () => {
+            if (!sectorModal.classList.contains('open')) return;
+
             sectorModal.classList.remove('open');
+            sectorModal.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
+            clearInterval(energySlideshowInterval); // Clear the slideshow interval
             startAutoPlay();
+
+            // Accessibility: Return focus to the element that opened the modal
+            lastFocusedElement?.focus();
+        };
+
+        const handleModalKeyboardNav = (e) => {
+            if (!sectorModal.classList.contains('open')) return;
+
+            if (e.key === 'Escape') {
+                closeModal();
+                return;
+            }
+
+            if (e.key === 'Tab') {
+                const focusableElements = modalPanel.querySelectorAll(
+                    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+                );
+                const firstElement = focusableElements[0];
+                const lastElement = focusableElements[focusableElements.length - 1];
+
+                if (e.shiftKey) { // Shift + Tab
+                    if (document.activeElement === firstElement) {
+                        lastElement.focus();
+                        e.preventDefault();
+                    }
+                } else { // Tab
+                    if (document.activeElement === lastElement) {
+                        firstElement.focus();
+                        e.preventDefault();
+                    }
+                }
+            }
+        };
+
+        const animateModalCounters = () => {
+            const counters = document.querySelectorAll('.sector-modal.open .stat-value[data-target]');
+            counters.forEach(node => { // Iterate over each counter element
+                const targetVal = +node.dataset.target;
+                if (isNaN(targetVal)) return; 
+
+                let baseVal = 0;
+                const runtimeSpan = 1800; 
+                const tickRate = 1000 / 60; 
+                const stepValue = targetVal / (runtimeSpan / tickRate);
+
+                const progressiveLoop = () => {
+                    baseVal += stepValue; // Increment the base value
+                    if (baseVal >= targetVal) { 
+                        node.textContent = targetVal.toLocaleString(); // Set final value
+                    } else { // Continue animation
+                        node.textContent = Math.floor(baseVal).toLocaleString();
+                        requestAnimationFrame(progressiveLoop);
+                    }
+                };
+                requestAnimationFrame(progressiveLoop);
+            });
         };
 
         dynBtn?.addEventListener('click', () => { openModal(dynBtn.dataset.sector); });
-        
-        document.getElementById('sectorModalClose')?.addEventListener('click', closeModal);
-        document.getElementById('sectorModalOverlay')?.addEventListener('click', closeModal);
-        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+        modalCloseBtn?.addEventListener('click', closeModal);
+        modalOverlay?.addEventListener('click', closeModal);
+        document.addEventListener('keydown', handleModalKeyboardNav);
     };
     initDynamicBusinessSection();
 
@@ -444,7 +711,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================================================
     const runLayoutSectionReveals = () => {
         const layoutContainers = document.querySelectorAll(
-            '.genesis-section, .section-split, .floating-media-section, .cards-section, .values-section, .ecosystem-section, .showcase-section, .growth-strategy-section, .csr-section, .roadmap-section, .news-section, .join-section, #leadership, .interactive-business-section, .vision-mission-content'
+            '.scroll-animated-section, .genesis-section, .section-split, .floating-media-section, .cards-section, .values-section, .ecosystem-section, .showcase-section, .growth-strategy-section, .csr-section, .news-section, .join-section, #leadership, .interactive-business-section, .vision-mission-content'
         );
 
         const targetObserver = new IntersectionObserver((entries) => {
@@ -595,130 +862,20 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     addGenesisInteractivity();
     // ==========================================================================
-    // 6. IN-MEMORY TOKEN SEARCH LOCAL ENGINE (TF-IDF Chatbot)
+    // 6. INTERACTIVE CORE VALUE CARD FLIP LOGIC
     // ==========================================================================
-    function initializeChatbot() {
-        if (chatInitialized) return;
-        chatInitialized = true;
-        buildKnowledgeBase();
-        if (!sessionStorage.getItem('aureonChatHistory')) {
-            appendMessage('bot', "Welcome to Aureon. I am Eon, your automated corporate assistant. Ask me anything regarding our foundational utility businesses or portfolio matrix systems.");
-        } else {
-            restoreChatHistory();
-        }
-    }
+    const initValueCardInteraction = () => {
+        const valueCards = document.querySelectorAll('.value-card');
+        if (!valueCards.length) return;
 
-    function buildKnowledgeBase() {
-        knowledgeEntries.length = 0; idfMap.clear();
-        const mainSections = Array.from(document.querySelectorAll('main section, main .hero-section'));
-        const internalDocs = [];
-
-        mainSections.forEach((section, index) => {
-            const h = section.querySelector('h1, h2, h3')?.textContent.trim() || `Block-${index}`;
-            const strings = Array.from(section.querySelectorAll('p, li')).map(el => el.textContent.trim()).filter(Boolean).join(' ');
-            if (!strings) return;
-            const docText = `${h}. ${strings}`;
-            const words = docText.toLowerCase().match(/[a-z0-9]+/g) || [];
-            Array.from(new Set(words)).forEach(w => idfMap.set(w, (idfMap.get(w) || 0) + 1));
-            internalDocs.push({ id: index, title: h, content: docText, tokens: words });
+        valueCards.forEach(card => {
+            // Make cards focusable so that the CSS :focus-within pseudo-class can
+            // trigger the flip for keyboard users, complementing the :hover effect.
+            card.setAttribute('tabindex', '0');
         });
-
-        // Inject corporate profile knowledge explicitly
-        const strategyDoc = "Aureon’s expansion philosophy is grounded in disciplined capital deployment, structural integration, and long-horizon value creation. We prioritize the development of foundational infrastructures in digital, industrial, and energy before pursuing rapid consumer-facing expansion. Er Ashish B C CEO, Er Arun Kumar R S COO, Er Gokul S Pillai CTO, Er Meghna M Rajeev Director, Dr Akhil R Dev Director";
-        const strategyWords = strategyDoc.toLowerCase().match(/[a-z0-9]+/g) || [];
-        Array.from(new Set(strategyWords)).forEach(w => idfMap.set(w, (idfMap.get(w) || 0) + 1));
-        internalDocs.push({ id: 99, title: "Growth Strategy & Expansion Model", content: strategyDoc, tokens: strategyWords });
-
-        internalDocs.forEach(doc => {
-            const tfMap = new Map(); doc.tokens.forEach(t => tfMap.set(t, (tfMap.get(t) || 0) + 1));
-            const queryVector = new Map(); let weightSum = 0;
-            doc.tokens.forEach(t => {
-                const valueWeight = (tfMap.get(t) / doc.tokens.length) * Math.log((internalDocs.length + 1) / (1 + (idfMap.get(t) || 0)));
-                queryVector.set(t, valueWeight); weightSum += valueWeight * valueWeight;
-            });
-            const rootNorm = Math.sqrt(weightSum) || 1;
-            queryVector.forEach((v, k) => queryVector.set(k, v / rootNorm));
-            knowledgeEntries.push({ title: doc.title, content: doc.content, vector: queryVector });
-        });
-    }
-
-    function appendMessage(role, text) {
-        if (!chatBody) return;
-        const msgNode = document.createElement('div'); msgNode.className = `chat-message ${role}`;
-        msgNode.innerHTML = `<div class="chat-bubble">${text}</div>`;
-        chatBody.appendChild(msgNode);
-        chatBody.scrollTop = chatBody.scrollHeight;
-        if (role !== 'typing') {
-            chatHistory.push({ role, text });
-            sessionStorage.setItem('aureonChatHistory', JSON.stringify(chatHistory));
-        }
-    }
-
-    function restoreChatHistory() {
-        try {
-            chatHistory = JSON.parse(sessionStorage.getItem('aureonChatHistory')) || [];
-            chatHistory.forEach(h => appendMessage(h.role, h.text));
-        } catch { chatHistory = []; }
-    }
-
-    const executeInputQueryMessage = () => {
-        if (!chatInput) return;
-        const stringVal = chatInput.value.trim(); if (!stringVal) return;
-        appendMessage('user', stringVal); chatInput.value = '';
-
-        const loaderIndicator = document.createElement('div'); loaderIndicator.className = 'chat-message bot';
-        loaderIndicator.innerHTML = '<div class="chat-bubble typing-indicator"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div>';
-        chatBody.appendChild(loaderIndicator); chatBody.scrollTop = chatBody.scrollHeight;
-
-        setTimeout(() => {
-            loaderIndicator.remove();
-            const terms = stringVal.toLowerCase().match(/[a-z0-9]+/g) || [];
-            const termTf = new Map(); terms.forEach(t => termTf.set(t, (termTf.get(t) || 0) + 1));
-            const vectorSet = new Map(); let squareAcc = 0;
-            terms.forEach(t => {
-                const dynamicWeight = (termTf.get(t) / terms.length) * Math.log((knowledgeEntries.length + 1) / (1 + (idfMap.get(t) || 0)));
-                vectorSet.set(t, dynamicWeight); squareAcc += dynamicWeight * dynamicWeight;
-            });
-            const calculationNorm = Math.sqrt(squareAcc) || 1;
-            vectorSet.forEach((v, k) => vectorSet.set(k, v / calculationNorm));
-
-            let optimizedMatch = { score: 0, entry: null };
-            knowledgeEntries.forEach(entry => {
-                let dotAccumulator = 0; vectorSet.forEach((v, k) => { if (entry.vector.has(k)) dotAccumulator += v * entry.vector.get(k); });
-                if (dotAccumulator > optimizedMatch.score) optimizedMatch = { score: dotAccumulator, entry };
-            });
-
-            if (optimizedMatch.score >= 0.05) {
-                const contentSentences = optimizedMatch.entry.content.match(/[^.!?]+[.!?]+/g) || [optimizedMatch.entry.content];
-                appendMessage('bot', `**${optimizedMatch.entry.title}**: ${contentSentences.slice(0, 2).join(' ').trim()}`);
-            } else {
-                appendMessage('bot', "I couldn't locate precise matching parameters inside our public knowledge documentation matrices.");
-            }
-        }, 1200);
     };
+    initValueCardInteraction();
 
-    if (chatToggle) {
-        chatToggle.addEventListener('click', () => {
-            const isOpen = chatWidget?.classList.toggle('open');
-            if (chatToggle) {
-                chatToggle.setAttribute('aria-expanded', chatWidget?.classList.contains('open') ? 'true' : 'false');
-            }
-            if (chatWidget?.classList.contains('open')) {
-                chatWidget.setAttribute('aria-hidden', 'false');
-                initializeChatbot();
-                chatInput?.focus();
-            } else {
-                chatWidget?.setAttribute('aria-hidden', 'true');
-            }
-        });
-        document.getElementById('chatClose')?.addEventListener('click', () => {
-            chatWidget?.classList.remove('open');
-            chatWidget?.setAttribute('aria-hidden', 'true');
-            chatToggle.setAttribute('aria-expanded', 'false');
-        });
-        document.getElementById('chatSend')?.addEventListener('click', executeInputQueryMessage);
-        chatInput?.addEventListener('keydown', (e) => { if (e.key === 'Enter') executeInputQueryMessage(); });
-    }
 
     // Mobile Menu Structural Overrides
     if (navToggle) {
@@ -749,6 +906,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Auto-Hide Lifecycle Page Loader
     setTimeout(() => { if (pageLoader) pageLoader.classList.add('loaded'); }, 400);
 });
+
 // Premium Hero Background Interactivity
 document.addEventListener('DOMContentLoaded', () => {
     const heroBg = document.getElementById('heroBg');
