@@ -573,13 +573,18 @@ body.dyslexia-font-enabled * { font-family: 'Comic Sans MS', 'OpenDyslexic', san
     align-items: flex-end;
     padding: 40px;
     color: white;
+    transition: filter 0.3s ease-in-out;
+}
+
+.sector-modal-panel:hover .modal-hero {
+    filter: brightness(1.1);
 }
 
 .modal-hero::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.1) 60%, transparent 100%);
 }
 
 .modal-hero-content {
@@ -1998,6 +2003,35 @@ body.dyslexia-font-enabled * { font-family: 'Comic Sans MS', 'OpenDyslexic', san
      [data-theme="dark"] .esg-content {
         border-top-color: rgba(255,255,255,0.15);
      }
+     
+/* ==========================================================================
+   13. INFORMATIONAL MODAL CONTENT STYLING
+   ========================================================================== */
+#privacyModal .sector-modal-body,
+#termsModal .sector-modal-body,
+#careersModal .sector-modal-body {
+    padding: 0; /* Remove padding from the body to allow content to have its own. */
+}
+
+.modal-body-content .modal-section:first-child {
+    text-align: center;
+}
+
+.modal-body-content h2 {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 8px;
+    font-family: var(--font-heading);
+    color: var(--primary-heading);
+}
+
+.modal-body-content p[style*="text-align: center"] {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--subheading);
+    margin-bottom: 32px;
+}
+
     
     /* Show content when nav item is active */
     .esg-nav-item.active .esg-content {

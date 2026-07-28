@@ -27,18 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="modal-body-content">
                     <div class="modal-section">
-                        <h4>Vision</h4>
-                        <p>To build inclusive digital communities where technology serves as a great equalizer, reducing disparities and empowering every Indian to participate in a future of shared progress and prosperity.</p>
-                    </div>
-
-                    <div class="modal-section">
-                        <h4>Mission</h4>
-                        <p>To architect India's sovereign digital backbone by developing secure, scalable, and accessible technology ecosystems that drive innovation, foster digital literacy, and empower businesses, governance, and citizens alike.</p>
-                    </div>
-
-                    <div class="modal-section">
-                        <h4>Our Approach</h4>
-                        <p>Inspired by the Digital India vision, Aureon is committed to driving digital transformation across industries. We aim to support India's digital growth by bridging the digital divide, making technologies accessible, promoting digital literacy, and creating secure, scalable digital ecosystems. We empower businesses through innovation, support startups and MSMEs, and deliver technology that improves governance, education, and healthcare. Our goal is to build inclusive digital communities where technology benefits everyone equally.</p>
+                        <p>Aureon is dedicated to architecting India's sovereign digital backbone, guided by a vision of inclusive digital communities where technology acts as a great equalizer. Our mission is to develop secure, scalable, and accessible technology ecosystems that drive innovation and empower businesses, governance, and citizens. Inspired by the Digital India initiative, we are committed to bridging the digital divide, promoting digital literacy, and delivering transformative solutions in governance, education, and healthcare to foster a future of shared prosperity for every Indian.</p>
                     </div>
 
                     <div class="modal-section focus-areas">
@@ -72,18 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="modal-body-content">
                      <div class="modal-section">
-                        <h4>Vision</h4>
-                        <p>To lead India's transition to a green economy, fostering a future where sustainable energy powers national growth and environmental well-being.</p>
-                    </div>
-
-                    <div class="modal-section">
-                        <h4>Mission</h4>
-                        <p>To accelerate India’s clean energy transition by developing and investing in renewable infrastructure, promoting green innovation, and helping industries achieve their carbon reduction goals in line with India's Net Zero commitment.</p>
-                    </div>
-
-                    <div class="modal-section">
-                        <h4>Our Approach</h4>
-                        <p>Aureon is dedicated to supporting India's goal of achieving Net Zero emissions by 2070. We focus on sustainable development, climate resilience, and green innovation. By investing in sustainable technologies, promoting renewable infrastructure, and encouraging responsible energy consumption, we help industries reduce emissions and contribute to building a cleaner, greener future for all.</p>
+                        <p>Aureon is committed to leading India's transition to a green economy, where sustainable energy fuels national growth and environmental well-being. Our mission is to accelerate this transition by developing and investing in renewable infrastructure, promoting green innovation, and supporting industries in achieving their carbon reduction goals. In alignment with India's Net Zero 2070 commitment, we focus on climate resilience and responsible energy consumption to help build a cleaner, more sustainable future for all.</p>
                     </div>
 
                     <div class="modal-section focus-areas">
@@ -117,18 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="modal-body-content">
                     <div class="modal-section">
-                        <h4>Vision</h4>
-                        <p>To set the standard for reliable, efficient, and customer-centric logistics in India.</p>
-                    </div>
-
-                    <div class="modal-section">
-                        <h4>Mission</h4>
-                        <p>To deliver seamless, safe, and premium transportation experiences that connect people and businesses, driven by technology and a commitment to transparent service.</p>
-                    </div>
-
-                    <div class="modal-section">
-                        <h4>Our Approach</h4>
-                        <p>In a world that depends on connectivity, Aureon Logistics is building the future of transportation. We are committed to providing safe, reliable services with a premium travel experience, all at a fair and transparent price. Our operations are powered by technology, focusing on comfortable journeys, customer-first service, sustainable practices, and efficient fleet management.</p>
+                        <p>Aureon Logistics is redefining connectivity in India by setting a new standard for reliable, efficient, and customer-centric logistics. Our mission is to deliver seamless, safe, and premium transportation experiences that connect people and businesses, underpinned by technological innovation and a commitment to transparency. We are building the future of transportation by focusing on comfortable journeys, customer-first service, sustainable practices, and efficient fleet management to create a more connected and accessible world.</p>
                     </div>
 
                     <div class="modal-section focus-areas">
@@ -160,18 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="modal-body-content">
                     <div class="modal-section">
-                        <h4>Vision</h4>
-                        <p>Accessible, affordable, and quality healthcare for every citizen of India.</p>
-                    </div>
-
-                    <div class="modal-section">
-                        <h4>Mission</h4>
-                        <p>To improve healthcare accessibility and outcomes across India by leveraging technology, fostering strategic public-private partnerships, and investing in next-generation medical infrastructure.</p>
-                    </div>
-
-                    <div class="modal-section">
-                        <h4>Our Approach</h4>
-                        <p>Aligned with India's national healthcare priorities, Aureon aims to bridge the urban-rural divide. Our strategic initiatives are focused on ensuring the availability of life-saving medicines, enabling better distribution of scarce medical resources, and developing efficient emergency response systems. We are committed to improving healthcare accessibility for remote communities and strengthening India’s healthcare ecosystem through innovation.</p>
+                        <p>Aureon is dedicated to making accessible, affordable, and quality healthcare a reality for every citizen of India. Our mission is to improve healthcare outcomes by leveraging technology, fostering strategic public-private partnerships, and investing in next-generation medical infrastructure. Aligned with national priorities, we focus on bridging the urban-rural divide by ensuring the availability of life-saving medicines, optimizing the distribution of medical resources, and developing efficient emergency response systems to strengthen India’s entire healthcare ecosystem.</p>
                     </div>
 
                     <div class="modal-section focus-areas">
@@ -1108,6 +1064,85 @@ document.addEventListener('DOMContentLoaded', () => {
         footerObserver.observe(footer);
     };
     initFooterAnimation();
+    
+    // ==========================================================================
+    // 9. GENERIC INFORMATIONAL MODAL HANDLER
+    // ==========================================================================
+    const initInfoModals = () => {
+        let lastFocusedElement;
+
+        const openModal = (modalId) => {
+            const modal = document.getElementById(modalId);
+            if (!modal) return;
+
+            lastFocusedElement = document.activeElement;
+            modal.classList.add('open');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            
+            const closeButton = modal.querySelector('.sector-modal-close');
+            closeButton?.focus();
+        };
+
+        const closeModal = (modal) => {
+            if (!modal || !modal.classList.contains('open')) return;
+
+            modal.classList.remove('open');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+
+            lastFocusedElement?.focus();
+        };
+
+        const handleKeyboardNav = (e) => {
+            const openModal = document.querySelector('.sector-modal.open');
+            if (!openModal) return;
+
+            if (e.key === 'Escape') {
+                closeModal(openModal);
+            }
+
+            if (e.key === 'Tab') {
+                const modalPanel = openModal.querySelector('.sector-modal-panel');
+                const focusableElements = modalPanel.querySelectorAll(
+                    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+                );
+                const firstElement = focusableElements[0];
+                const lastElement = focusableElements[focusableElements.length - 1];
+
+                if (e.shiftKey) { // Shift + Tab
+                    if (document.activeElement === firstElement) {
+                        lastElement.focus();
+                        e.preventDefault();
+                    }
+                } else { // Tab
+                    if (document.activeElement === lastElement) {
+                        firstElement.focus();
+                        e.preventDefault();
+                    }
+                }
+            }
+        };
+
+        document.querySelectorAll('[data-modal-target]').forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                const modalId = trigger.getAttribute('data-modal-target');
+                openModal(modalId);
+            });
+        });
+
+        document.querySelectorAll('.sector-modal').forEach(modal => {
+            const overlay = modal.querySelector('.sector-modal-overlay');
+            const closeButton = modal.querySelector('.sector-modal-close');
+            
+            if(overlay) overlay.addEventListener('click', () => closeModal(modal));
+            if(closeButton) closeButton.addEventListener('click', () => closeModal(modal));
+        });
+
+        document.addEventListener('keydown', handleKeyboardNav);
+    };
+    initInfoModals();
 });
 
 // Premium Hero Background Interactivity
