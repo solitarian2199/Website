@@ -554,15 +554,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const activeCard = cards[index];
 
-            if (isMobile && activeCard) {
-                // Smoothly scroll the active card to the center on mobile
-                activeCard.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'nearest',
-                    inline: 'center'
-                });
-            }
-
             const sectorKey = activeCard.dataset.sector;
             const targetBg = document.getElementById(`bg-${sectorKey}`);
             if (targetBg) targetBg.classList.add('active');

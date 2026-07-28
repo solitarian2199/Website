@@ -1390,19 +1390,38 @@ body.dyslexia-font-enabled * { font-family: 'Comic Sans MS', 'OpenDyslexic', san
     .footer-brand-column {
         grid-column: span 2;
     }
-    .sector-modal-panel { max-height: 90vh; max-width: 95vw; }
+    .sector-modal-panel { 
+        max-height: 90vh; 
+        max-width: 95vw; 
+    }
     .sector-modal-content { grid-template-columns: 1fr; }
-    .sector-modal-image { max-height: 250px; border-radius: 20px 20px 0 0; }
+    .sector-modal-image { 
+        max-height: 250px; 
+        border-radius: 20px 20px 0 0; 
+    }
 }
 
 @media (max-width: 992px) {
     .media-container { gap: 24px; }
-    .card-1, .card-2, .card-3 { max-width: 100%; height: auto; }
-    .interactive-business-inner { flex-direction: column; gap: 40px; padding: 60px 0; }
+    .card-1, .card-2, .card-3 { 
+        max-width: 100%; 
+        height: auto; 
+    }
+    .interactive-business-section {
+        min-height: auto; /* Remove fixed height */
+    }
+    .interactive-business-inner { 
+        flex-direction: column; 
+        gap: 40px; 
+        padding: 60px 0; 
+    }
     .bg-gradient-overlay { background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.8) 40%, rgba(255, 255, 255, 0.2) 100%); }
     [data-theme="dark"] .bg-gradient-overlay { background: linear-gradient(to bottom, rgba(18, 5, 17, 0.98) 0%, rgba(18, 5, 17, 0.8) 40%, rgba(18, 5, 17, 0.2) 100%); }
-    .business-text-content { text-align: center; max-width: 100%; }
-    .business-text-content { padding: 0 24px; }
+    .business-text-content { 
+        text-align: center; 
+        max-width: 100%; 
+        padding: 0 24px;
+    }
 
     .business-carousel-wrapper { 
         width: 100%; 
@@ -1414,12 +1433,11 @@ body.dyslexia-font-enabled * { font-family: 'Comic Sans MS', 'OpenDyslexic', san
 
     .business-carousel {
         display: flex;
-        gap: 16px;
+        gap: 24px; /* Increased gap */
         width: auto;
         height: auto;
         padding: 0 24px;
         overflow-x: auto;
-        scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         transform-style: flat;
@@ -1429,11 +1447,17 @@ body.dyslexia-font-enabled * { font-family: 'Comic Sans MS', 'OpenDyslexic', san
 
     .biz-card {
         position: relative;
-        flex: 0 0 75%;
-        max-width: 300px;
-        height: 420px;
-        scroll-snap-align: center;
+        flex: 0 0 70%; /* Adjust card width */
+        max-width: 280px; /* Max-width for consistency */
+        height: auto; /* Let content define height */
         transition: transform 0.4s ease, box-shadow 0.4s ease;
+        will-change: transform; /* Performance hint */
+    }
+    
+    .biz-card img {
+        aspect-ratio: 3 / 4; /* Maintain aspect ratio */
+        height: auto;
+        width: 100%;
     }
 
     .biz-card.active {
@@ -1459,6 +1483,22 @@ body.dyslexia-font-enabled * { font-family: 'Comic Sans MS', 'OpenDyslexic', san
     .value-card { text-align: center; }
     .feature-item { flex-direction: column; text-align: center; }
     .feature-icon { font-size: 2.2rem; }
+
+    /* Responsive Modal Styles */
+    .sector-modal-panel {
+        width: 95vw;
+        max-width: 500px; /* Max-width on tablet-sized phones */
+        height: auto;
+        max-height: 85vh; /* Give some breathing room */
+        border-radius: 16px;
+    }
+    .modal-hero {
+        min-height: 180px; /* Adjust hero height */
+        padding: 24px;
+    }
+    .modal-body-content {
+        padding: 24px;
+    }
 }
 
 @media (max-width: 600px) {
