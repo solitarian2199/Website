@@ -18,7 +18,8 @@
 
     <div class="page-loader" id="pageLoader" role="status" aria-live="polite">
         <div class="loader-brand">
-            <img src="assets/Aureon%20logo-01.png" alt="Aureon Logo" style="height: 200px; width: auto; display: block; margin: 0 auto;">
+            <img src="assets/Aureon%20logo-01.png" alt="Aureon Logo" 
+            style="height: 200px; width: auto; display: block; margin: 0 auto;">
             <div class="loader-line"></div>
             <p>Inspired by Vision</p>
         </div>
@@ -54,13 +55,7 @@
                                 <span class="slider"></span>
                             </label>
                         </div>
-                        <div class="acc-menu-item">
-                            <span>Dyslexia Font</span>
-                            <label class="toggle-switch">
-                                <input type="checkbox" id="dyslexiaToggle" aria-label="Enable dyslexia-friendly font">
-                                <span class="slider"></span>
-                            </label>
-                        </div>
+                       
                     </div>
                 </div>
                 
@@ -117,10 +112,6 @@
                         <span class="highlight-gradient">We are building it.</span>
                     </h2>
                 </div>
-            </div>
-
-            <!-- Scene 2: The Vision & Mission -->
-            <div class="genesis-scene vision-mission" id="about-aureon-core">
                 <div class="vision-mission-grid">
                     <div class="vision-mission-content">                        
                         <div class="mission-vision-cards">
@@ -144,7 +135,6 @@
                     </div>
                 </div>
             </div>
-
         </section>
 
 
@@ -203,21 +193,9 @@
             <div class="sector-modal-overlay" id="sectorModalOverlay"></div>
             <div class="sector-modal-panel">
                 <button class="sector-modal-close" id="sectorModalClose" aria-label="Close dialog">&times;</button>
-                <div class="sector-modal-content">
-                    <div class="sector-modal-image">
-                        <img id="sectorImage" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Sector Context Visualization">
-                    </div>
-                    <div class="sector-modal-text">
-                        <h2 id="sectorTitle">Business Sector</h2>
-                        <p id="sectorDescription">Information content parsing summary string data node.</p>
-                        <div class="sector-highlights">
-                            <h4>Key Strategic Focus</h4>
-                            <ul id="sectorFocusAreas"></ul>
-                        </div>
-                        <div class="sector-impact">
-                            <h4>National Impact</h4>
-                            <p id="sectorImpact"></p>
-                        </div>
+                <div class="sector-modal-content-wrapper">
+                    <div class="sector-modal-body" id="sectorModalBody">
+                        <!-- Dynamic Content will be injected here by JavaScript -->
                     </div>
                 </div>
             </div>
@@ -336,69 +314,194 @@
             </div>
         </section>
 
-        <section class="csr-section" id="responsibility">
-            <div class="csr-content">
+        <section class="esg-section" id="responsibility">
+            <div class="esg-header">
                 <p class="eyebrow">Responsible Growth</p>
                 <h2>Corporate Responsibility & Impact</h2>
-                <p>Aureon integrates environmental, social, and governance (ESG) principles across all operations. Long-term institutional strength is inseparable from environmental stewardship, ethical conduct, and meaningful social contribution.</p>
-                <div class="csr-pillars">
-                    <div class="pillar">
-                        <h3> Environmental Leadership</h3>
-                        <p>Advancing sustainable energy initiatives that reduce environmental impact while strengthening national energy capacity. Every operation designed with ecological responsibility.</p>
+                <p>Aureon integrates Environmental, Social and Governance (ESG) principles across every aspect of its operations. We believe that enduring institutional success is achieved by balancing business growth with environmental stewardship, ethical governance and meaningful social impact. Our commitment extends beyond commercial success toward creating lasting value for society, our stakeholders and future generations.</p>
+            </div>
+
+            <div class="esg-interactive-layout">
+                <div class="esg-nav-panel">
+                    <div role="tablist" aria-label="ESG Pillars">
+                        <button class="esg-nav-item active" role="tab" aria-selected="true" aria-controls="esg-content-environment" id="esg-tab-environment">
+                            <div class="esg-nav-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="M12 18a6 6 0 0 0 6-6c0-6-12-6-12 0a6 6 0 0 0 6 6z"></path></svg>
+                            </div>
+                            <div class="esg-nav-text">
+                                <h3>Environmental Leadership</h3>
+                                <p>Driving sustainable practices and climate-conscious innovation.</p>
+                            </div>
+                        </button>
+                        <button class="esg-nav-item" role="tab" aria-selected="false" aria-controls="esg-content-supplychain" id="esg-tab-supplychain">
+                            <div class="esg-nav-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><path d="M16 8L2 22"></path><path d="M17.5 15H9"></path></svg>
+                            </div>
+                            <div class="esg-nav-text">
+                                <h3>Ethical Supply Chain</h3>
+                                <p>Ensuring integrity and transparent governance in all partnerships.</p>
+                            </div>
+                        </button>
+                        <button class="esg-nav-item" role="tab" aria-selected="false" aria-controls="esg-content-workforce" id="esg-tab-workforce">
+                            <div class="esg-nav-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            </div>
+                            <div class="esg-nav-text">
+                                <h3>Workforce Empowerment</h3>
+                                <p>Investing in talent, diversity, and continuous professional growth.</p>
+                            </div>
+                        </button>
                     </div>
-                    <div class="pillar">
-                        <h3> Ethical Supply Chain</h3>
-                        <p>Transparency, accountability, and responsible sourcing across our operational network. We ensure that our growth doesn’t compromise ethical standards or stakeholder trust.</p>
+                </div>
+
+                <div class="esg-content-panel">
+                    <div class="esg-content active" id="esg-content-environment" role="tabpanel" aria-labelledby="esg-tab-environment">
+                        <h2>Building a Sustainable Tomorrow</h2>
+                        <p>Aureon is committed to supporting India's transition toward a cleaner and more sustainable future by integrating environmentally responsible practices into every stage of business development. We recognize that long-term economic growth and environmental preservation must progress together.</p>
+                        <div class="animated-divider"></div>
+                        <ul class="esg-focus-areas">
+                            <li>Renewable energy adoption</li>
+                            <li>Carbon footprint reduction</li>
+                            <li>Energy-efficient operations</li>
+                            <li>Responsible resource management</li>
+                            <li>Climate-conscious innovation</li>
+                        </ul>
+                        <blockquote class="esg-vision-statement">
+                            "Our responsibility is not only to build successful businesses, but to ensure they contribute to a healthier planet for generations to come."
+                        </blockquote>
                     </div>
-                    <div class="pillar">
-                        <h3> Workforce Empowerment</h3>
-                        <p>Investing in skill development programs that enhance workforce capability and contribute to long-term economic empowerment. Our people drive our innovation.</p>
+                    <div class="esg-content" id="esg-content-supplychain" role="tabpanel" aria-labelledby="esg-tab-supplychain" hidden>
+                        <h2>Integrity Across Every Partnership</h2>
+                        <p>Aureon believes that sustainable growth is built upon trust, transparency and accountability. Every supplier, partner and stakeholder relationship should reflect our commitment to responsible governance and ethical business practices.</p>
+                         <div class="animated-divider"></div>
+                        <ul class="esg-focus-areas">
+                            <li>Responsible sourcing</li>
+                            <li>Transparent governance</li>
+                            <li>Ethical procurement</li>
+                            <li>Compliance and accountability</li>
+                            <li>Long-term stakeholder trust</li>
+                        </ul>
+                        <blockquote class="esg-vision-statement">
+                            "Integrity is the foundation upon which enduring enterprises are built."
+                        </blockquote>
+                    </div>
+                    <div class="esg-content" id="esg-content-workforce" role="tabpanel" aria-labelledby="esg-tab-workforce" hidden>
+                        <h2>Empowering People to Shape the Future</h2>
+                        <p>People remain Aureon's greatest strength. We are committed to creating an inclusive environment that encourages continuous learning, innovation and professional excellence.</p>
+                         <div class="animated-divider"></div>
+                        <ul class="esg-focus-areas">
+                            <li>Continuous learning</li>
+                            <li>Leadership development</li>
+                            <li>Skill enhancement</li>
+                            <li>Diversity and inclusion</li>
+                            <li>Employee well-being</li>
+                        </ul>
+                        <blockquote class="esg-vision-statement">
+                            "When people grow, organizations innovate, communities prosper and nations progress."
+                        </blockquote>
                     </div>
                 </div>
             </div>
         </section>
 
+        
+
     </main>
 
     <footer class="page-footer glass-footer" id="contact">
-        <div class="footer-top">
-            <div class="footer-column branding-column">
-                <div class="footer-brand-wrap">
-                    <img src="assets/Aureon%20logo-01.png" alt="Aureon Logo" style="height: 48px; width: auto; display: block; margin-bottom: 16px;">
+        <div class="footer-golden-line"></div>
+        <div class="footer-content-wrapper">
+            <div class="footer-grid">
+                <!-- Column 1: Brand -->
+                <div class="footer-column footer-brand-column">
+                    <img src="assets/Aureon logo-02.png" alt="Aureon Logo" class="footer-logo">
+                    <p class="footer-tagline">Inspired by Vision</p>
+                    <p class="footer-description">Aureon is an independent Indian parent conglomerate committed to building future-ready enterprises across technology, healthcare, renewable energy and logistics while contributing to India's long-term development.</p>
+                    <div class="footer-social-icons">
+                        <a href="#" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+                        <a href="#" aria-label="X"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3l-7.5 11.5L1 2H1l8.5 12L1 22h3l7.5-11.5L21 22h-1l-8.5-12L18 2z"></path></svg></a>
+                        <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                        <a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                        <a href="#" aria-label="YouTube"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2A29 29 0 0 0 23 11.75a29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
+                    </div>
                 </div>
-                <p class="footer-copy">An independent Indian parent conglomerate developing alternative technologies and asset-backed systems to secure long-term value architectures and national structural resilience.</p>
-                <div class="footer-social-row" aria-label="Aureon Social Networks">
-                    <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.8c4.56-.93 8-4.96 8-9.8z"/></svg></a>
-                    <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
-                    <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.508 9.388.508 9.388.508s7.517 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
-                    <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
-                    <a href="#" aria-label="X Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-                </div>
-            </div>
 
-            <div class="footer-column">
-                <h3>Quick Links</h3>
-                <div class="footer-links-group">
-                    <a href="#about-aureon">About Us</a>
-                    <a href="#sectors">Businesses</a>
-                    <a href="mailto:contact@aureoninda.com">Careers</a>
+                <!-- Column 2: Businesses -->
+                <div class="footer-column">
+                    <h3 class="footer-heading">Businesses</h3>
+                    <ul class="footer-links">
+                        <li><a href="#sectors">Information Technology & Digital Solutions</a></li>
+                        <li><a href="#sectors">Healthcare</a></li>
+                        <li><a href="#sectors">Renewable Energy & Sustainable Development</a></li>
+                        <li><a href="#sectors">Logistics</a></li>
+                    </ul>
                 </div>
-            </div>
 
-            <div class="footer-column direct-navigation">
-                <br>
-                <span>Email: contact@aureoninda.com</span>
-                <span>Phone: 8078904126</span>
-                <span>HQ: Trivandrum, Kerala, India</span>
+                <!-- Column 3: Quick Links -->
+                <div class="footer-column">
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about-aureon">About Us</a></li>
+                        <li><a href="#sectors">Businesses</a></li>
+                        <li><a href="#values">Core Values</a></li>
+                        <li><a href="#responsibility">Responsible Growth</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact -->
+                <div class="footer-column">
+                    <h3 class="footer-heading">Contact Information</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+                            <div>
+                                <strong>Head Office</strong>
+                                <span>Trivandrum, Kerala, India</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div>
+                            <div>
+                                <strong>Email</strong>
+                                <a href="mailto:contact@aureonindia.com">contact@aureonindia.com</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div>
+                            <div>
+                                <strong>Phone</strong>
+                                <span>+91 XXXXX XXXXX</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+                            <div>
+                                <strong>Business Hours</strong>
+                                <span>Monday – Friday: 9:00 AM – 6:00 PM</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-
-        <div class="footer-bottom">
-            <p class="copyright">&copy; 2026 Aureon Group. All Rights Reserved.</p>
-            <button class="scroll-to-top-btn" id="scrollToTopBtn" aria-label="Scroll page focus to top">
+        <div class="footer-bottom-bar">
+            <div class="footer-bottom-content">
+                <div class="footer-copyright">
+                    © 2026 Aureon Group. All Rights Reserved.
+                </div>
+                <div class="footer-divider"></div>
+                <div class="footer-made-in-india">
+                    Building India's Future Through Innovation
+                </div>
+            </div>
+        </div>
+         <button class="scroll-to-top-btn" id="scrollToTopBtn" aria-label="Scroll page focus to top">
                 <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
-            </button>
-        </div>
+        </button>
     </footer>
 
     <script src="script.js"></script>

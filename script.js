@@ -17,58 +17,181 @@ document.addEventListener('DOMContentLoaded', () => {
     const sectorData = {
         it: {
             title: 'Information Technology & Digital Solutions',
-            description: 'Developing cutting-edge software, AI, cloud infrastructure, and digital platforms to drive innovation and empower the digital economy.',
+            description: 'Architecting India’s digital future through sovereign cloud infrastructure, AI, and enterprise platforms that empower a self-reliant nation.',
             image: 'ITsolutions_Sector.png',
-            focusAreas: ['Sovereign Cloud Infrastructure', 'AI & Machine Learning', 'Enterprise SaaS Platforms', 'Cybersecurity & Data Sovereignty'],
-            impact: "Empowering India's digital future with secure, scalable, and intelligent technology ecosystems that foster sovereign capability."
+            contentHtml: `
+                <div class="modal-hero" style="background-image: url('assets/ITsolutions_Sector.png');">
+                    <div class="modal-hero-content">
+                        <h2 id="sectorTitle">Information Technology & Digital Solutions</h2>
+                    </div>
+                </div>
+                <div class="modal-body-content">
+                    <div class="modal-section">
+                        <h4>Vision</h4>
+                        <p>To build inclusive digital communities where technology serves as a great equalizer, reducing disparities and empowering every Indian to participate in a future of shared progress and prosperity.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h4>Mission</h4>
+                        <p>To architect India's sovereign digital backbone by developing secure, scalable, and accessible technology ecosystems that drive innovation, foster digital literacy, and empower businesses, governance, and citizens alike.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h4>Our Approach</h4>
+                        <p>Inspired by the Digital India vision, Aureon is committed to driving digital transformation across industries. We aim to support India's digital growth by bridging the digital divide, making technologies accessible, promoting digital literacy, and creating secure, scalable digital ecosystems. We empower businesses through innovation, support startups and MSMEs, and deliver technology that improves governance, education, and healthcare. Our goal is to build inclusive digital communities where technology benefits everyone equally.</p>
+                    </div>
+
+                    <div class="modal-section focus-areas">
+                        <h4>Key Focus Areas</h4>
+                        <ul>
+                            <li><span class="focus-icon">✧</span>Digital Transformation</li>
+                            <li><span class="focus-icon">✧</span>Artificial Intelligence & Data Analytics</li>
+                            <li><span class="focus-icon">✧</span>Cloud Computing & Digital Infrastructure</li>
+                            <li><span class="focus-icon">✧</span>Cyber Security</li>
+                            <li><span class="focus-icon">✧</span>Software Engineering</li>
+                            <li><span class="focus-icon">✧</span>Enterprise Digital Solutions</li>
+                            <li><span class="focus-icon">✧</span>Automation</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-outro">
+                        <p><strong>Future Outlook:</strong> We believe technology must reduce disparities, not create them. Our vision is a future where innovation empowers social and economic inclusion for all.</p>
+                    </div>
+                </div>
+            `
         },
         energy: {
-            title: 'Powering Bharat’s Net Zero Future',
+            title: 'Renewable Energy & Sustainable Development',
+            description: 'Powering India’s Net Zero future by investing in clean energy infrastructure, promoting green innovation, and building a sustainable, climate-resilient economy.',
+            image: 'RenewableEnergy_Sector.png',
             contentHtml: `
-                <p class="energy-intro">India’s transition toward renewable energy represents one of the most important economic and environmental transformations of this century.</p>
-                <p>With ambitious national goals including 500 GW of non-fossil fuel energy capacity by 2030 and Net Zero emissions by 2070, the country is accelerating investments in clean, scalable, and future-ready infrastructure.</p>
-                
-                <div class="investment-focus">
-                    <h4>Aureon supports this national vision through strategic investments in:</h4>
-                    <ul>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Utility-scale solar & wind energy</li>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Green hydrogen ecosystems</li>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Smart grid & energy storage systems</li>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Sustainable industrial infrastructure</li>
-                    </ul>
+                <div class="modal-hero" style="background-image: url('assets/RenewableEnergy_Sector.png');">
+                    <div class="modal-hero-content">
+                        <h2 id="sectorTitle">Renewable Energy & Sustainable Development</h2>
+                    </div>
                 </div>
+                <div class="modal-body-content">
+                     <div class="modal-section">
+                        <h4>Vision</h4>
+                        <p>To lead India's transition to a green economy, fostering a future where sustainable energy powers national growth and environmental well-being.</p>
+                    </div>
 
-                <div class="energy-stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-value" data-target="500">0</div>
-                        <div class="stat-label">Non-Fossil Energy Target by 2030</div>
+                    <div class="modal-section">
+                        <h4>Mission</h4>
+                        <p>To accelerate India’s clean energy transition by developing and investing in renewable infrastructure, promoting green innovation, and helping industries achieve their carbon reduction goals in line with India's Net Zero commitment.</p>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-value">Net Zero</div>
-                        <div class="stat-label">India’s 2070 Commitment</div>
+
+                    <div class="modal-section">
+                        <h4>Our Approach</h4>
+                        <p>Aureon is dedicated to supporting India's goal of achieving Net Zero emissions by 2070. We focus on sustainable development, climate resilience, and green innovation. By investing in sustainable technologies, promoting renewable infrastructure, and encouraging responsible energy consumption, we help industries reduce emissions and contribute to building a cleaner, greener future for all.</p>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-value" data-target="50">0</div>
-                        <div class="stat-label">Installed Capacity Goal</div>
+
+                    <div class="modal-section focus-areas">
+                        <h4>Key Initiatives</h4>
+                        <ul>
+                            <li><span class="focus-icon">✧</span>Solar Energy</li>
+                            <li><span class="focus-icon">✧</span>Wind Energy</li>
+                            <li><span class="focus-icon">✧</span>Green Hydrogen</li>
+                            <li><span class="focus-icon">✧</span>Smart Energy Solutions</li>
+                            <li><span class="focus-icon">✧</span>Battery Storage</li>
+                            <li><span class="focus-icon">✧</span>Sustainable Infrastructure</li>
+                            <li><span class="focus-icon">✧</span>Energy Efficiency</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-outro">
+                        <p><strong>Our Sustainability Vision:</strong> We envision a world where economic progress and environmental stewardship go hand-in-hand, creating a resilient and prosperous future for generations to come.</p>
                     </div>
                 </div>
-                
-                <p class="energy-outro">By aligning with Bharat’s renewable energy mission, Aureon aims to strengthen energy independence, reduce carbon emissions, and help build a resilient clean energy economy for future generations.</p>
             `
         },
         logistics: {
-            title: 'Logistics & Infrastructure Ecosystems',
-            description: 'Building robust supply chains, advanced multi-modal transportation networks, and smart city infrastructure to connect communities and facilitate economic growth.',
+            title: 'Logistics',
+            description: 'Building intelligent, efficient, and people-centric transportation networks that connect communities and drive economic growth.',
             image: 'Logistics_Sector.png',
-            focusAreas: ['Smart Ports & Terminals', 'Integrated Supply Chain Solutions', 'High-Speed Rail & Transport Corridors', 'Urban Infrastructure Development'],
-            impact: "Creating a seamless, efficient, and resilient national infrastructure backbone that enhances trade and improves quality of life."
+            contentHtml: `
+                <div class="modal-hero" style="background-image: url('assets/Logistics_Sector.png');">
+                    <div class="modal-hero-content">
+                        <h2 id="sectorTitle">Logistics</h2>
+                    </div>
+                </div>
+                <div class="modal-body-content">
+                    <div class="modal-section">
+                        <h4>Vision</h4>
+                        <p>To set the standard for reliable, efficient, and customer-centric logistics in India.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h4>Mission</h4>
+                        <p>To deliver seamless, safe, and premium transportation experiences that connect people and businesses, driven by technology and a commitment to transparent service.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h4>Our Approach</h4>
+                        <p>In a world that depends on connectivity, Aureon Logistics is building the future of transportation. We are committed to providing safe, reliable services with a premium travel experience, all at a fair and transparent price. Our operations are powered by technology, focusing on comfortable journeys, customer-first service, sustainable practices, and efficient fleet management.</p>
+                    </div>
+
+                    <div class="modal-section focus-areas">
+                        <h4>Future Possibilities</h4>
+                        <ul>
+                            <li><span class="focus-icon">✧</span>Passenger Transportation</li>
+                            <li><span class="focus-icon">✧</span>Commercial Logistics</li>
+                            <li><span class="focus-icon">✧</span>Smart Fleet Tracking</li>
+                            <li><span class="focus-icon">✧</span>Integrated Mobility Solutions</li>
+                            <li><span class="focus-icon">✧</span>Last-Mile Connectivity</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-outro">
+                        <p><strong>Our Philosophy:</strong> We believe logistics should do more than simply move goods; it should improve people's lives, create opportunities, and build a more connected future for everyone.</p>
+                    </div>
+                </div>
+            `
         },
         healthcare: {
-            title: 'Healthcare & Human-Centered Innovation',
-            description: 'Pioneering advancements in medical technology, biotechnology, and patient-centric healthcare solutions to improve global health and well-being.',
+            title: 'Healthcare',
+            description: 'Pioneering accessible, affordable, and high-quality healthcare solutions through technology and strategic infrastructure to serve every citizen.',
             image: 'HealthCare_Sector.png',
-            focusAreas: ['Biotechnology & Pharmaceutical R&D', 'Advanced Medical Devices', 'Digital Health Platforms', 'Preventive Care Solutions'],
-            impact: "Building a future-ready healthcare ecosystem that delivers accessible, high-quality, and innovative solutions to address critical health challenges."
+            contentHtml: `
+                <div class="modal-hero" style="background-image: url('assets/HealthCare_Sector.png');">
+                    <div class="modal-hero-content">
+                        <h2 id="sectorTitle">Healthcare</h2>
+                    </div>
+                </div>
+                <div class="modal-body-content">
+                    <div class="modal-section">
+                        <h4>Vision</h4>
+                        <p>Accessible, affordable, and quality healthcare for every citizen of India.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h4>Mission</h4>
+                        <p>To improve healthcare accessibility and outcomes across India by leveraging technology, fostering strategic public-private partnerships, and investing in next-generation medical infrastructure.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h4>Our Approach</h4>
+                        <p>Aligned with India's national healthcare priorities, Aureon aims to bridge the urban-rural divide. Our strategic initiatives are focused on ensuring the availability of life-saving medicines, enabling better distribution of scarce medical resources, and developing efficient emergency response systems. We are committed to improving healthcare accessibility for remote communities and strengthening India’s healthcare ecosystem through innovation.</p>
+                    </div>
+
+                    <div class="modal-section focus-areas">
+                        <h4>Key Focus Areas</h4>
+                        <ul>
+                           <li><span class="focus-icon">✧</span>Affordable Healthcare</li>
+                            <li><span class="focus-icon">✧</span>Rural Healthcare Access</li>
+                            <li><span class="focus-icon">✧</span>Telemedicine & Digital Health</li>
+                            <li><span class="focus-icon">✧</span>Medical Logistics</li>
+                            <li><span class="focus-icon">✧</span>Healthcare Infrastructure</li>
+                            <li><span class="focus-icon">✧</span>Emergency Healthcare</li>
+                            <li><span class="focus-icon">✧</span>Public-Private Collaboration</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-outro">
+                        <p><strong>Future Ambitions:</strong> While Aureon does not currently own or operate hospitals, our long-term ambition is to be a catalyst for change by investing in and developing the foundational infrastructure needed to create a stronger, more resilient healthcare system for India.</p>
+                    </div>
+                </div>
+            `
         }
     };
 
@@ -355,6 +478,9 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (!carousel) return;
 
+        // Clear any hardcoded cards to prevent duplication
+        carousel.innerHTML = '';
+
         // Dynamically create business cards from sectorData
         Object.keys(sectorData).forEach((key, index) => {
             const sector = sectorData[key];
@@ -530,96 +656,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const openModal = (sectorKey) => {
             const sector = sectorData[sectorKey];
             if (!sector || !sectorModal) return;
-            
-            // Add/remove theme class for special styling
-            sectorModal.classList.toggle('energy-theme', sectorKey === 'energy'); 
 
-            const targetTitleNode = document.getElementById('sectorTitle');
             const modalBody = document.getElementById('sectorModalBody');
-            
-            if(targetTitleNode) targetTitleNode.textContent = sector.modalTitle || sector.title;
-
             if (modalBody) {
-                if (sector.contentHtml) {
-                    modalBody.innerHTML = sector.contentHtml;
-                } else {
-                    // Rebuild the old structure for other sectors
-                    let content = `<p>${sector.description}</p>`;
-                    if (sector.focusAreas && sector.focusAreas.length > 0) {
-                        content += `
-                            <div class="sector-highlights">
-                                <h4>Key Strategic Focus</h4>
-                                <ul>
-                                    ${sector.focusAreas.map(area => `<li>${area}</li>`).join('')}
-                                </ul>
-                            </div>
-                        `;
-                    }
-                    if (sector.impact) {
-                        content += `
-                            <div class="sector-impact">
-                                <h4>National Impact</h4>
-                                <p>${sector.impact}</p>
-                            </div>
-                        `;
-                    }
-                    modalBody.innerHTML = content;
-                }
-            }
-
-            if (imageContainer) {
-                imageContainer.innerHTML = ''; // Clear previous content
-                imageContainer.style.backgroundImage = ''; // Clear previous background image style
-
-                if (sectorKey === 'energy') { 
-                    imageContainer.innerHTML = `
-                        <div class="energy-image-showcase">
-                            <div class="showcase-image-wrapper">
-                                <!-- IMPORTANT: Verify these image paths are correct relative to index.html -->
-                                <img src="assets/E_Sec/E_Sec_01.png" class="showcase-image" alt="Solar Panel Installation">
-                                <img src="assets/E_Sec/E_Sec_02.png" class="showcase-image" alt="Wind Turbines at Sunset">
-                                <img src="assets/E_Sec/E_Sec_03.png" class="showcase-image" alt="Green Hydrogen Facility">
-                                <img src="assets/E_Sec/E_Sec_04.png" class="showcase-image" alt="Modern Energy Substation">
-                                <img src="assets/E_Sec/E_Sec_05.png" class="showcase-image" alt="Offshore Wind Farm">
-                                <img src="assets/E_Sec/E_Sec_06.png" class="showcase-image" alt="Sustainable Infrastructure">
-                            </div>
-                            <div class="showcase-overlay"></div>
-                            <div class="showcase-grain"></div>
-                            <div class="showcase-stats-overlay">
-                                <div class="showcase-stat-card">
-                                    <h3>500 GW</h3>
-                                    <p>Renewable Target</p>
-                                </div>
-                                <div class="showcase-stat-card">
-                                    <h3>Net Zero</h3>
-                                    <p>by 2070</p>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                    // Start the energy slideshow
-                    const startEnergySlideshow = () => {
-                        const images = document.querySelectorAll('.energy-image-showcase .showcase-image');
-                        if (images.length === 0) return;
-                        
-                        let currentIndex = 0;
-                        images[currentIndex].classList.add('active');
-
-                        clearInterval(energySlideshowInterval);
-                        energySlideshowInterval = setInterval(() => {
-                            images[currentIndex].classList.remove('active');
-                            currentIndex = (currentIndex + 1) % images.length; 
-                            images[currentIndex].classList.add('active');
-                        }, 7000); // Cinematic transition every 7 seconds
-                    };
-
-                    // Use requestAnimationFrame to ensure the DOM is ready before starting animations
-                    requestAnimationFrame(() => {
-                        startEnergySlideshow();
-                        animateModalCounters(); // Animate counters after modal content is rendered
-                    });
-                } else if (sector.image) {
-                    imageContainer.style.backgroundImage = `url('assets/${sector.image}')`;
+                modalBody.innerHTML = sector.contentHtml || `<h2 id="sectorTitle">${sector.title}</h2><p>${sector.description}</p>`;
+                
+                const modalHero = modalBody.querySelector('.modal-hero');
+                if (modalHero && sector.image) {
+                    modalHero.style.backgroundImage = `url('${sector.image}')`;
                 }
             }
 
@@ -628,7 +672,6 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = 'hidden';
             clearInterval(autoPlayInterval);
 
-            // Accessibility: Store last focused element and move focus into the modal
             lastFocusedElement = document.activeElement;
             modalCloseBtn?.focus();
         };
@@ -688,7 +731,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const progressiveLoop = () => {
                     baseVal += stepValue; // Increment the base value
-                    if (baseVal >= targetVal) { 
+                    if (baseVal >= targetVal) {
                         node.textContent = targetVal.toLocaleString(); // Set final value
                     } else { // Continue animation
                         node.textContent = Math.floor(baseVal).toLocaleString();
@@ -706,12 +749,151 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     initDynamicBusinessSection();
 
+
+    // ==========================================================================
+    // 7. ESG RESPONSIBLE GROWTH INTERACTIVE SECTION
+    // ==========================================================================
+    const initEsgSection = () => {
+        const section = document.querySelector('.esg-section');
+        if (!section) return;
+
+        const tablist = section.querySelector('[role="tablist"]');
+        const tabs = Array.from(tablist.querySelectorAll('[role="tab"]'));
+        const desktopContentPanel = section.querySelector('.esg-content-panel');
+        const mobileMatcher = window.matchMedia("(max-width: 600px)");
+        let isMobile;
+
+        // On mobile, move content panels into nav items to create an accordion structure
+        const setupAccordion = () => {
+            tabs.forEach(tab => {
+                const panelId = tab.getAttribute('aria-controls');
+                const panel = desktopContentPanel.querySelector(`#${panelId}`);
+                if (panel) {
+                    tab.appendChild(panel);
+                }
+            });
+        };
+
+        // On desktop, move content panels back to the main panel
+        const setupDesktop = () => {
+            tabs.forEach(tab => {
+                const panelId = tab.getAttribute('aria-controls');
+                const panel = tab.querySelector(`#${panelId}`);
+                if (panel) {
+                    desktopContentPanel.appendChild(panel);
+                }
+            });
+        };
+
+        const switchTab = (newTab) => {
+            const oldTab = tablist.querySelector('[aria-selected="true"]');
+            
+            if (oldTab === newTab && isMobile) {
+                // If it's mobile and the same tab is clicked, toggle it (accordion behavior)
+                newTab.classList.toggle('active');
+                newTab.setAttribute('aria-selected', newTab.classList.contains('active'));
+                return;
+            }
+
+            if (oldTab) {
+                oldTab.classList.remove('active');
+                oldTab.setAttribute('aria-selected', 'false');
+                if (!isMobile) {
+                    const oldPanelId = oldTab.getAttribute('aria-controls');
+                    const oldPanel = desktopContentPanel.querySelector(`#${oldPanelId}`);
+                    oldPanel?.classList.remove('active', 'active-animating');
+                }
+            }
+            
+            newTab.classList.add('active');
+            newTab.setAttribute('aria-selected', 'true');
+            
+            if (!isMobile) {
+                const newPanelId = newTab.getAttribute('aria-controls');
+                const newPanel = desktopContentPanel.querySelector(`#${newPanelId}`);
+                if (newPanel) {
+                    newPanel.classList.add('active');
+                    
+                    // Trigger staggered animations
+                    setTimeout(() => {
+                        newPanel.classList.add('active-animating');
+                    }, 50); // Small delay to ensure transition starts
+                }
+            }
+        };
+
+        const handleLayoutChange = (e) => {
+            const wasMobile = isMobile;
+            isMobile = e.matches;
+
+            if (wasMobile === isMobile) return; // No change
+
+            if (isMobile) {
+                setupAccordion();
+            } else {
+                setupDesktop();
+            }
+            // Reset active tab to default to avoid weird states
+            switchTab(tabs[0]);
+        };
+        
+        // Initial setup
+        isMobile = mobileMatcher.matches;
+        if (isMobile) {
+            setupAccordion();
+        }
+        
+        // Set initial active tab without hover/click logic
+        const initialActiveTab = tablist.querySelector('.esg-nav-item.active') || tabs[0];
+        initialActiveTab.classList.add('active');
+        initialActiveTab.setAttribute('aria-selected', 'true');
+        if (!isMobile) {
+             const initialPanelId = initialActiveTab.getAttribute('aria-controls');
+             const initialPanel = desktopContentPanel.querySelector(`#${initialPanelId}`);
+             initialPanel?.classList.add('active');
+             setTimeout(() => initialPanel?.classList.add('active-animating'), 100);
+        }
+       
+        // Add event listeners
+        tabs.forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                switchTab(e.currentTarget);
+            });
+            // The user requested hover, but this can be jarring. Click is better for accessibility.
+            // If hover is a must, we can add it back, but it might fight with the accordion on touch.
+            // For now, sticking with click-only for a predictable experience.
+        });
+
+        tablist.addEventListener('keydown', (e) => {
+            const currentTab = document.activeElement.closest('[role="tab"]');
+            if (!currentTab) return;
+            
+            let currentIndex = tabs.indexOf(currentTab);
+            let newIndex;
+
+            if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+                newIndex = (currentIndex + 1) % tabs.length;
+            } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+                newIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+            } else {
+                return;
+            }
+
+            e.preventDefault();
+            tabs[newIndex].focus();
+            switchTab(tabs[newIndex]);
+        });
+        
+        mobileMatcher.addEventListener('change', handleLayoutChange);
+    };
+    initEsgSection();
+
     // ==========================================================================
     // 5. OBSERVER DRIVEN LAYOUT ENTRANCE REVEALS
     // ==========================================================================
     const runLayoutSectionReveals = () => {
         const layoutContainers = document.querySelectorAll(
-            '.scroll-animated-section, .genesis-section, .section-split, .floating-media-section, .cards-section, .values-section, .ecosystem-section, .showcase-section, .growth-strategy-section, .csr-section, .news-section, .join-section, #leadership, .interactive-business-section, .vision-mission-content'
+            '.scroll-animated-section, .genesis-section, .section-split, .floating-media-section, .cards-section, .values-section, .ecosystem-section, .showcase-section, .growth-strategy-section, .esg-section, .news-section, .join-section, #leadership, .interactive-business-section, .vision-mission-content'
         );
 
         const targetObserver = new IntersectionObserver((entries) => {
@@ -733,6 +915,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const initConstellation = () => {
         const canvas = document.getElementById('constellationCanvas');
         if (!canvas) return;
+
+        // For performance, disable the heavy canvas animation on mobile devices.
+        // The CSS will also hide it.
+        if (window.matchMedia("(max-width: 820px)").matches) {
+            canvas.style.display = 'none';
+            return;
+        }
 
         const ctx = canvas.getContext('2d');
         let particles = [];
@@ -905,6 +1094,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Auto-Hide Lifecycle Page Loader
     setTimeout(() => { if (pageLoader) pageLoader.classList.add('loaded'); }, 400);
+
+    // ==========================================================================
+    // 8. FOOTER ENTRANCE ANIMATION
+    // ==========================================================================
+    const initFooterAnimation = () => {
+        const footer = document.querySelector('.page-footer');
+        if (!footer) return;
+
+        const footerColumns = footer.querySelectorAll('.footer-column');
+
+        const footerObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    footer.classList.add('revealed');
+                    footerColumns.forEach(col => col.classList.add('reveal'));
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        footerObserver.observe(footer);
+    };
+    initFooterAnimation();
 });
 
 // Premium Hero Background Interactivity
