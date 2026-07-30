@@ -481,9 +481,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const dynDesc = document.getElementById('dynDesc');
         const dynBtn = document.getElementById('dynBtn');
         
-        const prevBtn = document.getElementById('prevBizBtn');
-        const nextBtn = document.getElementById('nextBizBtn');
-        
         if (!carousel) return;
 
         // Clear any hardcoded cards to prevent duplication
@@ -512,30 +509,66 @@ document.addEventListener('DOMContentLoaded', () => {
         const cards = document.querySelectorAll('.biz-card');
         if (cards.length === 0) return;
 
-        let currentIndex = 0;
-        let autoPlayInterval;
         const isMobile = window.matchMedia("(max-width: 992px)").matches;
 
-        // --- Modal Accessibility Enhancements ---
-        let lastFocusedElement;
-
-        const updateActiveState = (index) => {
-            document.querySelectorAll('.sector-bg').forEach(bg => bg.classList.remove('active'));
-
-            cards.forEach((card, idx) => {
-                const isActive = idx === index;
-                card.classList.toggle('active', isActive);
-                card.setAttribute('aria-selected', String(isActive));
-                card.setAttribute('tabindex', isActive ? '0' : '-1');
-                
-                if (isMobile) {
-                    // On mobile, just toggle the class. CSS handles the rest.
-                    // The class is toggled above.
-                } else {
-                    // Desktop fan-out animation
-                    // Calculate position relative to currentIndex
-                    let diff = (idx - index + cards.length) % cards.length;
+        if (isMobile) {
+            // --- Mobile: Scroll-Snap & Intersection Observer Logic ---
+            const updateMobileText = (sectorKey) => {
+                const data = sectorData[sectorKey];
+                if (data && textContainer && (dynBtn?.dataset.sector !== sectorKey)) {
+                    textContainer.classList.remove('fade-in');
+                    textContainer.classList.add('fade-out');
                     
+                    setTimeout(() => {
+                        dynTitle.textContent = data.title;
+                        dynDesc.textContent = data.description;
+                        if(dynBtn) {
+                            dynBtn.dataset.sector = sectorKey;
+                            dynBtn.setAttribute('aria-label', `Know more about ${data.title}`);
+                        }
+                        textContainer.classList.remove('fade-out');
+                        textContainer.classList.add('fade-in');
+                    }, 300);
+                }
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const card = entry.target;
+                        cards.forEach(c => c.classList.remove('active'));
+                        card.classList.add('active');
+                        updateMobileText(card.dataset.sector);
+                        
+                        const sectorKey = card.dataset.sector;
+                        document.querySelectorAll('.sector-bg').forEach(bg => bg.classList.remove('active'));
+                        const targetBg = document.getElementById(`bg-${sectorKey}`);
+                        if (targetBg) targetBg.classList.add('active');
+                    }
+                });
+            }, { root: carousel, threshold: 0.7 });
+
+            cards.forEach(card => observer.observe(card));
+
+            if (cards.length > 0) {
+                cards[0].classList.add('active');
+            }
+
+        } else {
+            // --- Desktop: Fan-Out & Autoplay Logic ---
+            let currentIndex = 0;
+            let autoPlayInterval;
+
+            const updateActiveState = (index) => {
+                document.querySelectorAll('.sector-bg').forEach(bg => bg.classList.remove('active'));
+
+                cards.forEach((card, idx) => {
+                    const isActive = idx === index;
+                    card.classList.toggle('active', isActive);
+                    card.setAttribute('aria-selected', String(isActive));
+                    card.setAttribute('tabindex', isActive ? '0' : '-1');
+                    
+                    let diff = (idx - index + cards.length) % cards.length;
                     if (diff === 0) {
                         card.style.transform = `translateX(0) scale(1)`;
                         card.style.zIndex = 10;
@@ -557,95 +590,71 @@ document.addEventListener('DOMContentLoaded', () => {
                         card.style.zIndex = 7;
                         card.style.opacity = 0;
                     }
+                });
+
+                const activeCard = cards[index];
+                const sectorKey = activeCard.dataset.sector;
+                const targetBg = document.getElementById(`bg-${sectorKey}`);
+                if (targetBg) targetBg.classList.add('active');
+
+                const data = sectorData[sectorKey];
+                if (data && textContainer) {
+                    textContainer.classList.remove('fade-in');
+                    textContainer.classList.add('fade-out');
+                    setTimeout(() => {
+                        dynTitle.textContent = data.title;
+                        dynDesc.textContent = data.description;
+                        if(dynBtn) {
+                            dynBtn.dataset.sector = sectorKey;
+                            dynBtn.setAttribute('aria-label', `Know more about ${data.title}`);
+                        }
+                        textContainer.classList.remove('fade-out');
+                        textContainer.classList.add('fade-in');
+                    }, 300);
                 }
+            };
+
+            const resetAutoPlay = () => {
+                clearInterval(autoPlayInterval);
+                startAutoPlay();
+            };
+
+            cards.forEach((card, idx) => {
+                card.addEventListener('click', () => {
+                    currentIndex = idx;
+                    updateActiveState(currentIndex);
+                    resetAutoPlay();
+                });
             });
 
-            const activeCard = cards[index];
-
-            const sectorKey = activeCard.dataset.sector;
-            const targetBg = document.getElementById(`bg-${sectorKey}`);
-            if (targetBg) targetBg.classList.add('active');
-
-            const data = sectorData[sectorKey];
-            if (data && textContainer) {
-                textContainer.classList.remove('fade-in');
-                textContainer.classList.add('fade-out');
-                
-                setTimeout(() => {
-                    dynTitle.textContent = data.title;
-                    dynDesc.textContent = data.description;
-                    if(dynBtn) {
-                        dynBtn.dataset.sector = sectorKey;
-                        dynBtn.setAttribute('aria-label', `Know more about ${data.title}`);
-                    }
-                    
-                    textContainer.classList.remove('fade-out');
-                    textContainer.classList.add('fade-in');
-                }, 300);
-            }
-        };
-
-        cards.forEach((card, idx) => {
-            card.addEventListener('click', () => {
-                currentIndex = idx;
-                updateActiveState(currentIndex);
-                resetAutoPlay();
-            });
-        });
-
-        if (prevBtn) {
-            prevBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-                updateActiveState(currentIndex);
-                resetAutoPlay();
-            });
-        }
-
-        if (nextBtn) {
-            nextBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex + 1) % cards.length;
-                updateActiveState(currentIndex);
-                resetAutoPlay();
-            });
-        }
-
-        const startAutoPlay = () => {
-            autoPlayInterval = setInterval(() => {
-                currentIndex = (currentIndex + 1) % cards.length;
-                updateActiveState(currentIndex);
-            }, 5000);
-        };
-
-        const resetAutoPlay = () => {
-            clearInterval(autoPlayInterval);
-            startAutoPlay();
-        };
-        
-        // Initialize carousel
-        updateActiveState(currentIndex);
-        startAutoPlay();
-
-        // Add keyboard navigation for accessibility
-        carousel.addEventListener('keydown', (e) => {
-            let newIndex = currentIndex;
-            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-                newIndex = (currentIndex + 1) % cards.length;
-            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-                newIndex = (currentIndex - 1 + cards.length) % cards.length;
-            } else {
-                return; // Not a relevant key
-            }
-
-            e.preventDefault(); // Prevent page scroll
-            currentIndex = newIndex;
+            const startAutoPlay = () => {
+                autoPlayInterval = setInterval(() => {
+                    currentIndex = (currentIndex + 1) % cards.length;
+                    updateActiveState(currentIndex);
+                }, 5000);
+            };
+            
             updateActiveState(currentIndex);
-            cards[currentIndex].focus(); // Move focus to the new active tab
-            resetAutoPlay();
-        });
+            startAutoPlay();
+
+            carousel.addEventListener('keydown', (e) => {
+                let newIndex = currentIndex;
+                if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { newIndex = (currentIndex + 1) % cards.length; } 
+                else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { newIndex = (currentIndex - 1 + cards.length) % cards.length; } 
+                else { return; }
+
+                e.preventDefault();
+                currentIndex = newIndex;
+                updateActiveState(currentIndex);
+                cards[currentIndex].focus();
+                resetAutoPlay();
+            });
+        }
 
         // ----------------------------------------------------------------------
         // Glass "Know More" Button & Modal Logic Integration
         // ----------------------------------------------------------------------
+        let lastFocusedElement;
         const modalCloseBtn = document.getElementById('sectorModalClose');
         const modalOverlay = document.getElementById('sectorModalOverlay');
         const modalPanel = document.querySelector('.sector-modal-panel');
@@ -664,7 +673,7 @@ document.addEventListener('DOMContentLoaded', () => {
             sectorModal.classList.add('open');
             sectorModal.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
-            clearInterval(autoPlayInterval);
+            if (!isMobile) clearInterval(autoPlayInterval); // Stop desktop autoplay
 
             lastFocusedElement = document.activeElement;
             modalCloseBtn?.focus();
@@ -676,8 +685,8 @@ document.addEventListener('DOMContentLoaded', () => {
             sectorModal.classList.remove('open');
             sectorModal.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
-            clearInterval(energySlideshowInterval); // Clear the slideshow interval
-            startAutoPlay();
+            clearInterval(energySlideshowInterval);
+            if (!isMobile) startAutoPlay(); // Restart desktop autoplay
 
             // Accessibility: Return focus to the element that opened the modal
             lastFocusedElement?.focus();
@@ -909,14 +918,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const initConstellation = () => {
         const canvas = document.getElementById('constellationCanvas');
         if (!canvas) return;
-
-        // For performance, disable the heavy canvas animation on mobile devices.
-        // The CSS will also hide it.
-        if (window.matchMedia("(max-width: 820px)").matches) {
-            canvas.style.display = 'none';
+ 
+        // Respect user's preference for reduced motion by disabling the animation.
+        const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (reducedMotionQuery.matches) {
+            canvas.style.display = 'none'; // Hide canvas if motion is not preferred.
             return;
         }
-
+ 
+        // The check to disable animation on mobile has been removed as per requirements.
+        // Particle count is already reduced for smaller screens for performance.
         const ctx = canvas.getContext('2d');
         let particles = [];
         const particleCount = window.innerWidth < 768 ? 60 : 100;
