@@ -576,6 +576,81 @@ body.dyslexia-font-enabled * { font-family: 'Comic Sans MS', 'OpenDyslexic', san
     transition: filter 0.3s ease-in-out;
 }
 
+.modal-hero-banner {
+    position: relative;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 24px 24px 0 0;
+    overflow: hidden;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.hero-banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(10,10,10,0.20), rgba(10,10,10,0.55), rgba(10,10,10,0.82));
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.hero-banner-content {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    color: white;
+    animation: slideUp 0.3s ease-in-out;
+}
+
+.hero-banner-content h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-banner-content .tagline {
+    font-size: 1.2rem;
+    margin-top: 8px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@media (max-width: 1024px) {
+    .modal-hero-banner {
+        height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .modal-hero-banner {
+        height: 200px;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 .sector-modal-panel:hover .modal-hero {
     filter: brightness(1.1);
 }
@@ -587,28 +662,12 @@ body.dyslexia-font-enabled * { font-family: 'Comic Sans MS', 'OpenDyslexic', san
     background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.1) 60%, transparent 100%);
 }
 
-.modal-hero-content {
-    position: relative;
-    z-index: 2;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-}
-
-.modal-hero h2 {
-    font-family: var(--font-heading);
-    font-size: clamp(2.2rem, 4vw, 3rem);
+.hero-banner-content h2 {
+    font-size: 2.5rem;
     font-weight: 700;
     line-height: 1.1;
-    letter-spacing: -0.02em;
     margin: 0 0 8px;
     color: #fff;
-}
-
-.hero-subtitle {
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: #fff;
-    opacity: 0.8;
-    margin: 0;
 }
 
 .modal-body-content {

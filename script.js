@@ -18,11 +18,15 @@ document.addEventListener('DOMContentLoaded', () => {
         it: {
             title: 'Information Technology & Digital Solutions',
             description: 'Architecting India’s digital future through sovereign cloud infrastructure, AI, and enterprise platforms that empower a self-reliant nation.',
-            image: 'ITsolutions_Sector.png',
+            image: 'IT_SECTOR_01.png',
+            heroImage: 'IT_SECTOR_05.png',
+            tagline: "Empowering Digital Transformation",
             contentHtml: `
-                <div class="modal-hero" style="background-image: url('assets/ITsolutions_Sector.png');">
-                    <div class="modal-hero-content">
-                        <h2 id="sectorTitle">Information Technology & Digital Solutions</h2>
+                <div class="modal-hero-banner" style="background-image: url('assets/IT_SECTOR_05.png');">
+                    <div class="hero-banner-overlay"></div>
+                    <div class="hero-banner-content">
+                        <h2>Information Technology & Digital Solutions</h2>
+                        <p class="tagline">Empowering Digital Transformation</p>
                     </div>
                 </div>
                 <div class="modal-body-content">
@@ -52,11 +56,15 @@ document.addEventListener('DOMContentLoaded', () => {
         energy: {
             title: 'Renewable Energy & Sustainable Development',
             description: 'Powering India’s Net Zero future by investing in clean energy infrastructure, promoting green innovation, and building a sustainable, climate-resilient economy.',
-            image: 'RenewableEnergy_Sector.png',
+            image: 'RENEWABLE ENERGY_SECTOR_01.png',
+            heroImage: 'RENEWABLE ENERGY_SECTOR_02.png',
+            tagline: "Accelerating India's Journey Towards Net Zero",
             contentHtml: `
-                <div class="modal-hero" style="background-image: url('assets/RenewableEnergy_Sector.png');">
-                    <div class="modal-hero-content">
-                        <h2 id="sectorTitle">Renewable Energy & Sustainable Development</h2>
+                <div class="modal-hero-banner" style="background-image: url('assets/RENEWABLE ENERGY_SECTOR_02.png');">
+                    <div class="hero-banner-overlay"></div>
+                    <div class="hero-banner-content">
+                        <h2>Renewable Energy & Sustainable Development</h2>
+                        <p class="tagline">Accelerating India's Journey Towards Net Zero</p>
                     </div>
                 </div>
                 <div class="modal-body-content">
@@ -86,11 +94,15 @@ document.addEventListener('DOMContentLoaded', () => {
         logistics: {
             title: 'Logistics',
             description: 'Building intelligent, efficient, and people-centric transportation networks that connect communities and drive economic growth.',
-            image: 'Logistics_Sector.png',
+            image: 'LOGISTICS_SECTOR_01.png',
+            heroImage: 'LOGISTICS_SECTOR_02.png',
+            tagline: "Connecting People, Markets and Opportunities",
             contentHtml: `
-                <div class="modal-hero" style="background-image: url('assets/Logistics_Sector.png');">
-                    <div class="modal-hero-content">
-                        <h2 id="sectorTitle">Logistics</h2>
+                <div class="modal-hero-banner" style="background-image: url('assets/LOGISTICS_SECTOR_02.png');">
+                    <div class="hero-banner-overlay"></div>
+                    <div class="hero-banner-content">
+                        <h2>Logistics</h2>
+                        <p class="tagline">Connecting People, Markets and Opportunities</p>
                     </div>
                 </div>
                 <div class="modal-body-content">
@@ -118,11 +130,15 @@ document.addEventListener('DOMContentLoaded', () => {
         healthcare: {
             title: 'Healthcare',
             description: 'Pioneering accessible, affordable, and high-quality healthcare solutions through technology and strategic infrastructure to serve every citizen.',
-            image: 'HealthCare_Sector.png',
+            image: 'HEALTHCARE_SECTOR_01.png',
+            heroImage: 'HEALTHCARE_SECTOR_03.png',
+            tagline: "Advancing Accessible and Compassionate Care",
             contentHtml: `
-                <div class="modal-hero" style="background-image: url('assets/HealthCare_Sector.png');">
-                    <div class="modal-hero-content">
-                        <h2 id="sectorTitle">Healthcare</h2>
+                <div class="modal-hero-banner" style="background-image: url('assets/HEALTHCARE_SECTOR_03.png');">
+                    <div class="hero-banner-overlay"></div>
+                    <div class="hero-banner-content">
+                        <h2>Healthcare</h2>
+                        <p class="tagline">Advancing Accessible and Compassionate Care</p>
                     </div>
                 </div>
                 <div class="modal-body-content">
@@ -145,6 +161,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     <div class="modal-outro">
                         <p><strong>Future Ambitions:</strong> While Aureon does not currently own or operate hospitals, our long-term ambition is to be a catalyst for change by investing in and developing the foundational infrastructure needed to create a stronger, more resilient healthcare system for India.</p>
+                    </div>
+                </div>
+            `
+        },
+        water: {
+            title: 'Water Security & Sustainability',
+            description: 'Protecting every drop for future generations through advanced water management and purification technologies.',
+            image: 'WATER_SECTOR_02.png',
+            heroImage: 'WATER_SECTOR_02.png', // Fallback to RENEWABLEQ.png if unavailable
+            tagline: "Protecting Every Drop for Future Generations",
+            contentHtml: `
+                <div class="modal-hero-banner" style="background-image: url('assets/WATER_SECTOR_02.png');" onerror="this.style.backgroundImage='url(assets/RENEWABLEQ.png)'">
+                    <div class="hero-banner-overlay"></div>
+                    <div class="hero-banner-content">
+                        <h2>Water Security & Sustainability</h2>
+                        <p class="tagline">Protecting Every Drop for Future Generations</p>
+                    </div>
+                </div>
+                <div class="modal-body-content">
+                    <div class="modal-section">
+                        <p>Aureon is committed to ensuring water security for India by developing and implementing sustainable water management solutions. We focus on advanced purification technologies, efficient distribution systems, and water conservation strategies to address the nation's growing water challenges. Our goal is to create a future where clean and safe water is accessible to all, supporting both communities and industries while preserving this vital natural resource for generations to come.</p>
+                    </div>
+
+                    <div class="modal-section focus-areas">
+                        <h4>Key Focus Areas</h4>
+                        <ul>
+                            <li><span class="focus-icon">✧</span>Water Purification and Treatment</li>
+                            <li><span class="focus-icon">✧</span>Smart Water Grids</li>
+                            <li><span class="focus-icon">✧</span>Wastewater Management and Recycling</li>
+                            <li><span class="focus-icon">✧</span>Desalination Technologies</li>
+                            <li><span class="focus-icon">✧</span>Water Conservation and Harvesting</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-outro">
+                        <p><strong>Our Vision for Water:</strong> To build a water-secure future for India, where technology and sustainability work in harmony to protect our most precious resource.</p>
                     </div>
                 </div>
             `
@@ -607,11 +659,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const modalBody = document.getElementById('sectorModalBody');
             if (modalBody) {
                 modalBody.innerHTML = sector.contentHtml || `<h2 id="sectorTitle">${sector.title}</h2><p>${sector.description}</p>`;
-                
-                const modalHero = modalBody.querySelector('.modal-hero');
-                if (modalHero && sector.image) {
-                    modalHero.style.backgroundImage = `url('${sector.image}')`;
-                }
             }
 
             sectorModal.classList.add('open');
