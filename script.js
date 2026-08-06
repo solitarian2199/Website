@@ -16,187 +16,149 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const sectorData = {
         it: {
-            title: 'Information Technology & Digital Solutions',
-            description: 'Architecting India’s digital future through sovereign cloud infrastructure, AI, and enterprise platforms that empower a self-reliant nation.',
-            image: 'IT_SECTOR_01.png',
-            heroImage: 'IT_SECTOR_05.png',
+            title: 'Information Technology & Digital Media',
+            description: 'Modern AI infrastructure, cloud architecture, and futuristic data centres.',
+            image: 'assets/IT_SECTOR_01.png',
+            heroImage: 'assets/IT_SECTOR_05.png',
             tagline: "Empowering Digital Transformation",
             contentHtml: `
                 <div class="modal-hero-banner" style="background-image: url('assets/IT_SECTOR_05.png');">
                     <div class="hero-banner-overlay"></div>
                     <div class="hero-banner-content">
-                        <h2>Information Technology & Digital Solutions</h2>
+                        <h2>Information Technology & Digital Media</h2>
                         <p class="tagline">Empowering Digital Transformation</p>
                     </div>
                 </div>
                 <div class="modal-body-content">
                     <div class="modal-section">
-                        <p>Aureon is dedicated to architecting India's sovereign digital backbone, guided by a vision of inclusive digital communities where technology acts as a great equalizer. Our mission is to develop secure, scalable, and accessible technology ecosystems that drive innovation and empower businesses, governance, and citizens. Inspired by the Digital India initiative, we are committed to bridging the digital divide, promoting digital literacy, and delivering transformative solutions in governance, education, and healthcare to foster a future of shared prosperity for every Indian.</p>
+                        <p>Aureon is dedicated to architecting India's sovereign digital backbone, guided by a vision of inclusive digital communities where technology acts as a great equalizer. Our mission is to develop secure, scalable, and accessible technology ecosystems that drive innovation and empower businesses, governance, and citizens.</p>
                     </div>
-
                     <div class="modal-section focus-areas">
                         <h4>Key Focus Areas</h4>
                         <ul>
-                            <li><span class="focus-icon">✧</span>Digital Transformation</li>
-                            <li><span class="focus-icon">✧</span>Artificial Intelligence & Data Analytics</li>
-                            <li><span class="focus-icon">✧</span>Cloud Computing & Digital Infrastructure</li>
-                            <li><span class="focus-icon">✧</span>Cyber Security</li>
-                            <li><span class="focus-icon">✧</span>Software Engineering</li>
-                            <li><span class="focus-icon">✧</span>Enterprise Digital Solutions</li>
-                            <li><span class="focus-icon">✧</span>Automation</li>
+                            <li><span class="focus-icon">✧</span>AI Infrastructure</li>
+                            <li><span class="focus-icon">✧</span>Cloud Architecture</li>
+                            <li><span class="focus-icon">✧</span>Futuristic Data Centres</li>
+                            <li><span class="focus-icon">✧</span>Digital Platforms</li>
                         </ul>
-                    </div>
-
-                    <div class="modal-outro">
-                        <p><strong>Future Outlook:</strong> We believe technology must reduce disparities, not create them. Our vision is a future where innovation empowers social and economic inclusion for all.</p>
                     </div>
                 </div>
             `
         },
         energy: {
-            title: 'Renewable Energy & Sustainable Development',
-            description: 'Powering India’s Net Zero future by investing in clean energy infrastructure, promoting green innovation, and building a sustainable, climate-resilient economy.',
-            image: 'RENEWABLE ENERGY_SECTOR_01.png',
-            heroImage: 'RENEWABLE ENERGY_SECTOR_02.png',
-            tagline: "Accelerating India's Journey Towards Net Zero",
+            title: 'Energy & Utilities',
+            description: 'National smart grid, intelligent power management, and utility infrastructure.',
+            image: 'assets/E_Sec/E_Sec_01.png',
+            heroImage: 'assets/E_Sec/E_Sec_02.png',
+            tagline: "Powering a Nation's Progress",
             contentHtml: `
-                <div class="modal-hero-banner" style="background-image: url('assets/RENEWABLE ENERGY_SECTOR_02.png');">
+                <div class="modal-hero-banner" style="background-image: url('assets/E_Sec/E_Sec_02.png');">
                     <div class="hero-banner-overlay"></div>
                     <div class="hero-banner-content">
-                        <h2>Renewable Energy & Sustainable Development</h2>
-                        <p class="tagline">Accelerating India's Journey Towards Net Zero</p>
+                        <h2>Energy & Utilities</h2>
+                        <p class="tagline">Powering a Nation's Progress</p>
                     </div>
                 </div>
                 <div class="modal-body-content">
-                     <div class="modal-section">
-                        <p>Aureon is committed to leading India's transition to a green economy, where sustainable energy fuels national growth and environmental well-being. Our mission is to accelerate this transition by developing and investing in renewable infrastructure, promoting green innovation, and supporting industries in achieving their carbon reduction goals. In alignment with India's Net Zero 2070 commitment, we focus on climate resilience and responsible energy consumption to help build a cleaner, more sustainable future for all.</p>
+                    <div class="modal-section">
+                        <p>Aureon is committed to modernizing India's energy and utility landscape. We are focused on developing a national smart grid, implementing intelligent power management systems, and upgrading utility infrastructure to meet the demands of a growing economy.</p>
                     </div>
-
                     <div class="modal-section focus-areas">
-                        <h4>Key Initiatives</h4>
+                        <h4>Key Focus Areas</h4>
                         <ul>
-                            <li><span class="focus-icon">✧</span>Solar Energy</li>
-                            <li><span class="focus-icon">✧</span>Wind Energy</li>
-                            <li><span class="focus-icon">✧</span>Green Hydrogen</li>
-                            <li><span class="focus-icon">✧</span>Smart Energy Solutions</li>
-                            <li><span class="focus-icon">✧</span>Battery Storage</li>
-                            <li><span class="focus-icon">✧</span>Sustainable Infrastructure</li>
-                            <li><span class="focus-icon">✧</span>Energy Efficiency</li>
+                            <li><span class="focus-icon">✧</span>National Smart Grid</li>
+                            <li><span class="focus-icon">✧</span>Intelligent Power Management</li>
+                            <li><span class="focus-icon">✧</span>Utility Infrastructure</li>
                         </ul>
-                    </div>
-
-                    <div class="modal-outro">
-                        <p><strong>Our Sustainability Vision:</strong> We envision a world where economic progress and environmental stewardship go hand-in-hand, creating a resilient and prosperous future for generations to come.</p>
                     </div>
                 </div>
             `
         },
         logistics: {
-            title: 'Logistics',
-            description: 'Building intelligent, efficient, and people-centric transportation networks that connect communities and drive economic growth.',
-            image: 'LOGISTICS_SECTOR_01.png',
-            heroImage: 'LOGISTICS_SECTOR_02.png',
-            tagline: "Connecting People, Markets and Opportunities",
+            title: 'Transport & Logistics',
+            description: 'Automated ports, electric freight, smart logistics hubs, and drone-enabled transportation.',
+            image: 'assets/LOGISTICS_SECTOR_01.png',
+            heroImage: 'assets/LOGISTICS_SECTOR_02.png',
+            tagline: "Connecting India, Faster and Smarter",
             contentHtml: `
                 <div class="modal-hero-banner" style="background-image: url('assets/LOGISTICS_SECTOR_02.png');">
                     <div class="hero-banner-overlay"></div>
                     <div class="hero-banner-content">
-                        <h2>Logistics</h2>
-                        <p class="tagline">Connecting People, Markets and Opportunities</p>
+                        <h2>Transport & Logistics</h2>
+                        <p class="tagline">Connecting India, Faster and Smarter</p>
                     </div>
                 </div>
                 <div class="modal-body-content">
                     <div class="modal-section">
-                        <p>Aureon Logistics is redefining connectivity in India by setting a new standard for reliable, efficient, and customer-centric logistics. Our mission is to deliver seamless, safe, and premium transportation experiences that connect people and businesses, underpinned by technological innovation and a commitment to transparency. We are building the future of transportation by focusing on comfortable journeys, customer-first service, sustainable practices, and efficient fleet management to create a more connected and accessible world.</p>
+                        <p>Aureon is revolutionizing the movement of goods and people across India. We are investing in automated ports, electric freight solutions, smart logistics hubs, and drone-enabled transportation to create a seamless and efficient supply chain.</p>
                     </div>
-
                     <div class="modal-section focus-areas">
-                        <h4>Future Possibilities</h4>
+                        <h4>Key Focus Areas</h4>
                         <ul>
-                            <li><span class="focus-icon">✧</span>Passenger Transportation</li>
-                            <li><span class="focus-icon">✧</span>Commercial Logistics</li>
-                            <li><span class="focus-icon">✧</span>Smart Fleet Tracking</li>
-                            <li><span class="focus-icon">✧</span>Integrated Mobility Solutions</li>
-                            <li><span class="focus-icon">✧</span>Last-Mile Connectivity</li>
+                            <li><span class="focus-icon">✧</span>Automated Ports</li>
+                            <li><span class="focus-icon">✧</span>Electric Freight</li>
+                            <li><span class="focus-icon">✧</span>Smart Logistics Hubs</li>
+                            <li><span class="focus-icon">✧</span>Drone-Enabled Transportation</li>
                         </ul>
-                    </div>
-
-                    <div class="modal-outro">
-                        <p><strong>Our Philosophy:</strong> We believe logistics should do more than simply move goods; it should improve people's lives, create opportunities, and build a more connected future for everyone.</p>
                     </div>
                 </div>
             `
         },
-        healthcare: {
-            title: 'Healthcare',
-            description: 'Pioneering accessible, affordable, and high-quality healthcare solutions through technology and strategic infrastructure to serve every citizen.',
-            image: 'HEALTHCARE_SECTOR_01.png',
-            heroImage: 'HEALTHCARE_SECTOR_03.png',
-            tagline: "Advancing Accessible and Compassionate Care",
+        renewable: {
+            title: 'Renewable Energy',
+            description: 'Solar farms, offshore wind, and clean energy infrastructure.',
+            image: 'assets/RENEWABLE ENERGY_SECTOR_01.png',
+            heroImage: 'assets/RENEWABLE ENERGY_SECTOR_02.png',
+            tagline: "Leading the Charge to a Greener Future",
             contentHtml: `
-                <div class="modal-hero-banner" style="background-image: url('assets/HEALTHCARE_SECTOR_03.png');">
+                <div class="modal-hero-banner" style="background-image: url('assets/RENEWABLE ENERGY_SECTOR_02.png');">
                     <div class="hero-banner-overlay"></div>
                     <div class="hero-banner-content">
-                        <h2>Healthcare</h2>
-                        <p class="tagline">Advancing Accessible and Compassionate Care</p>
+                        <h2>Renewable Energy</h2>
+                        <p class="tagline">Leading the Charge to a Greener Future</p>
                     </div>
                 </div>
                 <div class="modal-body-content">
                     <div class="modal-section">
-                        <p>Aureon is dedicated to making accessible, affordable, and quality healthcare a reality for every citizen of India. Our mission is to improve healthcare outcomes by leveraging technology, fostering strategic public-private partnerships, and investing in next-generation medical infrastructure. Aligned with national priorities, we focus on bridging the urban-rural divide by ensuring the availability of life-saving medicines, optimizing the distribution of medical resources, and developing efficient emergency response systems to strengthen India’s entire healthcare ecosystem.</p>
+                        <p>Aureon is at the forefront of India's transition to renewable energy. We develop, build, and operate large-scale solar farms, offshore wind projects, and other clean energy infrastructure to power a sustainable future.</p>
                     </div>
-
-                    <div class="modal-section focus-areas">
+                     <div class="modal-section focus-areas">
                         <h4>Key Focus Areas</h4>
                         <ul>
-                           <li><span class="focus-icon">✧</span>Affordable Healthcare</li>
-                            <li><span class="focus-icon">✧</span>Rural Healthcare Access</li>
-                            <li><span class="focus-icon">✧</span>Telemedicine & Digital Health</li>
-                            <li><span class="focus-icon">✧</span>Medical Logistics</li>
-                            <li><span class="focus-icon">✧</span>Healthcare Infrastructure</li>
-                            <li><span class="focus-icon">✧</span>Emergency Healthcare</li>
-                            <li><span class="focus-icon">✧</span>Public-Private Collaboration</li>
+                            <li><span class="focus-icon">✧</span>Solar Farms</li>
+                            <li><span class="focus-icon">✧</span>Offshore Wind</li>
+                            <li><span class="focus-icon">✧</span>Clean Energy Infrastructure</li>
                         </ul>
-                    </div>
-
-                    <div class="modal-outro">
-                        <p><strong>Future Ambitions:</strong> While Aureon does not currently own or operate hospitals, our long-term ambition is to be a catalyst for change by investing in and developing the foundational infrastructure needed to create a stronger, more resilient healthcare system for India.</p>
                     </div>
                 </div>
             `
         },
         water: {
-            title: 'Water Security & Sustainability',
-            description: 'Protecting every drop for future generations through advanced water management and purification technologies.',
-            image: 'WATER_SECTOR_02.png',
-            heroImage: 'WATER_SECTOR_02.png', // Fallback to RENEWABLEQ.png if unavailable
-            tagline: "Protecting Every Drop for Future Generations",
+            title: 'Water & Sustainable Infrastructure',
+            description: 'Advanced water purification, smart reservoirs, and sustainable water management systems.',
+            image: 'assets/WATER_SECTOR_02.png',
+            heroImage: 'assets/WATER_SECTOR_02.png',
+            tagline: "Securing Our Most Precious Resource",
             contentHtml: `
-                <div class="modal-hero-banner" style="background-image: url('assets/WATER_SECTOR_02.png');" onerror="this.style.backgroundImage='url(assets/RENEWABLEQ.png)'">
+                <div class="modal-hero-banner" style="background-image: url('assets/WATER_SECTOR_02.png');">
                     <div class="hero-banner-overlay"></div>
                     <div class="hero-banner-content">
-                        <h2>Water Security & Sustainability</h2>
-                        <p class="tagline">Protecting Every Drop for Future Generations</p>
+                        <h2>Water & Sustainable Infrastructure</h2>
+                        <p class="tagline">Securing Our Most Precious Resource</p>
                     </div>
                 </div>
                 <div class="modal-body-content">
                     <div class="modal-section">
-                        <p>Aureon is committed to ensuring water security for India by developing and implementing sustainable water management solutions. We focus on advanced purification technologies, efficient distribution systems, and water conservation strategies to address the nation's growing water challenges. Our goal is to create a future where clean and safe water is accessible to all, supporting both communities and industries while preserving this vital natural resource for generations to come.</p>
+                        <p>Aureon is committed to ensuring water security for future generations. We are deploying advanced water purification technologies, building smart reservoirs, and creating sustainable water management systems to address India's water challenges.</p>
                     </div>
-
-                    <div class="modal-section focus-areas">
+                     <div class="modal-section focus-areas">
                         <h4>Key Focus Areas</h4>
                         <ul>
-                            <li><span class="focus-icon">✧</span>Water Purification and Treatment</li>
-                            <li><span class="focus-icon">✧</span>Smart Water Grids</li>
-                            <li><span class="focus-icon">✧</span>Wastewater Management and Recycling</li>
-                            <li><span class="focus-icon">✧</span>Desalination Technologies</li>
-                            <li><span class="focus-icon">✧</span>Water Conservation and Harvesting</li>
+                            <li><span class="focus-icon">✧</span>Advanced Water Purification</li>
+                            <li><span class="focus-icon">✧</span>Desalination Plants</li>
+                            <li><span class="focus-icon">✧</span>Smart Reservoirs</li>
+                            <li><span class="focus-icon">✧</span>Modern Water Treatment Facilities</li>
                         </ul>
-                    </div>
-
-                    <div class="modal-outro">
-                        <p><strong>Our Vision for Water:</strong> To build a water-secure future for India, where technology and sustainability work in harmony to protect our most precious resource.</p>
                     </div>
                 </div>
             `
@@ -486,270 +448,390 @@ document.addEventListener('DOMContentLoaded', () => {
         // Clear any hardcoded cards to prevent duplication
         carousel.innerHTML = '';
 
-        // Dynamically create business cards from sectorData
-        Object.keys(sectorData).forEach((key, index) => {
-            const sector = sectorData[key];
-            const placeholderText = sector.title.split(' ').slice(0, 2).join('+');
-            const cardHTML = `
-                <div 
-                    class="biz-card" 
-                    data-sector="${key}"
-                    role="tab"
-                    id="biz-tab-${key}"
-                    aria-controls="activeSectorDetails"
-                    aria-labelledby="biz-tab-label-${key}"
-                >
-                    <img src="assets/${sector.image}" alt="" aria-hidden="true" onerror="this.src='https://via.placeholder.com/280x420/1a0b18/c8a86b?text=${placeholderText}'">
-                    <div class="biz-card-overlay"><h4 id="biz-tab-label-${key}">${sector.title}</h4></div>
-                </div>
-            `;
-            carousel.insertAdjacentHTML('beforeend', cardHTML);
-        });
-
-        const cards = document.querySelectorAll('.biz-card');
-        if (cards.length === 0) return;
-
-        const isMobile = window.matchMedia("(max-width: 992px)").matches;
+        const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
         if (isMobile) {
-            // --- Mobile: Scroll-Snap & Intersection Observer Logic ---
-            const updateMobileText = (sectorKey) => {
-                const data = sectorData[sectorKey];
-                if (data && textContainer && (dynBtn?.dataset.sector !== sectorKey)) {
-                    textContainer.classList.remove('fade-in');
-                    textContainer.classList.add('fade-out');
-                    
-                    setTimeout(() => {
-                        dynTitle.textContent = data.title;
-                        dynDesc.textContent = data.description;
-                        if(dynBtn) {
-                            dynBtn.dataset.sector = sectorKey;
-                            dynBtn.setAttribute('aria-label', `Know more about ${data.title}`);
-                        }
-                        textContainer.classList.remove('fade-out');
-                        textContainer.classList.add('fade-in');
-                    }, 300);
-                }
-            };
+            // --- MOBILE: VERTICAL STORYTELLING EXPERIENCE ---
 
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
+            // 1. Inject CSS for mobile-only redesign
+            const injectMobileStyles = () => {
+                const style = document.createElement('style');
+                style.textContent = `
+                    @media (max-width: 768px) {
+                        .interactive-business-inner {
+                            padding: 60px 24px;
+                        }
+                        .business-text-content {
+                            padding: 0;
+                        }
+                        .business-carousel-wrapper {
+                            overflow: hidden;
+                            padding-bottom: 0;
+                            -webkit-mask-image: none;
+                            mask-image: none;
+                        }
+                        .interactive-business-section {
+                            overflow-x: hidden;
+                        }
+                        .business-carousel {
+                            display: grid;
+                            grid-template-columns: 1fr;
+                            gap: 80px;
+                            padding: 0;
+                            overflow-x: hidden;
+                            scroll-snap-type: none;
+                        }
+                        .business-carousel::-webkit-scrollbar { display: none; }
+                        .biz-card {
+                            flex: 1 1 100%;
+                            max-width: none;
+                            scroll-snap-align: none;
+                            display: flex;
+                            flex-direction: column;
+                            border-radius: 22px;
+                            background-color: var(--surface-strong);
+                            box-shadow: 0 15px 40px -10px var(--shadow);
+                            opacity: 0;
+                            transform: translateY(40px) scale(0.96);
+                            transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), 
+                                        transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+                            will-change: opacity, transform;
+                        }
+                        .biz-card.is-visible {
+                            opacity: 1;
+                            transform: translateY(0) scale(1);
+                        }
+                        .biz-card img {
+                            aspect-ratio: 16 / 10;
+                            object-fit: cover;
+                            transform: scale(1.05);
+                            transition: transform 0.7s var(--apple-easing);
+                            will-change: transform;
+                        }
+                        .biz-card.active, .biz-card:hover {
+                            transform: none; 
+                            box-shadow: 0 15px 40px -10px var(--shadow);
+                        }
+                        .biz-card-overlay {
+                            position: relative;
+                            padding: clamp(24px, 5vw, 40px);
+                            background: none;
+                            backdrop-filter: none;
+                            -webkit-backdrop-filter: none;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 16px;
+                            color: var(--body-text);
+                        }
+                        .biz-card-overlay h4 {
+                            font-family: var(--font-heading);
+                            font-size: clamp(1.5rem, 4vw, 2rem);
+                            color: var(--primary-heading);
+                            margin: 0;
+                        }
+                        .biz-card-description {
+                            font-size: 1rem;
+                            line-height: 1.7;
+                            color: var(--body-text);
+                            margin: 0;
+                        }
+                        .biz-card-button {
+                            margin-top: 24px;
+                            align-self: flex-start;
+                            background: var(--surface);
+                            border: 1px solid rgba(122, 46, 110, 0.15);
+                            color: var(--primary-heading);
+                            padding: 12px 24px;
+                            border-radius: 30px;
+                            font-size: 0.9rem;
+                            font-weight: 600;
+                            display: inline-flex;
+                            align-items: center;
+                            gap: 10px;
+                            cursor: pointer;
+                            text-decoration: none;
+                            box-shadow: 0 6px 20px var(--shadow);
+                            transition: all 0.3s var(--apple-easing);
+                        }
+                        .biz-card-button:hover {
+                            background: var(--surface-strong);
+                            border-color: var(--accent);
+                            transform: translateY(-2px);
+                        }
+                        .carousel-pagination, .swipe-indicator {
+                            display: none;
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
+            };
+            injectMobileStyles();
+
+            // 2. Hide the main title/description text block for mobile
+            if (textContainer) {
+                textContainer.style.display = 'none';
+            }
+
+            // 3. Create new vertical cards
+            Object.keys(sectorData).forEach((key) => {
+                const sector = sectorData[key];
+                const cardHTML = `
+                    <div class="biz-card" data-sector="${key}">
+                        <img src="assets/${sector.image}" alt="${sector.title}" loading="lazy">
+                        <div class="biz-card-overlay">
+                            <h4>${sector.title}</h4>
+                            <p class="biz-card-description">${sector.description}</p>
+                            <a href="#" class="biz-card-button" data-sector="${key}">
+                                <span>Know More</span>
+                                <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.75 12.25L11.25 5.75M6 5.75h5.25v5.25"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                `;
+                carousel.insertAdjacentHTML('beforeend', cardHTML);
+            });
+            
+            // 4. Setup animations for new cards
+            const mobileCards = carousel.querySelectorAll('.biz-card');
+
+            // Reveal animation
+            const cardObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry, index) => {
                     if (entry.isIntersecting) {
-                        const card = entry.target;
-                        cards.forEach(c => c.classList.remove('active'));
-                        card.classList.add('active');
-                        updateMobileText(card.dataset.sector);
-                        
-                        const sectorKey = card.dataset.sector;
-                        document.querySelectorAll('.sector-bg').forEach(bg => bg.classList.remove('active'));
-                        const targetBg = document.getElementById(`bg-${sectorKey}`);
-                        if (targetBg) targetBg.classList.add('active');
+                        entry.target.style.transitionDelay = `${index * 100}ms`;
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
                     }
                 });
-            }, { root: carousel, threshold: 0.7 });
+            }, { threshold: 0.1 });
+            mobileCards.forEach(card => cardObserver.observe(card));
 
-            cards.forEach(card => observer.observe(card));
+            // Parallax animation
+            let isTicking = false;
+            const handleScroll = () => {
+                const viewportHeight = window.innerHeight;
+                mobileCards.forEach(card => {
+                    const cardImage = card.querySelector('img');
+                    const rect = card.getBoundingClientRect();
+                    if (rect.bottom >= 0 && rect.top <= viewportHeight) {
+                        const scrollPercent = (rect.top + rect.height / 2) / viewportHeight;
+                        const parallaxValue = (scrollPercent - 0.5) * -40;
+                        if (cardImage) {
+                           cardImage.style.transform = `scale(1.05) translateY(${parallaxValue}px)`;
+                        }
+                    }
+                });
+                isTicking = false;
+            };
+            window.addEventListener('scroll', () => {
+                if (!isTicking) {
+                    window.requestAnimationFrame(handleScroll);
+                    isTicking = true;
+                }
+            }, { passive: true });
 
-            if (cards.length > 0) {
-                cards[0].classList.add('active');
-            }
+            // Wire up modal buttons
+            carousel.addEventListener('click', (e) => {
+                const button = e.target.closest('.biz-card-button');
+                if (button) {
+                    e.preventDefault();
+                    const sectorKey = button.dataset.sector;
+                    openModal(sectorKey);
+                }
+            });
 
         } else {
-            // --- Desktop: Fan-Out & Autoplay Logic ---
-            let currentIndex = 0;
-            let autoPlayInterval;
+            // --- DESKTOP & TABLET: Original Fan-Out/Grid Logic ---
+            Object.keys(sectorData).forEach((key, index) => {
+                const sector = sectorData[key];
+                const placeholderText = sector.title.split(' ').slice(0, 2).join('+');
+                const cardHTML = `
+                    <div 
+                        class="biz-card" 
+                        data-sector="${key}"
+                        role="tab"
+                        id="biz-tab-${key}"
+                        aria-controls="activeSectorDetails"
+                        aria-labelledby="biz-tab-label-${key}"
+                    >
+                        <img src="assets/${sector.image}" alt="" aria-hidden="true" onerror="this.src='https://via.placeholder.com/280x420/1a0b18/c8a86b?text=${placeholderText}'">
+                        <div class="biz-card-overlay"><h4 id="biz-tab-label-${key}">${sector.title}</h4></div>
+                    </div>
+                `;
+                carousel.insertAdjacentHTML('beforeend', cardHTML);
+            });
 
-            const updateActiveState = (index) => {
-                document.querySelectorAll('.sector-bg').forEach(bg => bg.classList.remove('active'));
+            const cards = document.querySelectorAll('.biz-card');
+            if (cards.length === 0) return;
 
-                cards.forEach((card, idx) => {
-                    const isActive = idx === index;
-                    card.classList.toggle('active', isActive);
-                    card.setAttribute('aria-selected', String(isActive));
-                    card.setAttribute('tabindex', isActive ? '0' : '-1');
-                    
-                    let diff = (idx - index + cards.length) % cards.length;
-                    if (diff === 0) {
-                        card.style.transform = `translateX(0) scale(1)`;
-                        card.style.zIndex = 10;
-                        card.style.opacity = 1;
-                    } else if (diff === 1) {
-                        card.style.transform = `translateX(60px) scale(0.9)`;
-                        card.style.zIndex = 9;
-                        card.style.opacity = 0.8;
-                    } else if (diff === 2) {
-                        card.style.transform = `translateX(120px) scale(0.8)`;
-                        card.style.zIndex = 8;
-                        card.style.opacity = 0.6;
-                    } else if (diff === cards.length - 1) {
-                        card.style.transform = `translateX(-60px) scale(0.9)`;
-                        card.style.zIndex = 9;
-                        card.style.opacity = 0;
-                    } else {
-                        card.style.transform = `translateX(140px) scale(0.7)`;
-                        card.style.zIndex = 7;
-                        card.style.opacity = 0;
-                    }
-                });
+            const isTablet = window.matchMedia("(min-width: 769px) and (max-width: 1024px)").matches;
 
-                const activeCard = cards[index];
-                const sectorKey = activeCard.dataset.sector;
-                const targetBg = document.getElementById(`bg-${sectorKey}`);
-                if (targetBg) targetBg.classList.add('active');
+            if (isTablet) {
+                 // Tablet uses grid, no special JS needed other than modal click
+            } else {
+                // --- Desktop: Fan-Out & Autoplay Logic ---
+                let currentIndex = 0;
+                let autoPlayInterval;
 
-                const data = sectorData[sectorKey];
-                if (data && textContainer) {
-                    textContainer.classList.remove('fade-in');
-                    textContainer.classList.add('fade-out');
-                    setTimeout(() => {
-                        dynTitle.textContent = data.title;
-                        dynDesc.textContent = data.description;
-                        if(dynBtn) {
-                            dynBtn.dataset.sector = sectorKey;
-                            dynBtn.setAttribute('aria-label', `Know more about ${data.title}`);
+                const updateActiveState = (index) => {
+                    document.querySelectorAll('.sector-bg').forEach(bg => bg.classList.remove('active'));
+
+                    cards.forEach((card, idx) => {
+                        const isActive = idx === index;
+                        card.classList.toggle('active', isActive);
+                        card.setAttribute('aria-selected', String(isActive));
+                        card.setAttribute('tabindex', isActive ? '0' : '-1');
+                        
+                        let diff = (idx - index + cards.length) % cards.length;
+                        if (diff === 0) {
+                            card.style.transform = `translateX(0) scale(1)`;
+                            card.style.zIndex = 10;
+                            card.style.opacity = 1;
+                        } else if (diff === 1) {
+                            card.style.transform = `translateX(60px) scale(0.9)`;
+                            card.style.zIndex = 9;
+                            card.style.opacity = 0.8;
+                        } else if (diff === 2) {
+                            card.style.transform = `translateX(120px) scale(0.8)`;
+                            card.style.zIndex = 8;
+                            card.style.opacity = 0.6;
+                        } else if (diff === cards.length - 1) {
+                            card.style.transform = `translateX(-60px) scale(0.9)`;
+                            card.style.zIndex = 9;
+                            card.style.opacity = 0;
+                        } else {
+                            card.style.transform = `translateX(140px) scale(0.7)`;
+                            card.style.zIndex = 7;
+                            card.style.opacity = 0;
                         }
-                        textContainer.classList.remove('fade-out');
-                        textContainer.classList.add('fade-in');
-                    }, 300);
-                }
-            };
+                    });
 
-            const resetAutoPlay = () => {
-                clearInterval(autoPlayInterval);
-                startAutoPlay();
-            };
+                    const activeCard = cards[index];
+                    const sectorKey = activeCard.dataset.sector;
+                    const targetBg = document.getElementById(`bg-${sectorKey}`);
+                    if (targetBg) targetBg.classList.add('active');
 
-            cards.forEach((card, idx) => {
-                card.addEventListener('click', () => {
-                    currentIndex = idx;
-                    updateActiveState(currentIndex);
-                    resetAutoPlay();
-                });
-            });
-
-            const startAutoPlay = () => {
-                autoPlayInterval = setInterval(() => {
-                    currentIndex = (currentIndex + 1) % cards.length;
-                    updateActiveState(currentIndex);
-                }, 5000);
-            };
-            
-            updateActiveState(currentIndex);
-            startAutoPlay();
-
-            carousel.addEventListener('keydown', (e) => {
-                let newIndex = currentIndex;
-                if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { newIndex = (currentIndex + 1) % cards.length; } 
-                else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { newIndex = (currentIndex - 1 + cards.length) % cards.length; } 
-                else { return; }
-
-                e.preventDefault();
-                currentIndex = newIndex;
-                updateActiveState(currentIndex);
-                cards[currentIndex].focus();
-                resetAutoPlay();
-            });
-        }
-
-        // ----------------------------------------------------------------------
-        // Glass "Know More" Button & Modal Logic Integration
-        // ----------------------------------------------------------------------
-        let lastFocusedElement;
-        const modalCloseBtn = document.getElementById('sectorModalClose');
-        const modalOverlay = document.getElementById('sectorModalOverlay');
-        const modalPanel = document.querySelector('.sector-modal-panel');
-        const imageContainer = document.getElementById('sectorModalImageContainer'); // Ensure this ID is on the HTML element
-        let energySlideshowInterval;
-        
-        const openModal = (sectorKey) => {
-            const sector = sectorData[sectorKey];
-            if (!sector || !sectorModal) return;
-
-            const modalBody = document.getElementById('sectorModalBody');
-            if (modalBody) {
-                modalBody.innerHTML = sector.contentHtml || `<h2 id="sectorTitle">${sector.title}</h2><p>${sector.description}</p>`;
-            }
-
-            sectorModal.classList.add('open');
-            sectorModal.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden';
-            if (!isMobile) clearInterval(autoPlayInterval); // Stop desktop autoplay
-
-            lastFocusedElement = document.activeElement;
-            modalCloseBtn?.focus();
-        };
-
-        const closeModal = () => {
-            if (!sectorModal.classList.contains('open')) return;
-
-            sectorModal.classList.remove('open');
-            sectorModal.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
-            clearInterval(energySlideshowInterval);
-            if (!isMobile) startAutoPlay(); // Restart desktop autoplay
-
-            // Accessibility: Return focus to the element that opened the modal
-            lastFocusedElement?.focus();
-        };
-
-        const handleModalKeyboardNav = (e) => {
-            if (!sectorModal.classList.contains('open')) return;
-
-            if (e.key === 'Escape') {
-                closeModal();
-                return;
-            }
-
-            if (e.key === 'Tab') {
-                const focusableElements = modalPanel.querySelectorAll(
-                    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-                );
-                const firstElement = focusableElements[0];
-                const lastElement = focusableElements[focusableElements.length - 1];
-
-                if (e.shiftKey) { // Shift + Tab
-                    if (document.activeElement === firstElement) {
-                        lastElement.focus();
-                        e.preventDefault();
-                    }
-                } else { // Tab
-                    if (document.activeElement === lastElement) {
-                        firstElement.focus();
-                        e.preventDefault();
-                    }
-                }
-            }
-        };
-
-        const animateModalCounters = () => {
-            const counters = document.querySelectorAll('.sector-modal.open .stat-value[data-target]');
-            counters.forEach(node => { // Iterate over each counter element
-                const targetVal = +node.dataset.target;
-                if (isNaN(targetVal)) return; 
-
-                let baseVal = 0;
-                const runtimeSpan = 1800; 
-                const tickRate = 1000 / 60; 
-                const stepValue = targetVal / (runtimeSpan / tickRate);
-
-                const progressiveLoop = () => {
-                    baseVal += stepValue; // Increment the base value
-                    if (baseVal >= targetVal) {
-                        node.textContent = targetVal.toLocaleString(); // Set final value
-                    } else { // Continue animation
-                        node.textContent = Math.floor(baseVal).toLocaleString();
-                        requestAnimationFrame(progressiveLoop);
+                    const data = sectorData[sectorKey];
+                    if (data && textContainer) {
+                        textContainer.classList.remove('fade-in');
+                        textContainer.classList.add('fade-out');
+                        setTimeout(() => {
+                            dynTitle.textContent = data.title;
+                            dynDesc.textContent = data.description;
+                            if(dynBtn) {
+                                dynBtn.dataset.sector = sectorKey;
+                                dynBtn.setAttribute('aria-label', `Know more about ${data.title}`);
+                            }
+                            textContainer.classList.remove('fade-out');
+                            textContainer.classList.add('fade-in');
+                        }, 300);
                     }
                 };
-                requestAnimationFrame(progressiveLoop);
-            });
-        };
 
-        dynBtn?.addEventListener('click', () => { openModal(dynBtn.dataset.sector); });
-        modalCloseBtn?.addEventListener('click', closeModal);
-        modalOverlay?.addEventListener('click', closeModal);
-        document.addEventListener('keydown', handleModalKeyboardNav);
+                const resetAutoPlay = () => {
+                    clearInterval(autoPlayInterval);
+                    startAutoPlay();
+                };
+
+                cards.forEach((card, idx) => {
+                    card.addEventListener('click', () => {
+                        currentIndex = idx;
+                        updateActiveState(currentIndex);
+                        resetAutoPlay();
+                    });
+                });
+
+                const startAutoPlay = () => {
+                    autoPlayInterval = setInterval(() => {
+                        currentIndex = (currentIndex + 1) % cards.length;
+                        updateActiveState(currentIndex);
+                    }, 5000);
+                };
+                
+                updateActiveState(currentIndex);
+                startAutoPlay();
+
+                carousel.addEventListener('keydown', (e) => {
+                    let newIndex = currentIndex;
+                    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { newIndex = (currentIndex + 1) % cards.length; } 
+                    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { newIndex = (currentIndex - 1 + cards.length) % cards.length; } 
+                    else { return; }
+
+                    e.preventDefault();
+                    currentIndex = newIndex;
+                    updateActiveState(currentIndex);
+                    cards[currentIndex].focus();
+                    resetAutoPlay();
+                });
+            }
+        }
+
+        // --- Generic Modal Opening Logic ---
+        dynBtn?.addEventListener('click', () => { 
+            const sectorKey = dynBtn.dataset.sector;
+            openModal(sectorKey);
+        });
+
+        // Add click listener to cards for tablet/desktop
+        if (!isMobile) {
+            carousel.addEventListener('click', (e) => {
+                const card = e.target.closest('.biz-card');
+                if (card) {
+                    const sectorKey = card.dataset.sector;
+                    // On desktop, the fan-out updates the main button. We can just click it.
+                    // On tablet, we need to directly open the modal.
+                    if (window.matchMedia("(max-width: 1024px)").matches) {
+                        openModal(sectorKey);
+                    } else if (card.classList.contains('active')) {
+                        // For desktop, only the active card's button is relevant
+                         dynBtn.click();
+                    }
+                }
+            });
+        }
     };
+    
+    // --- Standalone Modal Logic ---
+    let lastFocusedElement;
+    const modalCloseBtn = document.getElementById('sectorModalClose');
+    const modalOverlay = document.getElementById('sectorModalOverlay');
+    
+    const openModal = (sectorKey) => {
+        const sector = sectorData[sectorKey];
+        if (!sector || !sectorModal) return;
+
+        const modalBody = document.getElementById('sectorModalBody');
+        if (modalBody) {
+            modalBody.innerHTML = sector.contentHtml;
+        }
+
+        sectorModal.classList.add('open');
+        sectorModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+
+        lastFocusedElement = document.activeElement;
+        setTimeout(() => modalCloseBtn?.focus(), 100);
+    };
+
+    const closeModal = () => {
+        if (!sectorModal.classList.contains('open')) return;
+
+        sectorModal.classList.remove('open');
+        sectorModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        lastFocusedElement?.focus();
+    };
+    
+    modalCloseBtn?.addEventListener('click', closeModal);
+    modalOverlay?.addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && sectorModal.classList.contains('open')) {
+            closeModal();
+        }
+    });
+
+    initDynamicBusinessSection();
     initDynamicBusinessSection();
 
 
