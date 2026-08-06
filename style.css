@@ -1592,6 +1592,87 @@ body.dyslexia-font-enabled * { font-family: 'Comic Sans MS', 'OpenDyslexic', san
     .modal-body-content {
         padding: 24px;
     }
+
+    /* START: Mobile Carousel Redesign */
+    .interactive-business-section {
+        /* The wrapper will have visible overflow for peeking cards; this prevents page overflow. */
+        overflow-x: hidden;
+    }
+    
+    .business-carousel-wrapper {
+        /* Allow cards to peek outside the main container dimensions */
+        overflow: visible;
+        
+        /* Adjust wrapper to make space for pagination dots below */
+        padding-bottom: 40px; 
+
+        /* A gradient mask provides a soft edge for peeking cards instead of a hard clip. */
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+        mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    }
+
+    .business-carousel {
+        /* Adjust padding to define the space on the sides of the active card. 
+           This, combined with card width, controls how much the next/prev cards peek. */
+        padding: 0 6vw; /* Creates ~12vw total horizontal padding. */
+        gap: 16px; /* Space between cards. */
+    }
+
+    .biz-card {
+        /* A single card occupies 88% of the viewport width. */
+        flex: 0 0 88%;
+        max-width: 420px;
+        border-radius: 20px; /* As per spec (18-22px) */
+        
+        /* Inactive cards are slightly smaller and dimmer for a premium, focused feel. */
+        /* This overrides the styles from the @media (max-width: 992px) block. */
+        opacity: 0.9;
+        transform: scale(0.95);
+        
+        /* A softer, more modern shadow for depth. */
+        box-shadow: 0 10px 25px rgba(80, 21, 73, 0.1);
+        
+        /* Use the more advanced easing function for a premium feel */
+        transition: transform 0.4s var(--apple-easing), opacity 0.4s var(--apple-easing), box-shadow 0.4s var(--apple-easing);
+    }
+
+    /* The active card is larger, brighter, and has a subtle accent glow. */
+    .biz-card.active {
+        opacity: 1;
+        /* Scaling to 1 means it's ~1.05x larger than inactive cards. */
+        transform: scale(1); 
+        
+        /* A more prominent shadow plus a subtle glow using the brand's accent color. */
+        box-shadow: 0 0 12px 2px color-mix(in srgb, var(--accent) 40%, transparent), 
+                    0 18px 35px rgba(80, 21, 73, 0.15);
+    }
+    
+    /* Pagination Dots Styling - HTML for this would need to be added separately. */
+    .carousel-pagination {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 12px;
+        z-index: 10;
+    }
+
+    .pagination-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: var(--muted);
+        opacity: 0.4;
+        transition: all 0.4s var(--apple-easing);
+    }
+
+    .pagination-dot.active {
+        background-color: var(--accent);
+        opacity: 1;
+        transform: scale(1.25);
+    }
+    /* END: Mobile Carousel Redesign */
 }
 
 @media (max-width: 600px) {
