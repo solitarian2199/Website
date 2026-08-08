@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
         it: {
             title: 'Information Technology & Digital Media',
             description: 'Modern AI infrastructure, cloud architecture, and futuristic data centres.',
-            image: 'assets/IT_SECTOR_01.png',
-            heroImage: 'assets/IT_SECTOR_05.png',
+            image: 'IT_SECTOR_01.png',
+            heroImage: 'IT_SECTOR_05.png',
             tagline: "Empowering Digital Transformation",
             contentHtml: `
                 <div class="modal-hero-banner" style="background-image: url('assets/IT_SECTOR_05.png');">
@@ -31,45 +31,56 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="modal-body-content">
                     <div class="modal-section">
-                        <p>Aureon is dedicated to architecting India's sovereign digital backbone, guided by a vision of inclusive digital communities where technology acts as a great equalizer. Our mission is to develop secure, scalable, and accessible technology ecosystems that drive innovation and empower businesses, governance, and citizens.</p>
+                        <p>Aureon is dedicated to architecting India's sovereign digital backbone, guided by a vision of inclusive digital communities where technology acts as a great equalizer. Our mission is to develop secure, scalable, and accessible technology ecosystems that drive innovation and empower businesses, governance, and citizens. We focus on building cutting-edge infrastructure and platforms that are not only technologically advanced but also ethically sound and universally accessible.</p>
+                        <p>Our strategic initiatives include developing next-generation AI solutions, establishing robust cloud architectures for data sovereignty, and constructing futuristic data centers that adhere to global sustainability standards. We believe in leveraging technology to bridge divides, foster digital literacy, and deliver transformative solutions that enhance public services and economic opportunities across the nation.</p>
                     </div>
                     <div class="modal-section focus-areas">
                         <h4>Key Focus Areas</h4>
                         <ul>
-                            <li><span class="focus-icon">✧</span>AI Infrastructure</li>
-                            <li><span class="focus-icon">✧</span>Cloud Architecture</li>
-                            <li><span class="focus-icon">✧</span>Futuristic Data Centres</li>
-                            <li><span class="focus-icon">✧</span>Digital Platforms</li>
+                            <li><span class="focus-icon">✧</span>Advanced AI Infrastructure & Machine Learning</li>
+                            <li><span class="focus-icon">✧</span>Secure Cloud Computing & Data Sovereignty</li>
+                            <li><span class="focus-icon">✧</span>Sustainable & High-Density Data Centres</li>
+                            <li><span class="focus-icon">✧</span>Digital Platforms for Governance & Citizen Services</li>
+                            <li><span class="focus-icon">✧</span>Cybersecurity & Data Privacy Solutions</li>
                         </ul>
+                    </div>
+                    <div class="modal-outro">
+                        <p>"We are not just building technology; we are building the digital future of a self-reliant nation, ensuring every innovation serves the greater good and fosters inclusive growth."</p>
                     </div>
                 </div>
             `
         },
-        energy: {
-            title: 'Energy & Utilities',
-            description: 'National smart grid, intelligent power management, and utility infrastructure.',
-            image: 'assets/E_Sec/E_Sec_01.png',
-            heroImage: 'assets/E_Sec/E_Sec_02.png',
-            tagline: "Powering a Nation's Progress",
+        healthcare: { // Replaced 'energy' with 'healthcare'
+            title: 'Healthcare & Wellness Solutions',
+            description: 'Pioneering accessible, affordable, and high-quality healthcare solutions through technology and strategic infrastructure.',
+            image: 'HEALTHCARE_SECTOR_01.png',
+            heroImage: 'HEALTHCARE_SECTOR_03.png',
+            tagline: "Advancing Accessible and Compassionate Care",
             contentHtml: `
-                <div class="modal-hero-banner" style="background-image: url('assets/E_Sec/E_Sec_02.png');">
+                <div class="modal-hero-banner" style="background-image: url('assets/HEALTHCARE_SECTOR_03.png');">
                     <div class="hero-banner-overlay"></div>
                     <div class="hero-banner-content">
-                        <h2>Energy & Utilities</h2>
-                        <p class="tagline">Powering a Nation's Progress</p>
+                        <h2>Healthcare & Wellness Solutions</h2>
+                        <p class="tagline">Advancing Accessible and Compassionate Care</p>
                     </div>
                 </div>
                 <div class="modal-body-content">
                     <div class="modal-section">
-                        <p>Aureon is committed to modernizing India's energy and utility landscape. We are focused on developing a national smart grid, implementing intelligent power management systems, and upgrading utility infrastructure to meet the demands of a growing economy.</p>
+                        <p>Aureon is dedicated to making accessible, affordable, and quality healthcare a reality for every citizen. Our mission is to improve health outcomes by leveraging cutting-edge technology, fostering strategic public-private partnerships, and investing in next-generation medical infrastructure.</p>
+                        <p>We are actively involved in bridging the urban-rural healthcare divide, ensuring the availability of life-saving medicines, optimizing the distribution of medical resources, and developing efficient emergency response systems. Our holistic approach aims to strengthen India’s entire healthcare ecosystem, focusing on prevention, early detection, and comprehensive care for all segments of society.</p>
                     </div>
                     <div class="modal-section focus-areas">
                         <h4>Key Focus Areas</h4>
                         <ul>
-                            <li><span class="focus-icon">✧</span>National Smart Grid</li>
-                            <li><span class="focus-icon">✧</span>Intelligent Power Management</li>
-                            <li><span class="focus-icon">✧</span>Utility Infrastructure</li>
+                            <li><span class="focus-icon">✧</span>Accessible & Affordable Healthcare Infrastructure</li>
+                            <li><span class="focus-icon">✧</span>Telemedicine & Digital Health Platforms</li>
+                            <li><span class="focus-icon">✧</span>Medical Logistics & Supply Chain Optimization</li>
+                            <li><span class="focus-icon">✧</span>Preventive Care & Public Health Initiatives</li>
+                            <li><span class="focus-icon">✧</span>Research & Development in Medical Technologies</li>
                         </ul>
+                    </div>
+                    <div class="modal-outro">
+                        <p>"Our ambition is to be a catalyst for change, building foundational infrastructure that creates a stronger, more resilient, and compassionate healthcare system for all."</p>
                     </div>
                 </div>
             `
@@ -77,8 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
         logistics: {
             title: 'Transport & Logistics',
             description: 'Automated ports, electric freight, smart logistics hubs, and drone-enabled transportation.',
-            image: 'assets/LOGISTICS_SECTOR_01.png',
-            heroImage: 'assets/LOGISTICS_SECTOR_02.png',
+            image: 'LOGISTICS_SECTOR_01.png',
+            heroImage: 'LOGISTICS_SECTOR_02.png',
             tagline: "Connecting India, Faster and Smarter",
             contentHtml: `
                 <div class="modal-hero-banner" style="background-image: url('assets/LOGISTICS_SECTOR_02.png');">
@@ -90,16 +101,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="modal-body-content">
                     <div class="modal-section">
-                        <p>Aureon is revolutionizing the movement of goods and people across India. We are investing in automated ports, electric freight solutions, smart logistics hubs, and drone-enabled transportation to create a seamless and efficient supply chain.</p>
+                        <p>Aureon is revolutionizing the movement of goods and people across India by setting new standards for reliable, efficient, and customer-centric logistics. Our mission is to deliver seamless, safe, and premium transportation experiences underpinned by technological innovation and a commitment to transparency.</p>
+                        <p>We invest in state-of-the-art infrastructure, including automated ports and smart logistics hubs, and pioneer electric freight and drone-enabled transportation solutions. Our focus is on creating a highly interconnected and accessible world, ensuring goods and services reach every corner of the nation with unparalleled speed and efficiency.</p>
                     </div>
                     <div class="modal-section focus-areas">
                         <h4>Key Focus Areas</h4>
                         <ul>
-                            <li><span class="focus-icon">✧</span>Automated Ports</li>
-                            <li><span class="focus-icon">✧</span>Electric Freight</li>
-                            <li><span class="focus-icon">✧</span>Smart Logistics Hubs</li>
-                            <li><span class="focus-icon">✧</span>Drone-Enabled Transportation</li>
+                            <li><span class="focus-icon">✧</span>Automated & Smart Port Infrastructure</li>
+                            <li><span class="focus-icon">✧</span>Electric Freight & Green Logistics Solutions</li>
+                            <li><span class="focus-icon">✧</span>Advanced Supply Chain Management & Optimization</li>
+                            <li><span class="focus-icon">✧</span>Drone-Enabled Last-Mile Delivery & Surveillance</li>
+                            <li><span class="focus-icon">✧</span>Integrated Multi-Modal Transportation Networks</li>
                         </ul>
+                    </div>
+                    <div class="modal-outro">
+                        <p>"We believe logistics should do more than simply move goods; it should improve people's lives, create opportunities, and build a more connected future for everyone."</p>
                     </div>
                 </div>
             `
@@ -107,8 +123,8 @@ document.addEventListener('DOMContentLoaded', () => {
         renewable: {
             title: 'Renewable Energy',
             description: 'Solar farms, offshore wind, and clean energy infrastructure.',
-            image: 'assets/RENEWABLE ENERGY_SECTOR_01.png',
-            heroImage: 'assets/RENEWABLE ENERGY_SECTOR_02.png',
+            image: 'RENEWABLE ENERGY_SECTOR_01.png',
+            heroImage: 'RENEWABLE ENERGY_SECTOR_02.png',
             tagline: "Leading the Charge to a Greener Future",
             contentHtml: `
                 <div class="modal-hero-banner" style="background-image: url('assets/RENEWABLE ENERGY_SECTOR_02.png');">
@@ -120,15 +136,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="modal-body-content">
                     <div class="modal-section">
-                        <p>Aureon is at the forefront of India's transition to renewable energy. We develop, build, and operate large-scale solar farms, offshore wind projects, and other clean energy infrastructure to power a sustainable future.</p>
+                        <p>Aureon is at the forefront of India's transition to a sustainable and energy-independent future. We are committed to developing, building, and operating large-scale renewable energy projects that harness the power of nature to meet the nation's growing energy demands.</p>
+                        <p>Our portfolio includes significant investments in solar farms, advanced offshore wind projects, and other innovative clean energy infrastructure. We focus on scalable solutions that reduce carbon emissions, enhance energy security, and contribute to India’s Net Zero commitments, powering a truly sustainable and prosperous future.</p>
                     </div>
-                     <div class="modal-section focus-areas">
+                    <div class="modal-section focus-areas">
                         <h4>Key Focus Areas</h4>
                         <ul>
-                            <li><span class="focus-icon">✧</span>Solar Farms</li>
-                            <li><span class="focus-icon">✧</span>Offshore Wind</li>
-                            <li><span class="focus-icon">✧</span>Clean Energy Infrastructure</li>
+                            <li><span class="focus-icon">✧</span>Utility-Scale Solar Power Generation</li>
+                            <li><span class="focus-icon">✧</span>Advanced Offshore & Onshore Wind Energy Projects</li>
+                            <li><span class="focus-icon">✧</span>Energy Storage Solutions & Smart Grid Integration</li>
+                            <li><span class="focus-icon">✧</span>Research & Development in Emerging Clean Energy Technologies</li>
                         </ul>
+                    </div>
+                    <div class="modal-outro">
+                        <p>"We envision a world where economic progress and environmental stewardship go hand-in-hand, creating a resilient and prosperous future for generations to come."</p>
                     </div>
                 </div>
             `
@@ -136,8 +157,8 @@ document.addEventListener('DOMContentLoaded', () => {
         water: {
             title: 'Water & Sustainable Infrastructure',
             description: 'Advanced water purification, smart reservoirs, and sustainable water management systems.',
-            image: 'assets/WATER_SECTOR_02.png',
-            heroImage: 'assets/WATER_SECTOR_02.png',
+            image: 'WATER_SECTOR_02.png',
+            heroImage: 'WATER_SECTOR_02.png',
             tagline: "Securing Our Most Precious Resource",
             contentHtml: `
                 <div class="modal-hero-banner" style="background-image: url('assets/WATER_SECTOR_02.png');">
@@ -149,16 +170,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="modal-body-content">
                     <div class="modal-section">
-                        <p>Aureon is committed to ensuring water security for future generations. We are deploying advanced water purification technologies, building smart reservoirs, and creating sustainable water management systems to address India's water challenges.</p>
+                        <p>Aureon is committed to ensuring water security for future generations by pioneering advanced water management and purification technologies. We recognize the critical importance of this vital resource for both communities and industrial growth.</p>
+                        <p>Our initiatives include the development and deployment of advanced water purification systems, state-of-the-art desalination plants, and intelligent smart reservoirs. We focus on holistic sustainable water management systems that integrate conservation, efficient distribution, and wastewater treatment to address India's complex water challenges and foster long-term environmental resilience.</p>
                     </div>
-                     <div class="modal-section focus-areas">
+                    <div class="modal-section focus-areas">
                         <h4>Key Focus Areas</h4>
                         <ul>
-                            <li><span class="focus-icon">✧</span>Advanced Water Purification</li>
-                            <li><span class="focus-icon">✧</span>Desalination Plants</li>
-                            <li><span class="focus-icon">✧</span>Smart Reservoirs</li>
-                            <li><span class="focus-icon">✧</span>Modern Water Treatment Facilities</li>
+                            <li><span class="focus-icon">✧</span>Advanced Water Purification & Treatment Systems</li>
+                            <li><span class="focus-icon">✧</span>Large-Scale Desalination & Brine Management</li>
+                            <li><span class="focus-icon">✧</span>Smart Reservoir & Water Resource Management</li>
+                            <li><span class="focus-icon">✧</span>Sustainable Water Recycling & Wastewater Solutions</li>
+                            <li><span class="focus-icon">✧</span>Water Conservation Technologies & Public Awareness</li>
                         </ul>
+                    </div>
+                    <div class="modal-outro">
+                        <p>"To build a water-secure future for India, where technology and sustainability work in harmony to protect our most precious resource."</p>
                     </div>
                 </div>
             `
